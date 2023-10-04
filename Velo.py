@@ -25,7 +25,7 @@ if page == pages[4] :
 	def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :    
 		df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
 		# affichage des mois en français
-		locale.setlocale(locale.LC_TIME, 'fr_FR')
+		#locale.setlocale(locale.LC_TIME, 'fr_FR')
 		
 		mois = calendar.month_name[df_site_src.iloc[0].Mois].capitalize()
 		site = df_site_src.iloc[0].nom_compteur
