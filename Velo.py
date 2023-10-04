@@ -15,7 +15,7 @@ st.sidebar.title("Sommaire")
 pages=["Dataset principal",
        "Datasets secondaires", 
        "Exploration", 
-       "DataVizualization", 
+       "DataVisualization", 
        "Modélisation"]
 page=st.sidebar.radio("Aller vers", pages)
 
@@ -94,7 +94,7 @@ if page == pages[2] :
   st.write("### Exploration")
   
 if page == pages[3] : 
-  st.write("### DataVizualization")
+  st.write("### DataVisualization")
 
 if page == pages[4] : 
     
