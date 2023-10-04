@@ -38,6 +38,13 @@ def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :
 	plt.legend()
 	st.pyplot(fig)
 
+try:
+    	# affichage des mois en francais
+	locale.setlocale(locale.LC_TIME, 'fr_FR')
+except locale.Error:
+    	# Si la locale n'est pas disponible sur le système, traitez l'exception ici
+   	print("La locale 'fr_FR' n'est pas disponible sur ce système.")
+	
 st.title("Analyse du trafic cycliste à Paris")
 st.sidebar.title("Sommaire")
 pages = ["Dataset principal", "Datasets secondaires", "Exploration", "DataVisualization", "Modélisation"]
@@ -57,8 +64,6 @@ if page == pages[4] :
 	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
 	
 	liste_mois = df_group_par_j_2023.Mois.unique()	
-	# affichage des mois en francais
-	locale.setlocale(locale.LC_TIME, 'fr_FR')
 	liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
 	mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois_cap)	
 	index_du_mois = liste_mois_cap.index(mois.capitalize()) + 1
