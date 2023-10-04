@@ -6,6 +6,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import calendar
+import locale
 #import plotly_express as px
 
 #df=pd.read_csv("velo_paris_20202023.csv")
