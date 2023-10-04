@@ -44,9 +44,16 @@ if page == pages[4] :
 		st.pyplot(fig)
 	
 	st.write("### Modélisation")
-	df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
-	df_predict_2023 = pd.read_csv('df_pred_2023.csv')
+
+	@st.cache_data
+	def load_df():
+		df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
+		df_predict_2023 = pd.read_csv('df_pred_2023.csv')
+		st.write("passage dans load_df")
+		return df_group_par_j_2023, df_predict_2023
+	
 	st.write("### Prédictions du trafic 2023")
+	df_group_par_j_2023, df_predict_2023 = load_df()
 	liste_sites = df_group_par_j_2023.nom_compteur.unique()
 	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
 	#site = "180 avenue d'Italie N-S"	
