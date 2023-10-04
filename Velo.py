@@ -50,7 +50,6 @@ if page == pages[4] :
 	def load_df():
 		df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
 		df_predict_2023 = pd.read_csv('df_pred_2023.csv')
-		st.write(random.uniform(0, x) )
 		return df_group_par_j_2023, df_predict_2023
 	
 	st.write("### Prédictions du trafic 2023")
