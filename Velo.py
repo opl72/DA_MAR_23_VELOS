@@ -51,10 +51,10 @@ if page == pages[4] :
 	df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
 	df_predict_2023 = pd.read_csv('df_pred_2023.csv')
 	st.write("### Prédictions")
-	choix = df_group_par_j_2023.nom_compteur.unique()
-	site = st.selectbox('Sélectionnez un site de comptage :', choix)
+	liste_sites = df_group_par_j_2023.nom_compteur.unique()
+	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
 	#site = "180 avenue d'Italie N-S"	
-	choix = df_group_par_j_2023.Mois.unique()
-	choix = choix.apply(lambda x: calendar.month_name[x].capitalize())    
-	mois = st.selectbox('Sélectionnez le mois à prédir :', choix)	
+	liste_mois = df_group_par_j_2023.Mois.unique()
+	liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
+	mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois_cap)	
 	plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, site) 
