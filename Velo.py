@@ -26,5 +26,5 @@ if page == pages[4] :
 	st.write("### Modélisation")
 	df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
 	df_predict_2023 = pd.read_csv('df_pred_2023.csv')
-    	choix = ['Random Forest', 'SVC', 'Logistic Regression']
+	choix = ['Random Forest', 'SVC', 'Logistic Regression']
 	option = st.selectbox('Choix du modèle', choix)
