@@ -22,6 +22,7 @@ if page == pages[0] :
 	st.write("Remarque : Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.")
 
 if page == pages[4] : 
+	@st.cache_data
 	def plot_site_2023(df_src, df_pred, mois, nom_compteur) :    
 		numero_du_mois = list(calendar.month_name).index(mois.capitalize())
 		df_site_src = df_src[(df_src.Mois == numero_du_mois) & (df_src.nom_compteur == nom_compteur)]
@@ -49,7 +50,7 @@ if page == pages[4] :
 	def load_df():
 		df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
 		df_predict_2023 = pd.read_csv('df_pred_2023.csv')
-		st.write("passage dans load_df")
+		st.write(random.uniform(0, x) )
 		return df_group_par_j_2023, df_predict_2023
 	
 	st.write("### Prédictions du trafic 2023")
