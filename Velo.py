@@ -22,19 +22,15 @@ if page == pages[0] :
 	st.write("Remarque : Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.")
 
 if page == pages[4] : 
-	def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :    
-		df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
-		# affichage des mois en français
-		#locale.setlocale(locale.LC_TIME, 'fr_FR')
-		
-		mois = calendar.month_name[df_site_src.iloc[0].Mois].capitalize()
-		site = df_site_src.iloc[0].nom_compteur
-		
+	def plot_site_2023(df_src, df_pred, mois, nom_compteur) :    
+		numero_du_mois = list(calendar.month_name).index(mois.capitalize())
+		df_site_src = df_src[(df_src.Mois == numero_du_mois) & (df_src.nom_compteur == nom_compteur)]
+				
 		fig, ax = plt.subplots(figsize = (20,7))   
 		# données relevées
 		ax.plot(df_site_src.Jour, df_site_src.sum_counts, 'b-', label='comptages réels')
 		# prédictions
-		df_site_pred = df_pred[(df_pred.Mois == Mois) & (df_pred["site_"+nom_compteur] == 1)]
+		df_site_pred = df_pred[(df_pred.Mois == numero_du_mois) & (df_pred["site_"+nom_compteur] == 1)]
 		ax.plot(df_site_pred.Jour, df_site_pred.sum_counts, 'r-', label='prédictions')
 		
 		# affichage des jours du mois
