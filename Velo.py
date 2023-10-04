@@ -55,6 +55,6 @@ if page == pages[4] :
 	site = st.selectbox('Sélectionnez un site de comptage :', choix)
 	#site = "180 avenue d'Italie N-S"	
 	choix = df_group_par_j_2023.Mois.unique()
-	#apply(lambda x: calendar.month_name[x].capitalize())    
+	choix = choix.apply(lambda x: calendar.month_name[x].capitalize())    
 	mois = st.selectbox('Sélectionnez le mois à prédir :', choix)	
 	plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, site) 
