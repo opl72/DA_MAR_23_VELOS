@@ -22,7 +22,7 @@ if page == pages[0] :
 	st.write("Remarque : Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.")
 
 if page == pages[4] : 
-	def st_plot_site_2023(df_src, df_pred, Mois, nom_compteur) :    
+	def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :    
 		df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
 		# affichage des mois en français
 		locale.setlocale(locale.LC_TIME, 'fr_FR')
@@ -54,6 +54,7 @@ if page == pages[4] :
 	choix = df_group_par_j_2023.nom_compteur.unique()
 	site = st.selectbox('Sélectionnez un site de comptage :', choix)
 	#site = "180 avenue d'Italie N-S"	
-	choix = df_group_par_j_2023.Mois.apply(lambda x: calendar.month_name[x].capitalize())    
+	choix = df_group_par_j_2023.Mois.unique()
+	#apply(lambda x: calendar.month_name[x].capitalize())    
 	mois = st.selectbox('Sélectionnez le mois à prédir :', choix)	
 	plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, site) 
