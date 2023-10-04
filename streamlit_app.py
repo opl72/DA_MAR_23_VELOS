@@ -39,9 +39,9 @@ def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :
 	st.pyplot(fig)
 
 try:
-	st.write(locale.getlocale)
+	st.write(locale.getlocale())
     	# affichage des mois en francais
-	locale.setlocale(locale.LC_ALL, 'fre_FRA')
+	locale.setlocale(locale.LC_ALL, 'fr_FRA')
 except locale.Error:
     	# Si la locale n'est pas disponible sur le système, traitez l'exception ici
    	print("La locale 'fr_FR' n'est pas disponible sur ce système.")
