@@ -9,8 +9,6 @@ import seaborn as sns
 import calendar
 import locale
 #import plotly_express as px
-# affichage des mois en francais
-locale.setlocale(locale.LC_TIME, 'fr_FR.utf8')
 
 @st.cache_data
 def load_df():
@@ -59,6 +57,8 @@ if page == pages[4] :
 	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
 	
 	liste_mois = df_group_par_j_2023.Mois.unique()	
+	# affichage des mois en francais
+	locale.setlocale(locale.LC_TIME, 'fr_FR.utf8')
 	liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
 	mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois_cap)	
 	index_du_mois = liste_mois_cap.index(mois.capitalize()) + 1
