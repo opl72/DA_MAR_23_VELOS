@@ -10,7 +10,7 @@ import calendar
 import locale
 #import plotly_express as px
 # affichage des mois en francais
-locale.setlocale(locale.LC_TIME, 'fr_FR')
+locale.setlocale(locale.LC_TIME, 'fr_FR.utf8')
 
 @st.cache_data
 def load_df():
