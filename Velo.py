@@ -46,7 +46,7 @@ if page == pages[4] :
 	st.write("### Modélisation")
 	df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
 	df_predict_2023 = pd.read_csv('df_pred_2023.csv')
-	st.write("### Prédictions")
+	st.write("### Prédictions du trafic 2023")
 	liste_sites = df_group_par_j_2023.nom_compteur.unique()
 	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
 	#site = "180 avenue d'Italie N-S"	
