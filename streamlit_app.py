@@ -41,11 +41,11 @@ def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :
 try:
 	st.write(locale.getlocale())
     	# affichage des mois en francais
-	locale.setlocale(locale.LC_ALL, 'fr_FRA.UTF-8')
+	locale.setlocale(locale.LC_CTIME, 'fr_FRA.UTF-8')
 	st.write(locale.getlocale())
 except locale.Error:
     	# Si la locale n'est pas disponible sur le système, traitez l'exception ici
-   	print("La locale 'fr_FR' n'est pas disponible sur ce système.")
+   	st.write("La locale 'fr_FRA.UTF-8' n'est pas disponible sur ce système.")
 	
 st.title("Analyse du trafic cycliste à Paris")
 st.sidebar.title("Sommaire")
