@@ -58,7 +58,7 @@ if page == pages[4] :
 	
 	liste_mois = df_group_par_j_2023.Mois.unique()	
 	# affichage des mois en francais
-	locale.setlocale(locale.LC_TIME, 'fr_FR.utf8')
+	locale.setlocale(locale.LC_TIME, 'fr_FR')
 	liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
 	mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois_cap)	
 	index_du_mois = liste_mois_cap.index(mois.capitalize()) + 1
