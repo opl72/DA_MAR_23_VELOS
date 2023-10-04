@@ -40,6 +40,30 @@ if page == pages[1] :
         nan_df = pd.DataFrame(nan_counts, columns=["Nombre de NaN"])
         st.dataframe(nan_df)
 
+def st_plot_site_2023(df_src, df_pred, Mois, nom_compteur) :    
+	df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
+	# affichage des mois en français
+	locale.setlocale(locale.LC_TIME, 'fr_FR')
+	
+	mois = calendar.month_name[df_site_src.iloc[0].Mois].capitalize()
+	site = df_site_src.iloc[0].nom_compteur
+	
+	fig, ax = plt.subplots(figsize = (20,7))   
+	# données relevées
+	ax.plot(df_site_src.Jour, df_site_src.sum_counts, 'b-', label='comptages réels')
+	# prédictions
+	df_site_pred = df_pred[(df_pred.Mois == Mois) & (df_pred["site_"+nom_compteur] == 1)]
+	ax.plot(df_site_pred.Jour, df_site_pred.sum_counts, 'r-', label='prédictions')
+	
+	# affichage des jours du mois
+	ax.set_xticks(range(1,max(df_site_src.Jour)+1))
+	plt.ylabel('Nb de vélos par jour') 
+	# déplacement du titre de l'axe Y vers la gauche
+	ax.yaxis.set_label_coords(-0.05, 0.5)
+	plt.title(f"Trafic cycliste parisien sur le mois de {mois} 2023\nSite de comptage : {site} ");
+	plt.grid(True)
+	plt.legend()
+	plt.show()
 
 def DateMinMax_df(df_in):
     df_out = df_in.sort_values(by=['Date'], ascending=True)
@@ -48,13 +72,14 @@ def DateMinMax_df(df_in):
     return DateMin, DateMax
 
 def main():
-    st.title("Affichage de la période couverte par le fichier")
+    st.title("MAIN")   
+    #st.title("Affichage de la période couverte par le fichier")
 
     # Charger le fichier CSV
-    df = pd.read_csv("nom_du_fichier.csv")
+    #df = pd.read_csv("nom_du_fichier.csv")
     
     # Conversion au format de date si nécessaire
-    df['Date'] = pd.to_datetime(df['Date'])
+    #df['Date'] = pd.to_datetime(df['Date'])
 
     # Affichage de la période couverte
     if st.checkbox("Afficher la période couverte par le fichier"):
@@ -72,31 +97,7 @@ if page == pages[3] :
   st.write("### DataVizualization")
 
 if page == pages[4] : 
-    def st_plot_site_2023(df_src, df_pred, Mois, nom_compteur) :
     
-        df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
-        # affichage des mois en français
-        locale.setlocale(locale.LC_TIME, 'fr_FR')
-    
-        mois = calendar.month_name[df_site_src.iloc[0].Mois].capitalize()
-        site = df_site_src.iloc[0].nom_compteur
-    
-        fig, ax = plt.subplots(figsize = (20,7))   
-        # données relevées
-        ax.plot(df_site_src.Jour, df_site_src.sum_counts, 'b-', label='comptages réels')
-        # prédictions
-        df_site_pred = df_pred[(df_pred.Mois == Mois) & (df_pred["site_"+nom_compteur] == 1)]
-        ax.plot(df_site_pred.Jour, df_site_pred.sum_counts, 'r-', label='prédictions')
-    
-        # affichage des jours du mois
-        ax.set_xticks(range(1,max(df_site_src.Jour)+1))
-        plt.ylabel('Nb de vélos par jour') 
-        # déplacement du titre de l'axe Y vers la gauche
-        ax.yaxis.set_label_coords(-0.05, 0.5)
-        plt.title(f"Trafic cycliste parisien sur le mois de {mois} 2023\nSite de comptage : {site} ");
-        plt.grid(True)
-        plt.legend()
-        plt.show()
         
     st.write("### Modélisation")
     df_group_par_j_2023 = pd.read_csv('df_group_par_jour_2023.csv')
