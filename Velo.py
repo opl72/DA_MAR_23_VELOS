@@ -9,6 +9,8 @@ import seaborn as sns
 import calendar
 import locale
 #import plotly_express as px
+# affichage des mois en francais
+locale.setlocale(locale.LC_TIME, 'fr_FR')
 
 @st.cache_data
 def load_df():
@@ -17,15 +19,15 @@ def load_df():
 	return df_group_par_j_2023, df_predict_2023
 	
 @st.cache_data
-def plot_site_2023(df_src, df_pred, mois, nom_compteur) :    
-	numero_du_mois = list(calendar.month_name).index(mois.capitalize())
-	df_site_src = df_src[(df_src.Mois == numero_du_mois) & (df_src.nom_compteur == nom_compteur)]
+def plot_site_2023(df_src, df_pred, Mois, nom_compteur) :
+	mois = calendar.month_name[Mois].capitalize()    
+	df_site_src = df_src[(df_src.Mois == Mois) & (df_src.nom_compteur == nom_compteur)]
 			
 	fig, ax = plt.subplots(figsize = (20,7))   
 	# données relevées
 	ax.plot(df_site_src.Jour, df_site_src.sum_counts, 'b-', label='comptages réels')
 	# prédictions
-	df_site_pred = df_pred[(df_pred.Mois == numero_du_mois) & (df_pred["site_"+nom_compteur] == 1)]
+	df_site_pred = df_pred[(df_pred.Mois == Mois) & (df_pred["site_"+nom_compteur] == 1)]
 	ax.plot(df_site_pred.Jour, df_site_pred.sum_counts, 'r-', label='prédictions')
 	
 	# affichage des jours du mois
@@ -51,12 +53,18 @@ if page == pages[0] :
 
 if page == pages[4] : 	
 	st.write("### Modélisation")
+
+	
 	st.write("### Prédictions du trafic 2023")
+	
 	df_group_par_j_2023, df_predict_2023 = load_df()
+	
 	liste_sites = df_group_par_j_2023.nom_compteur.unique()
 	site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
-	#site = "180 avenue d'Italie N-S"	
-	liste_mois = df_group_par_j_2023.Mois.unique()
+	
+	liste_mois = df_group_par_j_2023.Mois.unique()	
 	liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
 	mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois_cap)	
-	plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, site) 
+	index_du_mois = liste_mois_cap.index(mois.capitalize()) + 1
+	
+	plot_site_2023(df_group_par_j_2023, df_predict_2023, index_du_mois, site) 
