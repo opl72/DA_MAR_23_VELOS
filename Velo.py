@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
-import streamlit as st
-st.write("Bonjour, ceci est votre projet Streamlit !")
-
-
 import streamlit as st
 import pandas as pd
 import numpy as np
