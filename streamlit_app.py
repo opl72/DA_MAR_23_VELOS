@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 
 # Config par defaut de l'appli
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
-				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
-				   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
+		   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
+		   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
 
 # mise en cache des ressources à charger
 @st.cache_data
