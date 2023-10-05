@@ -57,7 +57,17 @@ page = st.sidebar.radio("", pages)
 st.sidebar.markdown("<br><br><b>Auteurs :</b><br>Cécile ALBET<br>  Olivier PELLETEY", unsafe_allow_html=True)
 st.sidebar.markdown("Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
 st.sidebar.image("logoDS.png", width=150)
-
+st.markdown(
+    """
+    <style>
+    /* Masquer la barre de défilement verticale de la barre latérale */
+    .sidebar {
+        overflow-y: hidden !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 # TITRE
 st.title("Analyse du trafic cycliste à Paris")
