@@ -38,7 +38,8 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 	plt.legend()
 	st.pyplot(fig)
 	
-st.title("Analyse du trafic cycliste à Paris")
+st.sidebar.image("logoDS.png")
+st.sidebar.markdown("Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)
 st.sidebar.title("Sommaire")
 pages = ["Dataset principal", 
 		 "Datasets secondaires", 
@@ -48,9 +49,9 @@ pages = ["Dataset principal",
 		 "Conclusion et perspectives"]
 page = st.sidebar.radio("Aller vers", pages)
 st.sidebar.markdown("<br><b>Auteurs : </b><br>Cécile ALBET<br> Olivier PELLETEY", unsafe_allow_html=True)
-st.sidebar.markdown("<br>Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)
-st.sidebar.image("logoDS.png")
 
+
+st.title("Analyse du trafic cycliste à Paris")
 
 if page == pages[0] : 
 	st.header("Dataset principal")	
