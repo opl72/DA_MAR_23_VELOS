@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 #import plotly_express as px
 
+# Forcer l'affichage en mode "wide"
+st.set_page_config(layout="wide", page_title="Trafic cycliste parisien", page_icon=":bike:")
 
 @st.cache_data
 def load_df():
@@ -51,16 +53,12 @@ st.sidebar.image("logoDS.png")
 
 
 if page == pages[0] : 
-	st.header("Dataset principal")
-	
+	st.header("Dataset principal")	
 	st.markdown("<u>Source :</u><br>Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/information/?disjunctive.id_compteur&disjunctive.nom_compteur&disjunctive.id&disjunctive.name)", unsafe_allow_html=True)    
-	
 	st.markdown('<p style="text-align: justify;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)
-	
 	st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
 
-if page == pages[4] : 	
-	
+if page == pages[4] : 		
 	st.header("Prédictions du trafic 2023")
 	df_group_par_j_2023, df_predict_2023 = load_df()
 	liste_sites = df_group_par_j_2023.nom_compteur.unique()
