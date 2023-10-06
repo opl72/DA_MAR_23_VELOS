@@ -45,53 +45,70 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 	plt.legend()
 	st.pyplot(fig)
 
-# 1. as sidebar menu
-with st.sidebar :
-    page = option_menu(
-		'Sommaire', 
-		['Contexte projet', 'JDD', 'Explorations', 'Data Viz', 'Modélisations', 'Perspectives'], 
-        icons=['house', '', '', '', 'gear'], 
-		menu_icon="cast", 
-		default_index=0)
-    
 
-# 2. horizontal menu
-# selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
-#     icons=['house', 'cloud-upload', "list-task", 'gear'], 
-#     menu_icon="cast", default_index=0, orientation="horizontal")
-# selected2
+
+icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'wrench-adjustable-circle']
+options2 = ['Contexte', 'Datasets', 'Analyses', 'DataViz', 'Prédictions', 'Perspectives']
+options1 = options2.copy()
+options1.append('---')
+	
+# SIDEBAR
+# with st.sidebar :
+#     page = option_menu(
+# 							'Sommaire', 
+# 							options=options1,
+# 							icons=icons, 
+# 							menu_icon="menu-up",							
+# 							default_index=0)
+    
+page=''
+
+st.sidebar.markdown("Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
+st.sidebar.image("logoDS.png", width=150)
+st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)	
+st.sidebar.markdown("<b>Auteurs :</b><br>Cécile ALBET<br>Olivier PELLETEY", unsafe_allow_html=True)
+
+
+
+
 
 # TITRE
 st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Analyse du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
-
-# 3. CSS style definitions
-selected3 = option_menu(None, ["Home", "Upload",  "Tasks", 'Settings'], 
-    icons=['house', 'cloud-upload', "list-task", 'gear'], 
-    menu_icon="cast", default_index=0, orientation="horizontal",
-    styles={
-        "container": {"padding": "0!important", "background-color": "grey"},#fafafa
-        "icon": {"color": "orange", "font-size": "25px"}, 
-        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-        "nav-link-selected": {"background-color": "red"},
-    }
-)
-
-# SIDEBAR
-#st.sidebar.markdown("<b>Sommaire", unsafe_allow_html=True)
-st.sidebar.markdown("<br><b>Auteurs :</b><br>Cécile ALBET<br>Olivier PELLETEY", unsafe_allow_html=True)
-st.sidebar.markdown("Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
-st.sidebar.image("logoDS.png", width=150)
+# MENU HORIZONTAL
+page2 = option_menu(
+				None, 
+				options=options2,
+				icons=icons,
+				default_index=0, 						
+				orientation="horizontal",
+				styles={
+				   "container": {"padding": "0!important", "background-color": "grey"},#fafafa
+				   "icon": {"color": "white", "font-size": "17px"}, 
+				   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+				   "nav-link-selected": {"font-size": "16px","background-color": "red"}
+				      })
 
 
 
-
-# GESTION DE CHAQUE PAGES
-if page == 'Contexte projet' : 
-	st.write("Contexte")
+# GESTION DE CHAQUE PAGE
+# PAGE 1
+if page == 'Contexte' or page2 == 'Contexte' : 
+	#page = 'Contexte projet' 
+	#page2 = 'Contexte'
+	#st.session_state['menu_option'] = 0
+	st.title("Contexte du projet")
+	st.write("---")
 	
 	
-if page == 'JDD' : 
+# PAGE 2
+if page == 'JDD' or page2 == 'JDD' : 
+	#page = 'JDD' 
+	#page2 = 'JDD'
+	#st.session_state['menu_option'] = 1
+	st.title("Jeux de données")
+	st.write("---")
+	
 	st.header("Dataset principal")
 	
 	st.markdown("<u>Source :</u><br>Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
@@ -99,7 +116,26 @@ if page == 'JDD' :
 	st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
 
 
-if page == 'Data Viz' :
+# PAGE 3
+if page == 'Explorations' or page2 == 'Explorations' : 
+	#page = 'Explorations' 
+	#page2 = 'Explorations'
+	#st.session_state['menu_option'] = 2
+	st.title("Explorations")
+	st.write("---")
+		
+	with open("carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f:
+		   fic_html = f.read()
+	st.components.v1.html(fic_html, height=600, width=600)
+
+# PAGE 4
+if page == 'Data Viz' or page2 == 'Data Viz' : 
+	#page = 'Data Viz' 
+	#page2 = 'Data Viz'
+	#st.session_state['menu_option'] = 3
+	st.title("Data visualization")
+	st.write("---")
+	
 	# Créez une mise en page en colonnes avec st.beta_columns()
 	col1, col2 = st.columns(2)  # 2 colonnes
 	
@@ -124,8 +160,14 @@ if page == 'Data Viz' :
 	    st.write("Contenu de la colonne 4")
 
 
-if page == 'Modélisations' : 	
+# PAGE 5
+if page == 'Modélisations' or page2 == 'Modélisations' : 	
+	#page = 'Modélisations'
+	#page2 = 'Modélisations'
+	#st.session_state['menu_option'] = 4
+	
 	st.title("Modélisations")
+	st.write("---")
 	st.header("1. Séries temporelles")
 	st.header("2. Modèles de ML")
 	st.header("3. Prédictions du trafic 2023")
@@ -139,3 +181,12 @@ if page == 'Modélisations' :
 	numero_mois = liste_mois.index(mois.capitalize()) + 1
 	
 	plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
+	
+	
+# PAGE 6
+if page == 'Perspectives' or page2 == 'Perspectives' :
+	#page = 'Perspectives' 
+	#page2 = 'Perspectives'
+	#st.session_state['menu_option'] = 5
+	st.title("Perspectives", page2) 
+	st.write("---")	
