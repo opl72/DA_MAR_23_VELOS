@@ -1,6 +1,5 @@
 streamlit
 pandas
-numpy
 matplotlib
-seaborn
 streamlit-option-menu
+extra-streamlit-components
