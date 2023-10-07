@@ -18,4 +18,4 @@ base = "dark"
 
 # Font family for all text in the app, except code blocks. One of "sans serif",
 # "serif", or "monospace".
-font = "Calibri"
+font = "Times New Roman"
