@@ -43,7 +43,7 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 
 
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'wrench-adjustable-circle']
-pages = ['Contexte', 'Datasets', 'Explorations', 'DataViz', 'Prédictions', 'Perspectives', 'Tests']
+pages = ['Contexte', 'Datasets', 'Explorations', 'DataViz', 'Prédictions', 'Perspectives']
 	
 # SIDEBAR
 # with st.sidebar :
