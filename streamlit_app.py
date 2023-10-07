@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,9 +7,9 @@ import extra_streamlit_components as stx
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
-		   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
-		   initial_sidebar_state = "collapsed", # apparence de la barre latérale
-		   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
+				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
+				   initial_sidebar_state = "collapsed", # apparence de la barre latérale
+				   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
 
 
 # MISE EN CACHE DES RESSOURCES UTILES
@@ -58,25 +59,26 @@ st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exp
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
 pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
 page = option_menu(
-		None, 
-		options=pages,
-		icons=icons,
-		default_index=0, 						
-		orientation="horizontal",
-		styles={
-		   "container": {"padding": "0!important", "background-color": "grey"},#fafafa
-		   "icon": {"color": "white", "font-size": "17px"}, 
-		   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-		   "nav-link-selected": {"font-size": "16px","background-color": "red"}
-		      })
+				None, 
+				options=pages,
+				icons=icons,
+				default_index=0, 						
+				orientation="horizontal",
+				styles={
+				   "container": {"padding": "0!important", "background-color": "#0e1117"},##
+				   "icon": {"color": "white", "font-size": "17px"}, 
+				   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},#
+				   "nav-link-selected": {"font-size": "16px", "background-color": "#FF0000"} #
+				      })
 
 
 # GESTION DE CHAQUE PAGE
 # PAGE 1
-if page == pages[0] : 
-	st.title("Contexte du projet")
-	st.write("---")
+if page == pages[0] : 	
+	# SLIDER HORIZONTAL
+	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Contexte du projet", description="")], default=1)
 	
+	# CONTENU
 	texte1="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du 1er janvier 2020 au 30 avril 2023. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
 	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
 	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
@@ -84,18 +86,15 @@ if page == pages[0] :
 	texte = texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
 	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	 
 	
-# PAGE 2
-if page == pages[1] : 
-	#st.title("Jeux de données")
-	#st.write("---")
 	
+# PAGE 2
+if page == pages[1] : 		
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[
 		   stx.TabBarItemData(id=1, title="Dataset principal", description=""),
-		   stx.TabBarItemData(id=2, title="Datasets secondaires", description="")
-						   		 ], default=1)
-	#st.info(f"{chosen_id=}")
+		   stx.TabBarItemData(id=2, title="Datasets secondaires", description="")], default=1)	
 
+	# CONTENU
 	if chosen_id == "1" :
 		st.header("Dataset principal")
 		
@@ -105,70 +104,51 @@ if page == pages[1] :
 		st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
 
 		
-
 	if chosen_id == "2" :
 		st.header("Datasets secondaires")
 		st.subheader('1. Sources')
+	
 		
 # PAGE 3
-if page == pages[2] : 
-	st.title("Explorations / Analyses")
-	st.write("---")
+if page == pages[2] : 	
+	# SLIDER HORIZONTAL
+	chosen_id = stx.tab_bar(data=[
+		   stx.TabBarItemData(id=1, title="Explorations", description=""),
+		   stx.TabBarItemData(id=2, title="Analyses", description="")], default=1)
+	
+	if chosen_id == "1" :
+		st.write("A compléter")
 		
-	# chargement de la carte accidents vélos 2021
-	with open("carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f:
-		   fic_html = f.read()
-	st.components.v1.html(fic_html, height=600, width=600)
+	if chosen_id == "2" :
+		# chargement de la carte accidents vélos 2021
+		with open("carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f:
+			   fic_html = f.read()
+		st.components.v1.html(fic_html, height=600, width=600)
 
 
 # PAGE 4
 if page == pages[3] : 
-	st.title("Data visualization")
-	st.write("---")
+	# SLIDER HORIZONTAL
+	chosen_id = stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Data visualisations", description="")], default=1)	
 	
-	# Créez une mise en page en colonnes avec st.beta_columns()
-	col1, col2 = st.columns(2)  # 2 colonnes
-	
-	# Ajoutez du contenu à chaque colonne
-	with col1:
-	    st.header("Colonne 1")
-	    st.write("Contenu de la colonne 1")
-	
-	with col2:
-	    st.header("Colonne 2")
-	    st.write("Contenu de la colonne 2")
-	
-	# Vous pouvez également ajouter plus de colonnes si nécessaire
-	col3, col4 = st.columns(2)
-	
-	with col3:
-	    st.header("Colonne 3")
-	    st.write("Contenu de la colonne 3")
-	
-	with col4:
-	    st.header("Colonne 4")
-	    st.write("Contenu de la colonne 4")
+	st.write("A compléter")
 
 
 # PAGE 5
 if page == pages[4] : 	
-	#st.title("Modélisations")
-	#st.write("---")
-	
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[
 		   stx.TabBarItemData(id=1, title="Séries temporelles", description=""),
 		   stx.TabBarItemData(id=2, title="Modélisations", description=""),
-		   stx.TabBarItemData(id=3, title="Prédictions", description="")
-		   ], default=1)
+		   stx.TabBarItemData(id=3, title="Prédictions", description="")], default=1)
 
 	if chosen_id == "1" :
 		st.header("Séries temporelles")
-		
+		st.write("A compléter")
 		
 	if chosen_id == "2" :
 		st.header("Modèles de Machine Learning")
-		
+		st.write("A compléter")
 		
 	if chosen_id == "3" :
 		st.header("Prédictions du trafic 2023")	
@@ -186,5 +166,6 @@ if page == pages[4] :
 	
 # PAGE 6
 if page == pages[5] :
-	st.title("Perspectives") 
-	st.write("---")	
+	# SLIDER HORIZONTAL
+	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Perspectives", description="")], default=1)	
+	st.write("A compléter")	
