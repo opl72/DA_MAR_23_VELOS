@@ -161,7 +161,7 @@ if page == 'Data Viz' or page2 == 'Data Viz' :
 
 
 # PAGE 5
-if page == 'Modélisations' or page2 == 'Modélisations' : 	
+if page == 'Prédictions' or page2 == 'Prédictions' : 	
 	#page = 'Modélisations'
 	#page2 = 'Modélisations'
 	#st.session_state['menu_option'] = 4
