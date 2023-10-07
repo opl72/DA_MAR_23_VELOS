@@ -6,9 +6,9 @@ import extra_streamlit_components as stx
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
-				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
-				   initial_sidebar_state = "collapsed", # apparence de la barre latérale
-				   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
+		   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
+		   initial_sidebar_state = "collapsed", # apparence de la barre latérale
+		   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
 
 
 # MISE EN CACHE DES RESSOURCES UTILES
@@ -58,17 +58,17 @@ st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exp
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
 pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
 page = option_menu(
-				None, 
-				options=pages,
-				icons=icons,
-				default_index=0, 						
-				orientation="horizontal",
-				styles={
-				   "container": {"padding": "0!important", "background-color": "grey"},#fafafa
-				   "icon": {"color": "white", "font-size": "17px"}, 
-				   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-				   "nav-link-selected": {"font-size": "16px","background-color": "red"}
-				      })
+		None, 
+		options=pages,
+		icons=icons,
+		default_index=0, 						
+		orientation="horizontal",
+		styles={
+		   "container": {"padding": "0!important", "background-color": "grey"},#fafafa
+		   "icon": {"color": "white", "font-size": "17px"}, 
+		   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+		   "nav-link-selected": {"font-size": "16px","background-color": "red"}
+		      })
 
 
 # GESTION DE CHAQUE PAGE
@@ -76,14 +76,14 @@ page = option_menu(
 if page == pages[0] : 
 	st.title("Contexte du projet")
 	st.write("---")
-	texte="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du 1er janvier 2020 au 30 avril 2023. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
-	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
-	texte="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
-	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
-	texte="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
-	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
-
-
+	
+	texte1="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du 1er janvier 2020 au 30 avril 2023. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
+	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
+	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
+		
+	texte = texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
+	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	 
+	
 # PAGE 2
 if page == pages[1] : 
 	#st.title("Jeux de données")
