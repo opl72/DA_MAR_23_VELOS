@@ -117,7 +117,7 @@ if page == 'JDD' or page2 == 'JDD' :
 
 
 # PAGE 3
-if page == 'Explorations' or page2 == 'Explorations' : 
+if page == 'Analyses' or page2 == 'Analyses' : 
 	#page = 'Explorations' 
 	#page2 = 'Explorations'
 	#st.session_state['menu_option'] = 2
@@ -129,7 +129,7 @@ if page == 'Explorations' or page2 == 'Explorations' :
 	st.components.v1.html(fic_html, height=600, width=600)
 
 # PAGE 4
-if page == 'Data Viz' or page2 == 'Data Viz' : 
+if page == 'DataViz' or page2 == 'DataViz' : 
 	#page = 'Data Viz' 
 	#page2 = 'Data Viz'
 	#st.session_state['menu_option'] = 3
