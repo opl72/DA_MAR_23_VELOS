@@ -51,7 +51,7 @@ st.sidebar.markdown("<b>Auteurs :</b><br>[Cécile ALBET](https://fr.linkedin.com
 
 
 # TITRE
-st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">>Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
+st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
 
 # MENU HORIZONTAL
