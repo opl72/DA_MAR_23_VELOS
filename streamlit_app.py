@@ -102,7 +102,7 @@ if page == 'Contexte' or page2 == 'Contexte' :
 	
 	
 # PAGE 2
-if page == 'JDD' or page2 == 'JDD' : 
+if page == 'Datasets' or page2 == 'Datasets' : 
 	#page = 'JDD' 
 	#page2 = 'JDD'
 	#st.session_state['menu_option'] = 1
