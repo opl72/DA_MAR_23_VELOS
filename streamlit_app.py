@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# tests lib
+#import seaborn as sns
+#import plotly_express as px
+#import numpy as np
+#from streamlit_extras.row import row
+#from streamlit_extras.grid import grid
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -71,8 +81,9 @@ page = option_menu(
 				      })
 
 
-# GESTION DE CHAQUE PAGE
-# PAGE 1
+# GESTION DES PAGES
+
+# PAGE 1 : Contexte
 if page == pages[0] : 	
 	# SLIDER HORIZONTAL
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Contexte du projet", description="")], default=1)
@@ -86,7 +97,7 @@ if page == pages[0] :
 	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	 
 	
 	
-# PAGE 2
+# PAGE 2 : JDD
 if page == pages[1] : 		
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[
@@ -95,7 +106,8 @@ if page == pages[1] :
 
 	# CONTENU
 	if chosen_id == "1" :
-		st.header("Dataset principal : trafic cycliste")
+		#st.header("Dataset principal : trafic cycliste")
+		st.header("Dataset principal : Comptages horaires de vélos")
 		
 		st.subheader('Source')
 		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
@@ -115,24 +127,34 @@ if page == pages[1] :
 		st.markdown("Le jeu de données provient du site : [historique-meteo.net](https://www.historique-meteo.net/france/ile-de-france/paris/)", unsafe_allow_html=True)
 		
 		
-# PAGE 3
+# PAGE 3 : Explorations
 if page == pages[2] : 	
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[
-		   stx.TabBarItemData(id=1, title="Explorations", description=""),
-		   stx.TabBarItemData(id=2, title="Analyses", description="")], default=1)
+			stx.TabBarItemData(id=1, title="Outliers", description=""), 
+			stx.TabBarItemData(id=2, title="Sites de comptage", description=""),
+			stx.TabBarItemData(id=3, title="Cartes", description="")], default=1)
 	
 	if chosen_id == "1" :
-		st.write("A compléter")
+		st.header("Outliers dataset principal")
 		
 	if chosen_id == "2" :
-		# chargement de la carte accidents vélos 2021
-		with open("carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f:
-			   fic_html = f.read()
-		st.components.v1.html(fic_html, height=600, width=600)
+		st.header("Sites de comptage multimodal")
+		
+	if chosen_id == "3" :
+		st.header("Densité de trafic")
+		# chargement des cartes folium en cache
+		@st.cache_data
+		def load_maps_and_cache(file_path) :
+			with open(file_path, 'r', encoding='utf-8') as f : 
+				fic_html = f.read()
+			st.components.v1.html(fic_html, height=590, width=590)
+			
+		load_maps_and_cache("carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html")
+		load_maps_and_cache("carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html")
+		
 
-
-# PAGE 4
+# PAGE 4 : DataViz
 if page == pages[3] : 
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Data visualisations", description="")], default=1)	
@@ -140,7 +162,7 @@ if page == pages[3] :
 	st.write("A compléter")
 
 
-# PAGE 5
+# PAGE 5 : ML
 if page == pages[4] : 	
 	# SLIDER HORIZONTAL
 	chosen_id = stx.tab_bar(data=[
@@ -170,7 +192,7 @@ if page == pages[4] :
 		plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
 	
 	
-# PAGE 6
+# PAGE 6 : Perspectives
 if page == pages[5] :
 	# SLIDER HORIZONTAL
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Perspectives", description="")], default=1)	
