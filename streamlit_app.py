@@ -1,13 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import streamlit as st
 import pandas as pd
-#import numpy as np
 import matplotlib.pyplot as plt
-#import seaborn as sns
-#import plotly_express as px
 from streamlit_option_menu import option_menu
+import extra_streamlit_components as stx
 
 # Config par defaut de l'appli
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
@@ -48,9 +43,7 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 
 
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'wrench-adjustable-circle']
-options2 = ['Contexte', 'Datasets', 'Analyses', 'DataViz', 'Prédictions', 'Perspectives']
-options1 = options2.copy()
-options1.append('---')
+pages = ['Contexte', 'Datasets', 'Explorations', 'DataViz', 'Prédictions', 'Perspectives', 'Tests']
 	
 # SIDEBAR
 # with st.sidebar :
@@ -61,14 +54,13 @@ options1.append('---')
 # 							menu_icon="menu-up",							
 # 							default_index=0)
     
-page=''
 
-st.sidebar.markdown("Formation Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
-st.sidebar.image("logoDS.png", width=150)
+# PANEL DE GAUCHE
+image = "logoDS.png"
+st.sidebar.markdown("Formation continue<br>Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
+st.sidebar.image(image, width=150)
 st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)	
-st.sidebar.markdown("<b>Auteurs :</b><br>Cécile ALBET<br>Olivier PELLETEY", unsafe_allow_html=True)
-
-
+st.sidebar.markdown("<b>Auteurs :</b><br>[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albet-322593143)<br>Olivier PELLETEY", unsafe_allow_html=True)
 
 
 
@@ -76,9 +68,9 @@ st.sidebar.markdown("<b>Auteurs :</b><br>Cécile ALBET<br>Olivier PELLETEY", uns
 st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Analyse du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
 # MENU HORIZONTAL
-page2 = option_menu(
+page = option_menu(
 				None, 
-				options=options2,
+				options=pages,
 				icons=icons,
 				default_index=0, 						
 				orientation="horizontal",
@@ -93,46 +85,45 @@ page2 = option_menu(
 
 # GESTION DE CHAQUE PAGE
 # PAGE 1
-if page == 'Contexte' or page2 == 'Contexte' : 
-	#page = 'Contexte projet' 
-	#page2 = 'Contexte'
-	#st.session_state['menu_option'] = 0
+if page == pages[0] : 
 	st.title("Contexte du projet")
 	st.write("---")
 	
 	
 # PAGE 2
-if page == 'Datasets' or page2 == 'Datasets' : 
-	#page = 'JDD' 
-	#page2 = 'JDD'
-	#st.session_state['menu_option'] = 1
+if page == pages[1] : 
 	st.title("Jeux de données")
 	st.write("---")
 	
-	st.header("Dataset principal")
+	chosen_id = stx.tab_bar(data=[
+		   stx.TabBarItemData(id=1, title="Dataset principal", description=""),
+		   stx.TabBarItemData(id=2, title="Dataset secondaire", description="")
+						   		 ], default=1)
+	#st.info(f"{chosen_id=}")
+
+	if chosen_id == "1" :
+		st.header("Dataset principal")
 	
-	st.markdown("<u>Source :</u><br>Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
-	st.markdown('<p style="text-align: justify;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
-	st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
+		st.markdown("<u>Source :</u><br>Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
+		st.markdown('<p style="text-align: justify;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
+		st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
 
-
+	if chosen_id == "2" :
+		st.header("Dataset secondaire")
+		
+		
 # PAGE 3
-if page == 'Analyses' or page2 == 'Analyses' : 
-	#page = 'Explorations' 
-	#page2 = 'Explorations'
-	#st.session_state['menu_option'] = 2
-	st.title("Explorations")
+if page == pages[2] : 
+	st.title("Explorations / Analyses")
 	st.write("---")
 		
 	with open("carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f:
 		   fic_html = f.read()
 	st.components.v1.html(fic_html, height=600, width=600)
 
+
 # PAGE 4
-if page == 'DataViz' or page2 == 'DataViz' : 
-	#page = 'Data Viz' 
-	#page2 = 'Data Viz'
-	#st.session_state['menu_option'] = 3
+if page == pages[3] : 
 	st.title("Data visualization")
 	st.write("---")
 	
@@ -161,11 +152,7 @@ if page == 'DataViz' or page2 == 'DataViz' :
 
 
 # PAGE 5
-if page == 'Prédictions' or page2 == 'Prédictions' : 	
-	#page = 'Modélisations'
-	#page2 = 'Modélisations'
-	#st.session_state['menu_option'] = 4
-	
+if page == pages[4] : 	
 	st.title("Modélisations")
 	st.write("---")
 	st.header("1. Séries temporelles")
@@ -184,9 +171,6 @@ if page == 'Prédictions' or page2 == 'Prédictions' :
 	
 	
 # PAGE 6
-if page == 'Perspectives' or page2 == 'Perspectives' :
-	#page = 'Perspectives' 
-	#page2 = 'Perspectives'
-	#st.session_state['menu_option'] = 5
-	st.title("Perspectives", page2) 
+if page == pages[5] :
+	st.title("Perspectives") 
 	st.write("---")	
