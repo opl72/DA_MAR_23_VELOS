@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -96,9 +95,9 @@ if page == pages[1] :
 
 	# CONTENU
 	if chosen_id == "1" :
-		st.header("Dataset principal")
+		st.header("Dataset principal : trafic cycliste")
 		
-		st.subheader('1. Source')
+		st.subheader('Source')
 		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
 		st.markdown('<p style="text-align: justify;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
 		st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
@@ -106,8 +105,15 @@ if page == pages[1] :
 		
 	if chosen_id == "2" :
 		st.header("Datasets secondaires")
-		st.subheader('1. Sources')
+		st.subheader('1. Comptage multimodal')
+		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-multimodal-comptages/information/?disjunctive.label&disjunctive.mode&disjunctive.voie&disjunctive.sens&disjunctive.trajectoire)", unsafe_allow_html=True)
 	
+		st.subheader('2. Accidents corporels de la circulation')
+		st.markdown("Le jeu de données provient du site : [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/base-de-donnees-des-accidents-corporels-de-la-circulation/)", unsafe_allow_html=True)
+		
+		st.subheader('3. Historique Météo de Paris')
+		st.markdown("Le jeu de données provient du site : [historique-meteo.net](https://www.historique-meteo.net/france/ile-de-france/paris/)", unsafe_allow_html=True)
+		
 		
 # PAGE 3
 if page == pages[2] : 	
@@ -169,3 +175,50 @@ if page == pages[5] :
 	# SLIDER HORIZONTAL
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Perspectives", description="")], default=1)	
 	st.write("A compléter")	
+	
+	
+if page == 'Tests' :
+	st.title("TESTS") 
+	st.write("---")	
+	#st.info(f"{chosen_id=}")
+	
+	# Créer un slider horizontal
+	valeur_slider = st.slider('Sélectionnez une valeur', min_value=0, max_value=100, value=50, step=1)
+	st.write(f"Vous avez sélectionné : {valeur_slider}")
+	
+	mois = st.select_slider("", ['Janvier', 'Février', 'Mars', 'Avril'])
+	st.write(f"Vous avez sélectionné : {mois}")
+	
+# 	random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+# 	row1 = row(2, vertical_align="center")
+# 	row1.dataframe(random_df, use_container_width=True)
+# 	#row1.line_chart(random_df, use_container_width=True)
+# 	row2 = row([2, 4, 1], vertical_align="bottom")
+# 	row2.selectbox("Select Country", ["Germany", "Italy", "Japan", "USA"])
+# 	row2.text_input("Your name")
+# 	row2.button("Send", use_container_width=True)
+	
+	
+	random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+	my_grid = grid(2, [2, 4, 1], 1, 4, vertical_align="bottom")
+	# Row 1:
+	my_grid.dataframe(random_df, use_container_width=True)
+	my_grid.line_chart(random_df, use_container_width=True)
+	# Row 2:
+	my_grid.selectbox("Select Country", ["Germany", "Italy", "Japan", "USA"])
+	my_grid.text_input("Your name")
+	my_grid.button("Send", use_container_width=True)
+	# Row 3:
+	my_grid.text_area("Your message", height=40)
+	# Row 4:
+	my_grid.button("Example 1", use_container_width=True)
+	my_grid.button("Example 2", use_container_width=True)
+	my_grid.button("Example 3", use_container_width=True)
+	my_grid.button("Example 4", use_container_width=True)
+	# Row 5 (uses the spec from row 1):
+	with my_grid.expander("Show Filters", expanded=True):
+	    st.slider("Filter by Age", 0, 100, 50)
+	    st.slider("Filter by Height", 0.0, 2.0, 1.0)
+	    st.slider("Filter by Weight", 0.0, 100.0, 50.0)
+	my_grid.dataframe(random_df, use_container_width=True)
+	
