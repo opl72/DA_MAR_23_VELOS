@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_90ae369366fe89b91cc01b0fb770b4ca {
+                    position: relative;
+                    width: 590.0px;
+                    height: 590.0px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_90ae369366fe89b91cc01b0fb770b4ca" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_90ae369366fe89b91cc01b0fb770b4ca = L.map(
+                "map_90ae369366fe89b91cc01b0fb770b4ca",
+                {
+                    center: [48.8529371, 2.3500501],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    disableClustering: true,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f62bcb9254f19f1a04f5c17086c8c8ce = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+            var circle_marker_e2845a9bf2cda3bad1cbf577519b6038 = L.circleMarker(
+                [48.8748, 2.2924],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_ba0a4440a1f2ba77f620ad069431d4f7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a1c39a300633a905d90afecfa4c536f3 = $(`<div id="html_a1c39a300633a905d90afecfa4c536f3" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100044494<br>Coordonnées du site : 48.8748,2.2924<br><img src="https://filer.eco-counter-tools.com/file/93/0f9896bc2167e519ab0b70529ceaeda4f2654ceb86f3b428cae3b1d8ce8ec593/Y2H18034808_20210811095605.jpg" width="250"><br><b>10 avenue de la Grande Armée</b><br>Arrondissement : 17<br>Nb total de vélos en 2023 : 79863<br>Nb moyen de vélos / heure : 27</div>`)[0];
+                popup_ba0a4440a1f2ba77f620ad069431d4f7.setContent(html_a1c39a300633a905d90afecfa4c536f3);
+            
+        
+
+        circle_marker_e2845a9bf2cda3bad1cbf577519b6038.bindPopup(popup_ba0a4440a1f2ba77f620ad069431d4f7)
+        ;
+
+        
+    
+    
+            circle_marker_e2845a9bf2cda3bad1cbf577519b6038.bindTooltip(
+                `<div>
+                     10 avenue de la Grande Armée
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c2407cbe9d258ae84aeffb41bfcfdc26 = L.circleMarker(
+                [48.83082, 2.35317],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_87395690d0193d2653e6de68215f6af0 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f8560e652fd2c778bcd40ecde139fcac = $(`<div id="html_f8560e652fd2c778bcd40ecde139fcac" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100049408<br>Coordonnées du site : 48.83082,2.35317<br><img src="https://filer.eco-counter-tools.com/file/79/eac6465d18299b03522c52e4894bfc0b12a465bf05292d6ab68ecd09e9e0a779/15765754139120.jpg" width="250"><br><b>10 boulevard Auguste Blanqui</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 112435<br>Nb moyen de vélos / heure : 39</div>`)[0];
+                popup_87395690d0193d2653e6de68215f6af0.setContent(html_f8560e652fd2c778bcd40ecde139fcac);
+            
+        
+
+        circle_marker_c2407cbe9d258ae84aeffb41bfcfdc26.bindPopup(popup_87395690d0193d2653e6de68215f6af0)
+        ;
+
+        
+    
+    
+            circle_marker_c2407cbe9d258ae84aeffb41bfcfdc26.bindTooltip(
+                `<div>
+                     10 boulevard Auguste Blanqui
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0809237fc67ef7b0daa338a32517653f = L.circleMarker(
+                [48.87769, 2.35475],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.57688, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_b3d7d192d956554917ae4349de3acf07 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8cc55054d601fad25552aa93e2a33226 = $(`<div id="html_8cc55054d601fad25552aa93e2a33226" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047536<br>Coordonnées du site : 48.87769,2.35475<br><img src="https://filer.eco-counter-tools.com/file/03/e22cb73a54d7e02b34309861a9184b1d57d842bc4c1c74b21b80b80029cfde03/15765760456770.jpg" width="250"><br><b>102 boulevard de Magenta</b><br>Arrondissement : 10<br>Nb total de vélos en 2023 : 557688<br>Nb moyen de vélos / heure : 193</div>`)[0];
+                popup_b3d7d192d956554917ae4349de3acf07.setContent(html_8cc55054d601fad25552aa93e2a33226);
+            
+        
+
+        circle_marker_0809237fc67ef7b0daa338a32517653f.bindPopup(popup_b3d7d192d956554917ae4349de3acf07)
+        ;
+
+        
+    
+    
+            circle_marker_0809237fc67ef7b0daa338a32517653f.bindTooltip(
+                `<div>
+                     102 boulevard de Magenta
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0652915e85da733face4f74c7bb0df9e = L.circleMarker(
+                [48.83505, 2.33333],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8364315ca96f06b58353ee2a4e956fde = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_75863a6e035fd1a21b95d759351b273f = $(`<div id="html_75863a6e035fd1a21b95d759351b273f" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100003098<br>Coordonnées du site : 48.83505,2.33333<br><img src="https://filer.eco-counter-tools.com/file/09/73f38aaf49fa85ee19ee67277787a24af6b31b497e0fbf06bf2970b4449a0409/Y2H16029278_20200818121425.jpg" width="250"><br><b>106 avenue Denfert Rochereau</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 193849<br>Nb moyen de vélos / heure : 67</div>`)[0];
+                popup_8364315ca96f06b58353ee2a4e956fde.setContent(html_75863a6e035fd1a21b95d759351b273f);
+            
+        
+
+        circle_marker_0652915e85da733face4f74c7bb0df9e.bindPopup(popup_8364315ca96f06b58353ee2a4e956fde)
+        ;
+
+        
+    
+    
+            circle_marker_0652915e85da733face4f74c7bb0df9e.bindTooltip(
+                `<div>
+                     106 avenue Denfert Rochereau
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1883be53504faf97fe1f0cbbc22ca6a5 = L.circleMarker(
+                [48.84222, 2.30102],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_cc2daafb5c488efb7a4d2efe88bc7054 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_260a52fe5fc3dc7d83c35bbef6db6b97 = $(`<div id="html_260a52fe5fc3dc7d83c35bbef6db6b97" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056040<br>Coordonnées du site : 48.84222,2.30102<br><img src="https://filer.eco-counter-tools.com/file/a7/07529397ba10c5606ec0018269e7d0fe0121afd5a0c51d771f8534b008fb6ea7/Y2H19070343_20200818103804.jpg" width="250"><br><b>129 rue Lecourbe</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 146228<br>Nb moyen de vélos / heure : 50</div>`)[0];
+                popup_cc2daafb5c488efb7a4d2efe88bc7054.setContent(html_260a52fe5fc3dc7d83c35bbef6db6b97);
+            
+        
+
+        circle_marker_1883be53504faf97fe1f0cbbc22ca6a5.bindPopup(popup_cc2daafb5c488efb7a4d2efe88bc7054)
+        ;
+
+        
+    
+    
+            circle_marker_1883be53504faf97fe1f0cbbc22ca6a5.bindTooltip(
+                `<div>
+                     129 rue Lecourbe
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6d6b0f6b7a5543362fb66aec2af3a281 = L.circleMarker(
+                [48.84209, 2.30115],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_1af23b51af86ee181c07bbe5ac2d3ee7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9cd67e74248bbc121ba4b0bc97ed3f6b = $(`<div id="html_9cd67e74248bbc121ba4b0bc97ed3f6b" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056044<br>Coordonnées du site : 48.84209,2.30115<br><img src="https://filer.eco-counter-tools.com/file/e5/c3a6eab4d479ad27541e627f543e6dcf8af7b80fba5ad07caf681b2f22b1c1e5/Y2H19070359_20200818105600.jpg" width="250"><br><b>132 rue Lecourbe</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 128014<br>Nb moyen de vélos / heure : 44</div>`)[0];
+                popup_1af23b51af86ee181c07bbe5ac2d3ee7.setContent(html_9cd67e74248bbc121ba4b0bc97ed3f6b);
+            
+        
+
+        circle_marker_6d6b0f6b7a5543362fb66aec2af3a281.bindPopup(popup_1af23b51af86ee181c07bbe5ac2d3ee7)
+        ;
+
+        
+    
+    
+            circle_marker_6d6b0f6b7a5543362fb66aec2af3a281.bindTooltip(
+                `<div>
+                     132 rue Lecourbe
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6c251c7a6cda201490c4917533d0c38f = L.circleMarker(
+                [48.843435, 2.383378],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_038399138756c7f1564f6ec033aa3c69 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_bac851c890307393486793a4f602b8ac = $(`<div id="html_bac851c890307393486793a4f602b8ac" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100006300<br>Coordonnées du site : 48.843435,2.383378<br><img src="https://filer.eco-counter-tools.com/file/4c/44ca3caef446f2d0daf95d1d603651d16f794169bfb14df76d2afc8daac93b4c/X2H18086316_20211004180732.jpg" width="250"><br><b>135 avenue Daumesnil</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 198323<br>Nb moyen de vélos / heure : 68</div>`)[0];
+                popup_038399138756c7f1564f6ec033aa3c69.setContent(html_bac851c890307393486793a4f602b8ac);
+            
+        
+
+        circle_marker_6c251c7a6cda201490c4917533d0c38f.bindPopup(popup_038399138756c7f1564f6ec033aa3c69)
+        ;
+
+        
+    
+    
+            circle_marker_6c251c7a6cda201490c4917533d0c38f.bindTooltip(
+                `<div>
+                     135 avenue Daumesnil
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a51f60aeaa16a47b094a70f70b104c30 = L.circleMarker(
+                [48.82009, 2.3588],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_eda7b40d8bb7c87c528d8afd1167581d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c6624737d16c2016dd975f1199e9aa07 = $(`<div id="html_c6624737d16c2016dd975f1199e9aa07" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056041<br>Coordonnées du site : 48.82009,2.3588<br><img src="https://filer.eco-counter-tools.com/file/4c/1a78aaaf5db20f237b832f18d4dddde185077c59646ba76109ec177ccbb7894c/Y2H19070344_20220803092846.jpg" width="250"><br><b>147 avenue d'Italie</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 78881<br>Nb moyen de vélos / heure : 32</div>`)[0];
+                popup_eda7b40d8bb7c87c528d8afd1167581d.setContent(html_c6624737d16c2016dd975f1199e9aa07);
+            
+        
+
+        circle_marker_a51f60aeaa16a47b094a70f70b104c30.bindPopup(popup_eda7b40d8bb7c87c528d8afd1167581d)
+        ;
+
+        
+    
+    
+            circle_marker_a51f60aeaa16a47b094a70f70b104c30.bindTooltip(
+                `<div>
+                     147 avenue d'Italie
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1d8e90b9212c3a1741374d790300c3bd = L.circleMarker(
+                [48.84017, 2.33438],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_27d672bf03e59ea2094d0caeb290fa7d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b0ac54603eb9524ee98bc456e364a8ba = $(`<div id="html_b0ac54603eb9524ee98bc456e364a8ba" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100049407<br>Coordonnées du site : 48.84017,2.33438<br><img src="https://filer.eco-counter-tools.com/file/fd/b8abd0eab5ee234fc661378e4d8959728488c27da4e4f39036fda84a0cbccffd/Y2H19070373_20210224152726.jpg" width="250"><br><b>152 boulevard du Montparnasse</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 264192<br>Nb moyen de vélos / heure : 45</div>`)[0];
+                popup_27d672bf03e59ea2094d0caeb290fa7d.setContent(html_b0ac54603eb9524ee98bc456e364a8ba);
+            
+        
+
+        circle_marker_1d8e90b9212c3a1741374d790300c3bd.bindPopup(popup_27d672bf03e59ea2094d0caeb290fa7d)
+        ;
+
+        
+    
+    
+            circle_marker_1d8e90b9212c3a1741374d790300c3bd.bindTooltip(
+                `<div>
+                     152 boulevard du Montparnasse
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a7b62ac2bdd8516e738273dbe722227f = L.circleMarker(
+                [48.88156, 2.28122],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_018580343aea0074d838a7529a247761 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_33ce59aa8c9685334d022afddb313899 = $(`<div id="html_33ce59aa8c9685334d022afddb313899" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047534<br>Coordonnées du site : 48.88156,2.28122<br><img src="https://filer.eco-counter-tools.com/file/a4/e4d34b74d33c9818de831635bd9f92086e23beee685025d284a80345b2642fa4/Y2H20032437_20220802142505.jpg" width="250"><br><b>16 avenue de la Porte des Ternes</b><br>Arrondissement : 0<br>Nb total de vélos en 2023 : 72767<br>Nb moyen de vélos / heure : 27</div>`)[0];
+                popup_018580343aea0074d838a7529a247761.setContent(html_33ce59aa8c9685334d022afddb313899);
+            
+        
+
+        circle_marker_a7b62ac2bdd8516e738273dbe722227f.bindPopup(popup_018580343aea0074d838a7529a247761)
+        ;
+
+        
+    
+    
+            circle_marker_a7b62ac2bdd8516e738273dbe722227f.bindTooltip(
+                `<div>
+                     16 avenue de la Porte des Ternes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_aa60e048446a7fdaec586743ee22ea4b = L.circleMarker(
+                [48.824237, 2.321219],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_d36c17fef5d9b2885e5654b4c6fda82d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0789224e4e69dd1279be5428d9f9fe40 = $(`<div id="html_0789224e4e69dd1279be5428d9f9fe40" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030160<br>Coordonnées du site : 48.824237,2.321219<br><img src="https://filer.eco-counter-tools.com/file/e1/36df8223e12aed3b6270af44aa6b56194115a617c4b07e304b518054dcf09ce1/Y2H22115094_20230125170019.jpg" width="250"><br><b>163 boulevard Brune</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 92518<br>Nb moyen de vélos / heure : 40</div>`)[0];
+                popup_d36c17fef5d9b2885e5654b4c6fda82d.setContent(html_0789224e4e69dd1279be5428d9f9fe40);
+            
+        
+
+        circle_marker_aa60e048446a7fdaec586743ee22ea4b.bindPopup(popup_d36c17fef5d9b2885e5654b4c6fda82d)
+        ;
+
+        
+    
+    
+            circle_marker_aa60e048446a7fdaec586743ee22ea4b.bindTooltip(
+                `<div>
+                     163 boulevard Brune
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9d6fbd144541a72caade02f66efe2cdc = L.circleMarker(
+                [48.85372, 2.35702],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_ac6042b30933fc6e99a7cdff179f4344 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_36029b2583455eb291e69fc6306daad1 = $(`<div id="html_36029b2583455eb291e69fc6306daad1" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100036719<br>Coordonnées du site : 48.85372,2.35702<br><img src="https://filer.eco-counter-tools.com/file/db/b61f852e0d3afa4b9be0cdcfe0046cb3bb330efa17c3941fae25199cf2134fdb/14997911938171.jpg" width="250"><br><b>18 quai de l'Hôtel de Ville</b><br>Arrondissement : 4<br>Nb total de vélos en 2023 : 171322<br>Nb moyen de vélos / heure : 29</div>`)[0];
+                popup_ac6042b30933fc6e99a7cdff179f4344.setContent(html_36029b2583455eb291e69fc6306daad1);
+            
+        
+
+        circle_marker_9d6fbd144541a72caade02f66efe2cdc.bindPopup(popup_ac6042b30933fc6e99a7cdff179f4344)
+        ;
+
+        
+    
+    
+            circle_marker_9d6fbd144541a72caade02f66efe2cdc.bindTooltip(
+                `<div>
+                     18 quai de l'Hôtel de Ville
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6628a03344aba7eb3b9f022080949e58 = L.circleMarker(
+                [48.82048, 2.35873],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_1dffcbebfea393ac41733e2cc1bc4c27 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_49b2813c8efc6043d4932f1ceae31321 = $(`<div id="html_49b2813c8efc6043d4932f1ceae31321" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056039<br>Coordonnées du site : 48.82048,2.35873<br><img src="https://filer.eco-counter-tools.com/file/d9/e5c03bd609199d76449e297465513390dcc45c531b0b71313bb78bc19479b3d9/15759717341930.jpg" width="250"><br><b>180 avenue d'Italie</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 138638<br>Nb moyen de vélos / heure : 48</div>`)[0];
+                popup_1dffcbebfea393ac41733e2cc1bc4c27.setContent(html_49b2813c8efc6043d4932f1ceae31321);
+            
+        
+
+        circle_marker_6628a03344aba7eb3b9f022080949e58.bindPopup(popup_1dffcbebfea393ac41733e2cc1bc4c27)
+        ;
+
+        
+    
+    
+            circle_marker_6628a03344aba7eb3b9f022080949e58.bindTooltip(
+                `<div>
+                     180 avenue d'Italie
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_c90ecb89858cb3d9f72a12558600bae8 = L.circleMarker(
+                [48.83043, 2.35335],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_57b415c8c147f5156dff913313ac5f9d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b92b65a5f8c1e80d6f4ad0c14148991d = $(`<div id="html_b92b65a5f8c1e80d6f4ad0c14148991d" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047539<br>Coordonnées du site : 48.83043,2.35335<br><img src="https://filer.eco-counter-tools.com/file/86/22afe09d2544d85d66deb0edf62cca114ca8287cf225b246afa67d4efe61d186/15765761696560.jpg" width="250"><br><b>21 boulevard Auguste Blanqui</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 50045<br>Nb moyen de vélos / heure : 23</div>`)[0];
+                popup_57b415c8c147f5156dff913313ac5f9d.setContent(html_b92b65a5f8c1e80d6f4ad0c14148991d);
+            
+        
+
+        circle_marker_c90ecb89858cb3d9f72a12558600bae8.bindPopup(popup_57b415c8c147f5156dff913313ac5f9d)
+        ;
+
+        
+    
+    
+            circle_marker_c90ecb89858cb3d9f72a12558600bae8.bindTooltip(
+                `<div>
+                     21 boulevard Auguste Blanqui
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0b649a86bd802f17347a3f192348eab1 = L.circleMarker(
+                [48.82029, 2.33936],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_4ee65991148d139e496c9907d8fe7f06 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_76f4cfb1504a0a5a9bc7c5cc20f0e110 = $(`<div id="html_76f4cfb1504a0a5a9bc7c5cc20f0e110" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030116<br>Coordonnées du site : 48.82029,2.33936<br><img src="https://filer.eco-counter-tools.com/file/fc/713d5c51df8e25e528b5c6a8a4f4fe427e1c46930e29a7ca92a25079f4ad84fc/Y2H22115091_20230124113442.jpg" width="250"><br><b>24 boulevard Jourdan</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 156927<br>Nb moyen de vélos / heure : 67</div>`)[0];
+                popup_4ee65991148d139e496c9907d8fe7f06.setContent(html_76f4cfb1504a0a5a9bc7c5cc20f0e110);
+            
+        
+
+        circle_marker_0b649a86bd802f17347a3f192348eab1.bindPopup(popup_4ee65991148d139e496c9907d8fe7f06)
+        ;
+
+        
+    
+    
+            circle_marker_0b649a86bd802f17347a3f192348eab1.bindTooltip(
+                `<div>
+                     24 boulevard Jourdan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f5f1200930b26fdebde859b3eb0fdbb4 = L.circleMarker(
+                [48.86179, 2.32014],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_9912409e2f72fdb7f64a0bb92de9c7b6 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6a131b15d485625b21a1891015f25c17 = $(`<div id="html_6a131b15d485625b21a1891015f25c17" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100050132<br>Coordonnées du site : 48.86179,2.32014<br><img src="https://filer.eco-counter-tools.com/file/f9/3f9330458af2a298f662a331c4a2ec104d9a2d6859676d4ffd00947a858b89f9/15765763964200.jpg" width="250"><br><b>243 boulevard Saint Germain</b><br>Arrondissement : 7<br>Nb total de vélos en 2023 : 192879<br>Nb moyen de vélos / heure : 66</div>`)[0];
+                popup_9912409e2f72fdb7f64a0bb92de9c7b6.setContent(html_6a131b15d485625b21a1891015f25c17);
+            
+        
+
+        circle_marker_f5f1200930b26fdebde859b3eb0fdbb4.bindPopup(popup_9912409e2f72fdb7f64a0bb92de9c7b6)
+        ;
+
+        
+    
+    
+            circle_marker_f5f1200930b26fdebde859b3eb0fdbb4.bindTooltip(
+                `<div>
+                     243 boulevard Saint Germain
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ae5bd98ec97acab6c33c559abb49d39b = L.circleMarker(
+                [48.84935, 2.41143],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8a007d8921247e6b8a1da7544c11db2a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_de8aff7238083e10cbb929a51d12f43c = $(`<div id="html_de8aff7238083e10cbb929a51d12f43c" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030163<br>Coordonnées du site : 48.84935,2.41143<br><img src="https://filer.eco-counter-tools.com/file/f7/f98a4f0eabd064ecf320ace76a1dec51d33d29c13ca927d5fb48292e0b8e02f7/Y2H22115093     27 Boulevard Davout.jpg" width="250"><br><b>27 boulevard Davout</b><br>Arrondissement : 20<br>Nb total de vélos en 2023 : 51315<br>Nb moyen de vélos / heure : 22</div>`)[0];
+                popup_8a007d8921247e6b8a1da7544c11db2a.setContent(html_de8aff7238083e10cbb929a51d12f43c);
+            
+        
+
+        circle_marker_ae5bd98ec97acab6c33c559abb49d39b.bindPopup(popup_8a007d8921247e6b8a1da7544c11db2a)
+        ;
+
+        
+    
+    
+            circle_marker_ae5bd98ec97acab6c33c559abb49d39b.bindTooltip(
+                `<div>
+                     27 boulevard Davout
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_98f5cb1cb816576b9fb1731a398d3427 = L.circleMarker(
+                [48.846099, 2.375456],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_77addd721752830f17f8f576fa977d00 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9189f5c271c5a5688cef1a9ae5d119be = $(`<div id="html_9189f5c271c5a5688cef1a9ae5d119be" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100041488<br>Coordonnées du site : 48.846099,2.375456<br><img src="https://filer.eco-counter-tools.com/file/b4/737b08dc5b9a60fe79446e52c13f833121f3cab8474f5146fbb062870e3dccb4/15144538460760.jpg" width="250"><br><b>27 boulevard Diderot</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 183262<br>Nb moyen de vélos / heure : 63</div>`)[0];
+                popup_77addd721752830f17f8f576fa977d00.setContent(html_9189f5c271c5a5688cef1a9ae5d119be);
+            
+        
+
+        circle_marker_98f5cb1cb816576b9fb1731a398d3427.bindPopup(popup_77addd721752830f17f8f576fa977d00)
+        ;
+
+        
+    
+    
+            circle_marker_98f5cb1cb816576b9fb1731a398d3427.bindTooltip(
+                `<div>
+                     27 boulevard Diderot
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_250cf020f06d79bdd11bfa745ca2e5bd = L.circleMarker(
+                [48.85013, 2.35423],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.43146, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_2e315ebfe24d46b2bd1dd4fe8a58bd6e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_18a66c274bc62426dbbdeb238b00ece3 = $(`<div id="html_18a66c274bc62426dbbdeb238b00ece3" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056336<br>Coordonnées du site : 48.85013,2.35423<br><img src="https://filer.eco-counter-tools.com/file/e0/a60a0302edda30b1121eae6bdcb811c738aa7390bc6e19735c651eba12febae0/15736425280750.jpg" width="250"><br><b>27 quai de la Tournelle</b><br>Arrondissement : 5<br>Nb total de vélos en 2023 : 643146<br>Nb moyen de vélos / heure : 111</div>`)[0];
+                popup_2e315ebfe24d46b2bd1dd4fe8a58bd6e.setContent(html_18a66c274bc62426dbbdeb238b00ece3);
+            
+        
+
+        circle_marker_250cf020f06d79bdd11bfa745ca2e5bd.bindPopup(popup_2e315ebfe24d46b2bd1dd4fe8a58bd6e)
+        ;
+
+        
+    
+    
+            circle_marker_250cf020f06d79bdd11bfa745ca2e5bd.bindTooltip(
+                `<div>
+                     27 quai de la Tournelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4c88066df50651b4953c39d437c250b1 = L.circleMarker(
+                [48.84613, 2.37559],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_b84d23fbd14a4e8f30dd081354938bb5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6a6c192c429ff18c10660480ba02ae2e = $(`<div id="html_6a6c192c429ff18c10660480ba02ae2e" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100007049<br>Coordonnées du site : 48.84613,2.37559<br><img src="https://filer.eco-counter-tools.com/file/9b/531a0daddb4be5433a86cb09dc36f92b25c7bd4ea5c93c7c3146181d9625539b/13585075886520.jpg" width="250"><br><b>28 boulevard Diderot</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 181248<br>Nb moyen de vélos / heure : 31</div>`)[0];
+                popup_b84d23fbd14a4e8f30dd081354938bb5.setContent(html_6a6c192c429ff18c10660480ba02ae2e);
+            
+        
+
+        circle_marker_4c88066df50651b4953c39d437c250b1.bindPopup(popup_b84d23fbd14a4e8f30dd081354938bb5)
+        ;
+
+        
+    
+    
+            circle_marker_4c88066df50651b4953c39d437c250b1.bindTooltip(
+                `<div>
+                     28 boulevard Diderot
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_39f6cc8c2614172ef9ae31aa10500ac1 = L.circleMarker(
+                [48.851131, 2.345678],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_b410b86826625cafae6f4184f265b220 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_781755dd5983a1f5458c26813293e398 = $(`<div id="html_781755dd5983a1f5458c26813293e398" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300021312<br>Coordonnées du site : 48.851131,2.345678<br><img src="https://filer.eco-counter-tools.com/file/20/c9d85cea2f07f6304a7df7042b0fb4878436ba98c48d76795f5c47df9ec45c20/Y2H21110998_20211129170204.jpg" width="250"><br><b>30 rue Saint Jacques</b><br>Arrondissement : 5<br>Nb total de vélos en 2023 : 286854<br>Nb moyen de vélos / heure : 99</div>`)[0];
+                popup_b410b86826625cafae6f4184f265b220.setContent(html_781755dd5983a1f5458c26813293e398);
+            
+        
+
+        circle_marker_39f6cc8c2614172ef9ae31aa10500ac1.bindPopup(popup_b410b86826625cafae6f4184f265b220)
+        ;
+
+        
+    
+    
+            circle_marker_39f6cc8c2614172ef9ae31aa10500ac1.bindTooltip(
+                `<div>
+                     30 rue Saint Jacques
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_580e204a2e619126a018f74e24f53d8e = L.circleMarker(
+                [48.86999, 2.30722],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_3a8a873fc3d42c5be562070d29aa6c01 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d09007cd16efee55451e3b20ebec81ae = $(`<div id="html_d09007cd16efee55451e3b20ebec81ae" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056042<br>Coordonnées du site : 48.86999,2.30722<br><img src="https://filer.eco-counter-tools.com/file/52/3cd053f75764e9800c3f470120c6f9e5ca84efae5393f5a79b51b0e282f1e252/15724494591310.jpg" width="250"><br><b>33 avenue des Champs Elysées</b><br>Arrondissement : 8<br>Nb total de vélos en 2023 : 298625<br>Nb moyen de vélos / heure : 103</div>`)[0];
+                popup_3a8a873fc3d42c5be562070d29aa6c01.setContent(html_d09007cd16efee55451e3b20ebec81ae);
+            
+        
+
+        circle_marker_580e204a2e619126a018f74e24f53d8e.bindPopup(popup_3a8a873fc3d42c5be562070d29aa6c01)
+        ;
+
+        
+    
+    
+            circle_marker_580e204a2e619126a018f74e24f53d8e.bindTooltip(
+                `<div>
+                     33 avenue des Champs Elysées
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_77b9b2624871d48099db0793932548ba = L.circleMarker(
+                [48.860528, 2.388364],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.41426, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_806e092ba22d3c22638d84a2b42cfcb1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8fa8211dd904afda386d9c73cd50786d = $(`<div id="html_8fa8211dd904afda386d9c73cd50786d" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100065336<br>Coordonnées du site : 48.860528,2.388364<br><img src="https://filer.eco-counter-tools.com/file/6b/3c241c2cc10af04dc16bef6ebb4617f5ba12eb76337a663980a5d857dea91d6b/15440278883470.jpg" width="250"><br><b>35 boulevard de Ménilmontant</b><br>Arrondissement : 11<br>Nb total de vélos en 2023 : 441426<br>Nb moyen de vélos / heure : 153</div>`)[0];
+                popup_806e092ba22d3c22638d84a2b42cfcb1.setContent(html_8fa8211dd904afda386d9c73cd50786d);
+            
+        
+
+        circle_marker_77b9b2624871d48099db0793932548ba.bindPopup(popup_806e092ba22d3c22638d84a2b42cfcb1)
+        ;
+
+        
+    
+    
+            circle_marker_77b9b2624871d48099db0793932548ba.bindTooltip(
+                `<div>
+                     35 boulevard de Ménilmontant
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_901e6963f2b26df231532c3ef427a45b = L.circleMarker(
+                [48.85174, 2.28593],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.06687, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_73e2327ac81e784ddf9fdb54da2e615e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8d46ef22044ba56301029e5e4a2aa39f = $(`<div id="html_8d46ef22044ba56301029e5e4a2aa39f" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056330<br>Coordonnées du site : 48.85174,2.28593<br><img src="https://filer.eco-counter-tools.com/file/b4/57578de5621fc9c351ea9780dd1eefd64380f1a4430299b60ff805410994fcb4/Y2H19070376_20200818101459.jpg" width="250"><br><b>36 quai de Grenelle</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 406687<br>Nb moyen de vélos / heure : 70</div>`)[0];
+                popup_73e2327ac81e784ddf9fdb54da2e615e.setContent(html_8d46ef22044ba56301029e5e4a2aa39f);
+            
+        
+
+        circle_marker_901e6963f2b26df231532c3ef427a45b.bindPopup(popup_73e2327ac81e784ddf9fdb54da2e615e)
+        ;
+
+        
+    
+    
+            circle_marker_901e6963f2b26df231532c3ef427a45b.bindTooltip(
+                `<div>
+                     36 quai de Grenelle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0b40a0a146707d6d40ff0984eea1a5e6 = L.circleMarker(
+                [48.86502, 2.35387],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.92678, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_4d10cffea2f1d030462c2817ede509a4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_1bd1b6ee07214d7528fca2bacdc6d56a = $(`<div id="html_1bd1b6ee07214d7528fca2bacdc6d56a" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056334<br>Coordonnées du site : 48.86502,2.35387<br><img src="https://filer.eco-counter-tools.com/file/62/0e0c75a4501eb0b6371e4433951aa7363fd5c611dd001568e240749cf7a29362/Y2H19070380_20210811110713.jpg" width="250"><br><b>38 rue Turbigo</b><br>Arrondissement : 3<br>Nb total de vélos en 2023 : 692678<br>Nb moyen de vélos / heure : 120</div>`)[0];
+                popup_4d10cffea2f1d030462c2817ede509a4.setContent(html_1bd1b6ee07214d7528fca2bacdc6d56a);
+            
+        
+
+        circle_marker_0b40a0a146707d6d40ff0984eea1a5e6.bindPopup(popup_4d10cffea2f1d030462c2817ede509a4)
+        ;
+
+        
+    
+    
+            circle_marker_0b40a0a146707d6d40ff0984eea1a5e6.bindTooltip(
+                `<div>
+                     38 rue Turbigo
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a4f379466ebf4903f7c1ae0057ad8561 = L.circleMarker(
+                [48.83436, 2.377],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.71264, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_7839f318fb3bbdc14e814b7d99bc6795 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_ef070f51e6f67ea2add306925c44ebe6 = $(`<div id="html_ef070f51e6f67ea2add306925c44ebe6" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100036718<br>Coordonnées du site : 48.83436,2.377<br><img src="https://filer.eco-counter-tools.com/file/89/a417e0e7a5a6a0be002e6b9f7f43b4db5eb3f1c15aa348294378f2b8d6cfa089/Y2H21015068_20220407102319.jpg" width="250"><br><b>39 quai François Mauriac</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 371264<br>Nb moyen de vélos / heure : 64</div>`)[0];
+                popup_7839f318fb3bbdc14e814b7d99bc6795.setContent(html_ef070f51e6f67ea2add306925c44ebe6);
+            
+        
+
+        circle_marker_a4f379466ebf4903f7c1ae0057ad8561.bindPopup(popup_7839f318fb3bbdc14e814b7d99bc6795)
+        ;
+
+        
+    
+    
+            circle_marker_a4f379466ebf4903f7c1ae0057ad8561.bindTooltip(
+                `<div>
+                     39 quai François Mauriac
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d55b2d06071b57ccdf89dc6ff8f15859 = L.circleMarker(
+                [48.840211, 2.409219],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_ad14345468298a50989b7da6f36cec5d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5a187f0fe8fd3aa1836021695348768c = $(`<div id="html_5a187f0fe8fd3aa1836021695348768c" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030172<br>Coordonnées du site : 48.840211,2.409219<br><img src="https://filer.eco-counter-tools.com/file/6e/44c933c642769d2faf81bf2260c3cba2d226afd37eb72be2eb2479345e077d6e/Y2H22115095_20230126124246.jpg" width="250"><br><b>42 boulevard Soult</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 212916<br>Nb moyen de vélos / heure : 46</div>`)[0];
+                popup_ad14345468298a50989b7da6f36cec5d.setContent(html_5a187f0fe8fd3aa1836021695348768c);
+            
+        
+
+        circle_marker_d55b2d06071b57ccdf89dc6ff8f15859.bindPopup(popup_ad14345468298a50989b7da6f36cec5d)
+        ;
+
+        
+    
+    
+            circle_marker_d55b2d06071b57ccdf89dc6ff8f15859.bindTooltip(
+                `<div>
+                     42 boulevard Soult
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_37f6059db611ba2660d0fd86ade26a95 = L.circleMarker(
+                [48.86999, 2.30743],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_7799fa7b2c407f5639ba8b81f10e8cf4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5fd69ed40d5f02e460fc2382ec19702b = $(`<div id="html_5fd69ed40d5f02e460fc2382ec19702b" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056038<br>Coordonnées du site : 48.86999,2.30743<br><img src="https://filer.eco-counter-tools.com/file/5f/d4d5c5bd654cf989713a8f698321451b3dece54ebf77786882cf5b2ea879345f/Y2H19070341_20220802124458.jpg" width="250"><br><b>44 avenue des Champs Elysées</b><br>Arrondissement : 8<br>Nb total de vélos en 2023 : 198382<br>Nb moyen de vélos / heure : 68</div>`)[0];
+                popup_7799fa7b2c407f5639ba8b81f10e8cf4.setContent(html_5fd69ed40d5f02e460fc2382ec19702b);
+            
+        
+
+        circle_marker_37f6059db611ba2660d0fd86ade26a95.bindPopup(popup_7799fa7b2c407f5639ba8b81f10e8cf4)
+        ;
+
+        
+    
+    
+            circle_marker_37f6059db611ba2660d0fd86ade26a95.bindTooltip(
+                `<div>
+                     44 avenue des Champs Elysées
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_6765b462918220e5a25cd8f5d7ac79e8 = L.circleMarker(
+                [48.837006, 2.274824],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_c3aecb4280399ae968ba7f8db2162c65 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_63596130beda144b06fb3ff39b849236 = $(`<div id="html_63596130beda144b06fb3ff39b849236" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030279<br>Coordonnées du site : 48.837006,2.274824<br><img src="https://filer.eco-counter-tools.com/file/a5/d4e6c25819cf9a2561659370155f57680b0bb8f78620207ee45fe105b2b98da5/Y2H22115089_20230202160829.jpg" width="250"><br><b>51 boulevard du Général Martial Valin</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 129145<br>Nb moyen de vélos / heure : 61</div>`)[0];
+                popup_c3aecb4280399ae968ba7f8db2162c65.setContent(html_63596130beda144b06fb3ff39b849236);
+            
+        
+
+        circle_marker_6765b462918220e5a25cd8f5d7ac79e8.bindPopup(popup_c3aecb4280399ae968ba7f8db2162c65)
+        ;
+
+        
+    
+    
+            circle_marker_6765b462918220e5a25cd8f5d7ac79e8.bindTooltip(
+                `<div>
+                     51 boulevard du Général Martial Valin
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5454af2768dc894f8ff184744d56b66f = L.circleMarker(
+                [48.820988, 2.350291],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8a707726a127dea3741a539779058736 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9978c9df8eeffeead851e70df0b58dd5 = $(`<div id="html_9978c9df8eeffeead851e70df0b58dd5" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030139<br>Coordonnées du site : 48.820988,2.350291<br><img src="https://filer.eco-counter-tools.com/file/e0/73a8bd9c12482cfb4c0ec5961c7abdf4e8efd443717f2daae15462ed174825e0/Y2H22115092_20230125104511.jpg" width="250"><br><b>56 boulevard Kellermann</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 135342<br>Nb moyen de vélos / heure : 59</div>`)[0];
+                popup_8a707726a127dea3741a539779058736.setContent(html_9978c9df8eeffeead851e70df0b58dd5);
+            
+        
+
+        circle_marker_5454af2768dc894f8ff184744d56b66f.bindPopup(popup_8a707726a127dea3741a539779058736)
+        ;
+
+        
+    
+    
+            circle_marker_5454af2768dc894f8ff184744d56b66f.bindTooltip(
+                `<div>
+                     56 boulevard Kellermann
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_117f92bbb13dace0ae35e377d9499fec = L.circleMarker(
+                [48.82624, 2.30281],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.26759, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_f0b63db5f6eb8c017540b56c4cb0a702 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_1b0d7325626d779f14eaaf5d69942960 = $(`<div id="html_1b0d7325626d779f14eaaf5d69942960" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047547<br>Coordonnées du site : 48.82624,2.30281<br><img src="https://filer.eco-counter-tools.com/file/ce/317e3c94929ed00ede045d6247b24bc57c359ec9726dd6a7c19509e9a793ebce/15433319774680.jpg" width="250"><br><b>6 rue Julia Bartet</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 326759<br>Nb moyen de vélos / heure : 56</div>`)[0];
+                popup_f0b63db5f6eb8c017540b56c4cb0a702.setContent(html_1b0d7325626d779f14eaaf5d69942960);
+            
+        
+
+        circle_marker_117f92bbb13dace0ae35e377d9499fec.bindPopup(popup_f0b63db5f6eb8c017540b56c4cb0a702)
+        ;
+
+        
+    
+    
+            circle_marker_117f92bbb13dace0ae35e377d9499fec.bindTooltip(
+                `<div>
+                     6 rue Julia Bartet
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1a11c9ab447724aaa4d824b27e3bf979 = L.circleMarker(
+                [48.86149, 2.37376],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.15383, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_b23ab22e15bf547c06658982ac3d2ae9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_bb9a814268be38ada93a9a3715007e8a = $(`<div id="html_bb9a814268be38ada93a9a3715007e8a" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100044493<br>Coordonnées du site : 48.86149,2.37376<br><img src="https://filer.eco-counter-tools.com/file/c2/fab6a7934a6f5d472a1b4e7f6c68552eca77bc5ac6773eb9472e307729be76c2/15302602919700.jpg" width="250"><br><b>67 boulevard Voltaire</b><br>Arrondissement : 11<br>Nb total de vélos en 2023 : 415383<br>Nb moyen de vélos / heure : 144</div>`)[0];
+                popup_b23ab22e15bf547c06658982ac3d2ae9.setContent(html_bb9a814268be38ada93a9a3715007e8a);
+            
+        
+
+        circle_marker_1a11c9ab447724aaa4d824b27e3bf979.bindPopup(popup_b23ab22e15bf547c06658982ac3d2ae9)
+        ;
+
+        
+    
+    
+            circle_marker_1a11c9ab447724aaa4d824b27e3bf979.bindTooltip(
+                `<div>
+                     67 boulevard Voltaire
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5ff31397297737998a337bc7a776405f = L.circleMarker(
+                [48.87474, 2.29219],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_628f8f38927a54f6901c636b15ac2a28 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_efee2256f1d22a965c5da883512ac199 = $(`<div id="html_efee2256f1d22a965c5da883512ac199" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100044495<br>Coordonnées du site : 48.87474,2.29219<br><img src="https://filer.eco-counter-tools.com/file/8f/ab6275133072426487720794af19ebfb2ba25006fedf54165aa0d47099d9978f/Y2H18034806_20220802134231.jpg" width="250"><br><b>7 avenue de la Grande Armée</b><br>Arrondissement : 16<br>Nb total de vélos en 2023 : 97185<br>Nb moyen de vélos / heure : 33</div>`)[0];
+                popup_628f8f38927a54f6901c636b15ac2a28.setContent(html_efee2256f1d22a965c5da883512ac199);
+            
+        
+
+        circle_marker_5ff31397297737998a337bc7a776405f.bindPopup(popup_628f8f38927a54f6901c636b15ac2a28)
+        ;
+
+        
+    
+    
+            circle_marker_5ff31397297737998a337bc7a776405f.bindTooltip(
+                `<div>
+                     7 avenue de la Grande Armée
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_2d4f76144d4c88505682248c59d15337 = L.circleMarker(
+                [48.889046, 2.374872],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_b15eddae41d6133332bb660a619dbfd8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4e61a7e1b44a6e3f89f70457f302c137 = $(`<div id="html_4e61a7e1b44a6e3f89f70457f302c137" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056034<br>Coordonnées du site : 48.889046,2.374872<br><img src="https://filer.eco-counter-tools.com/file/37/49b6f30d6516c4cd5e5a623332e95b587ab4fb985316509c84f868fad6966837/Y2H19070336_20210811150744.jpg" width="250"><br><b>72 avenue de Flandre</b><br>Arrondissement : 19<br>Nb total de vélos en 2023 : 207019<br>Nb moyen de vélos / heure : 71</div>`)[0];
+                popup_b15eddae41d6133332bb660a619dbfd8.setContent(html_4e61a7e1b44a6e3f89f70457f302c137);
+            
+        
+
+        circle_marker_2d4f76144d4c88505682248c59d15337.bindPopup(popup_b15eddae41d6133332bb660a619dbfd8)
+        ;
+
+        
+    
+    
+            circle_marker_2d4f76144d4c88505682248c59d15337.bindTooltip(
+                `<div>
+                     72 avenue de Flandre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d87ef0b7ea1f10f28703a4a1638098f2 = L.circleMarker(
+                [48.82561, 2.314274],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8408e14f1413417ecd74fbd50e8e3a8b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f69566636bd278bb92fe0c188c5f1f8a = $(`<div id="html_f69566636bd278bb92fe0c188c5f1f8a" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030121<br>Coordonnées du site : 48.82561,2.314274<br><img src="https://filer.eco-counter-tools.com/file/8b/5503ab3d3356579cc42cca139c620b2b13d610b9768d4f615f6453d3957b008b/Y2H22115087_20230124154401.jpg" width="250"><br><b>72 boulevard Brune</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 117612<br>Nb moyen de vélos / heure : 50</div>`)[0];
+                popup_8408e14f1413417ecd74fbd50e8e3a8b.setContent(html_f69566636bd278bb92fe0c188c5f1f8a);
+            
+        
+
+        circle_marker_d87ef0b7ea1f10f28703a4a1638098f2.bindPopup(popup_8408e14f1413417ecd74fbd50e8e3a8b)
+        ;
+
+        
+    
+    
+            circle_marker_d87ef0b7ea1f10f28703a4a1638098f2.bindTooltip(
+                `<div>
+                     72 boulevard Brune
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_36ec4d9bb5c3621c636d3010178e274c = L.circleMarker(
+                [48.86077, 2.37305],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.837, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_e32968556f23a642e6f8ffb81ce4bffe = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_87f0b2b312fcd81439b5944d5c8c4969 = $(`<div id="html_87f0b2b312fcd81439b5944d5c8c4969" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047540<br>Coordonnées du site : 48.86077,2.37305<br><img src="https://filer.eco-counter-tools.com/file/67/7fdd8cc312a54f02b9a530729d718611e2de1eb98b33a38a5a92e3f001c78b67/Y2H16110952_20220802150111.jpg" width="250"><br><b>72 boulevard Richard Lenoir</b><br>Arrondissement : 11<br>Nb total de vélos en 2023 : 383700<br>Nb moyen de vélos / heure : 133</div>`)[0];
+                popup_e32968556f23a642e6f8ffb81ce4bffe.setContent(html_87f0b2b312fcd81439b5944d5c8c4969);
+            
+        
+
+        circle_marker_36ec4d9bb5c3621c636d3010178e274c.bindPopup(popup_e32968556f23a642e6f8ffb81ce4bffe)
+        ;
+
+        
+    
+    
+            circle_marker_36ec4d9bb5c3621c636d3010178e274c.bindTooltip(
+                `<div>
+                     72 boulevard Richard Lenoir
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_63d3000d154e390f2a6a0bbc9694108b = L.circleMarker(
+                [48.86155, 2.37407],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.36084, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_84fa9fdaf1a3c3b816211268f245b51f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_76f0bab6a34535625a75c348d858bb5c = $(`<div id="html_76f0bab6a34535625a75c348d858bb5c" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100044506<br>Coordonnées du site : 48.86155,2.37407<br><img src="https://filer.eco-counter-tools.com/file/0a/cf198280e637e8e48ba373cca2d92bb531a68659ae95a46d1cab6b85adb2fa0a/Y2H18034807_20200819122746.jpg" width="250"><br><b>72 boulevard Voltaire</b><br>Arrondissement : 11<br>Nb total de vélos en 2023 : 436084<br>Nb moyen de vélos / heure : 151</div>`)[0];
+                popup_84fa9fdaf1a3c3b816211268f245b51f.setContent(html_76f0bab6a34535625a75c348d858bb5c);
+            
+        
+
+        circle_marker_63d3000d154e390f2a6a0bbc9694108b.bindPopup(popup_84fa9fdaf1a3c3b816211268f245b51f)
+        ;
+
+        
+    
+    
+            circle_marker_63d3000d154e390f2a6a0bbc9694108b.bindTooltip(
+                `<div>
+                     72 boulevard Voltaire
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f437163ad68cd7c187a2d2063e4f21d8 = L.circleMarker(
+                [48.821204, 2.368576],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_39318310e6b0c28073a78632c2c44dfc = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f90cc095208ca542cdaf046d23e6a47f = $(`<div id="html_f90cc095208ca542cdaf046d23e6a47f" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030173<br>Coordonnées du site : 48.821204,2.368576<br><img src="https://filer.eco-counter-tools.com/file/db/09513ec95d163eb6ce0a1bcef5951e539416362e0ca5ed7c484df8dec42ef3db/Y2H22115077_20230126155031.jpg" width="250"><br><b>77 boulevard Masséna</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 195780<br>Nb moyen de vélos / heure : 43</div>`)[0];
+                popup_39318310e6b0c28073a78632c2c44dfc.setContent(html_f90cc095208ca542cdaf046d23e6a47f);
+            
+        
+
+        circle_marker_f437163ad68cd7c187a2d2063e4f21d8.bindPopup(popup_39318310e6b0c28073a78632c2c44dfc)
+        ;
+
+        
+    
+    
+            circle_marker_f437163ad68cd7c187a2d2063e4f21d8.bindTooltip(
+                `<div>
+                     77 boulevard Masséna
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_923f96f6b16d8e41675e00cfa01acb37 = L.circleMarker(
+                [48.860852, 2.372279],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.3378, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_27474da8f4157c2188750dbba0e4ddad = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_de7f2bb28bd22477e9216f2da15aa01b = $(`<div id="html_de7f2bb28bd22477e9216f2da15aa01b" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047544<br>Coordonnées du site : 48.860852,2.372279<br><img src="https://filer.eco-counter-tools.com/file/e2/67a5191c2dfb233cf2d098c3a5b5c3e6b3725df56a08a193c4c52a0822d783e2/15765768365460.jpg" width="250"><br><b>77 boulevard Richard Lenoir</b><br>Arrondissement : 11<br>Nb total de vélos en 2023 : 333780<br>Nb moyen de vélos / heure : 115</div>`)[0];
+                popup_27474da8f4157c2188750dbba0e4ddad.setContent(html_de7f2bb28bd22477e9216f2da15aa01b);
+            
+        
+
+        circle_marker_923f96f6b16d8e41675e00cfa01acb37.bindPopup(popup_27474da8f4157c2188750dbba0e4ddad)
+        ;
+
+        
+    
+    
+            circle_marker_923f96f6b16d8e41675e00cfa01acb37.bindTooltip(
+                `<div>
+                     77 boulevard Richard Lenoir
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9e1fa433be8eb0d58ee4c4c086c99848 = L.circleMarker(
+                [48.86922, 2.408714],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_caeba1a53cffb8b4099ba56f371f71a3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_81bbf5de9bf17d093aa68fffad887bdc = $(`<div id="html_81bbf5de9bf17d093aa68fffad887bdc" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030219<br>Coordonnées du site : 48.86922,2.408714<br><img src="https://filer.eco-counter-tools.com/file/8a/4b5c75075571a8b7f34603c7deb07bac68b24ede126ea17750ebb71d5354938a/Y2H22115096_20230131153919.jpg" width="250"><br><b>81 boulevard Mortier</b><br>Arrondissement : 20<br>Nb total de vélos en 2023 : 89975<br>Nb moyen de vélos / heure : 20</div>`)[0];
+                popup_caeba1a53cffb8b4099ba56f371f71a3.setContent(html_81bbf5de9bf17d093aa68fffad887bdc);
+            
+        
+
+        circle_marker_9e1fa433be8eb0d58ee4c4c086c99848.bindPopup(popup_caeba1a53cffb8b4099ba56f371f71a3)
+        ;
+
+        
+    
+    
+            circle_marker_9e1fa433be8eb0d58ee4c4c086c99848.bindTooltip(
+                `<div>
+                     81 boulevard Mortier
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_4c27f89d4d96e3e0be946f9ace4be5ee = L.circleMarker(
+                [48.88926, 2.37472],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_07fd7254f418391af11d881aadd71f9f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_29d4ec1bc151d37e477d22d87a04e6ef = $(`<div id="html_29d4ec1bc151d37e477d22d87a04e6ef" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056032<br>Coordonnées du site : 48.88926,2.37472<br><img src="https://filer.eco-counter-tools.com/file/70/9ef74edcc928363701828f90f816171945405397085c6776c65eeb7a998af670/Y2H19070334_20220802122815.jpg" width="250"><br><b>87 avenue de Flandre</b><br>Arrondissement : 19<br>Nb total de vélos en 2023 : 238405<br>Nb moyen de vélos / heure : 82</div>`)[0];
+                popup_07fd7254f418391af11d881aadd71f9f.setContent(html_29d4ec1bc151d37e477d22d87a04e6ef);
+            
+        
+
+        circle_marker_4c27f89d4d96e3e0be946f9ace4be5ee.bindPopup(popup_07fd7254f418391af11d881aadd71f9f)
+        ;
+
+        
+    
+    
+            circle_marker_4c27f89d4d96e3e0be946f9ace4be5ee.bindTooltip(
+                `<div>
+                     87 avenue de Flandre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_1c7f216721c0636bf095d76dff428e8e = L.circleMarker(
+                [48.87756, 2.35535],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.67776, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8e4247c5ad807fa9d27f330784b8d16e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_54757476120f19598d9b374661613473 = $(`<div id="html_54757476120f19598d9b374661613473" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047533<br>Coordonnées du site : 48.87756,2.35535<br><img src="https://filer.eco-counter-tools.com/file/48/4b322b77bb102481b9b6b9e0abfaa448eb9cd56d2705dd36305f48325d561548/15434006878980.jpg" width="250"><br><b>89 boulevard de Magenta</b><br>Arrondissement : 10<br>Nb total de vélos en 2023 : 567776<br>Nb moyen de vélos / heure : 197</div>`)[0];
+                popup_8e4247c5ad807fa9d27f330784b8d16e.setContent(html_54757476120f19598d9b374661613473);
+            
+        
+
+        circle_marker_1c7f216721c0636bf095d76dff428e8e.bindPopup(popup_8e4247c5ad807fa9d27f330784b8d16e)
+        ;
+
+        
+    
+    
+            circle_marker_1c7f216721c0636bf095d76dff428e8e.bindTooltip(
+                `<div>
+                     89 boulevard de Magenta
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_421dbfc08957aca98e2197fd0f56faa4 = L.circleMarker(
+                [48.81964, 2.34173],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_3443fae500b3f295538cb31fedc4bfdf = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_08be0725ae34d122dd2c31d7bd9114d5 = $(`<div id="html_08be0725ae34d122dd2c31d7bd9114d5" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030120<br>Coordonnées du site : 48.81964,2.34173<br><img src="https://filer.eco-counter-tools.com/file/51/c3011288fb886e8a43a21ddd7bac503d99e6328d42de5a65c16fafff6c5e5751/Y2H22115090_20230124133916.jpg" width="250"><br><b>9 boulevard Jourdan</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 155389<br>Nb moyen de vélos / heure : 67</div>`)[0];
+                popup_3443fae500b3f295538cb31fedc4bfdf.setContent(html_08be0725ae34d122dd2c31d7bd9114d5);
+            
+        
+
+        circle_marker_421dbfc08957aca98e2197fd0f56faa4.bindPopup(popup_3443fae500b3f295538cb31fedc4bfdf)
+        ;
+
+        
+    
+    
+            circle_marker_421dbfc08957aca98e2197fd0f56faa4.bindTooltip(
+                `<div>
+                     9 boulevard Jourdan
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5184335a0cb4db630c8d1505bc11281a = L.circleMarker(
+                [48.84641, 2.31524],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_89ab8e69a46764a91dc7b42973417082 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4197b65c01ceb1159db24d283314f84e = $(`<div id="html_4197b65c01ceb1159db24d283314f84e" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100060178<br>Coordonnées du site : 48.84641,2.31524<br><img src="https://filer.eco-counter-tools.com/file/41/4461610e4f0d5828a4c00a6316d33155950e0adcc8e6fcb2e5b73388ffb03141/15953475589600.jpg" width="250"><br><b>90 Rue De Sèvres</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 104416<br>Nb moyen de vélos / heure : 18</div>`)[0];
+                popup_89ab8e69a46764a91dc7b42973417082.setContent(html_4197b65c01ceb1159db24d283314f84e);
+            
+        
+
+        circle_marker_5184335a0cb4db630c8d1505bc11281a.bindPopup(popup_89ab8e69a46764a91dc7b42973417082)
+        ;
+
+        
+    
+    
+            circle_marker_5184335a0cb4db630c8d1505bc11281a.bindTooltip(
+                `<div>
+                     90 Rue De Sèvres
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_245d511e87fd165fb21c017a8659f298 = L.circleMarker(
+                [48.83504, 2.33314],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_974172be498a29620e470bbeb937a90f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c34ee181fe81b63c276a6a92c10edd6e = $(`<div id="html_c34ee181fe81b63c276a6a92c10edd6e" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100003096<br>Coordonnées du site : 48.83504,2.33314<br><img src="https://filer.eco-counter-tools.com/file/10/6d3f2edfe0035eaeac2615c5f2c0b5764e9fc678430dd81f7893c4a245470110/15765766519670.jpg" width="250"><br><b>97 avenue Denfert Rochereau</b><br>Arrondissement : 14<br>Nb total de vélos en 2023 : 171915<br>Nb moyen de vélos / heure : 59</div>`)[0];
+                popup_974172be498a29620e470bbeb937a90f.setContent(html_c34ee181fe81b63c276a6a92c10edd6e);
+            
+        
+
+        circle_marker_245d511e87fd165fb21c017a8659f298.bindPopup(popup_974172be498a29620e470bbeb937a90f)
+        ;
+
+        
+    
+    
+            circle_marker_245d511e87fd165fb21c017a8659f298.bindTooltip(
+                `<div>
+                     97 avenue Denfert Rochereau
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9025901248b3d4283e05568572c25331 = L.circleMarker(
+                [48.834624, 2.405283],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_0e02cef31e941da458e5d368440a3ed1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_22da2f75bcd4ad1f926edf5e1c4efec5 = $(`<div id="html_22da2f75bcd4ad1f926edf5e1c4efec5" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030250<br>Coordonnées du site : 48.834624,2.405283<br><img src="https://filer.eco-counter-tools.com/file/46/318372fbfe463662b956299ed56f39d4fffdf882e04c202de759137a99193e46/Y2H22115076_20230201144628.jpg" width="250"><br><b>98 boulevard Poniatowski</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 193877<br>Nb moyen de vélos / heure : 45</div>`)[0];
+                popup_0e02cef31e941da458e5d368440a3ed1.setContent(html_22da2f75bcd4ad1f926edf5e1c4efec5);
+            
+        
+
+        circle_marker_9025901248b3d4283e05568572c25331.bindPopup(popup_0e02cef31e941da458e5d368440a3ed1)
+        ;
+
+        
+    
+    
+            circle_marker_9025901248b3d4283e05568572c25331.bindTooltip(
+                `<div>
+                     98 boulevard Poniatowski
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_613f0f0769485c174828831ea86ba99a = L.circleMarker(
+                [48.890457, 2.368852],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.01405, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_936eb31eff0ef371f6e2d970260c53b5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_92a45687e47fd2d9ee53bba9e3a5aac6 = $(`<div id="html_92a45687e47fd2d9ee53bba9e3a5aac6" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047545<br>Coordonnées du site : 48.890457,2.368852<br><img src="https://filer.eco-counter-tools.com/file/01/9482b3e7b1f4517f478f7594370730b2d69e48b701059c0a3e9ba0853be15601/Y2H18086321_20220802120348.jpg" width="250"><br><b>Face 104 rue d'Aubervilliers</b><br>Arrondissement : 19<br>Nb total de vélos en 2023 : 301405<br>Nb moyen de vélos / heure : 52</div>`)[0];
+                popup_936eb31eff0ef371f6e2d970260c53b5.setContent(html_92a45687e47fd2d9ee53bba9e3a5aac6);
+            
+        
+
+        circle_marker_613f0f0769485c174828831ea86ba99a.bindPopup(popup_936eb31eff0ef371f6e2d970260c53b5)
+        ;
+
+        
+    
+    
+            circle_marker_613f0f0769485c174828831ea86ba99a.bindTooltip(
+                `<div>
+                     Face 104 rue d'Aubervilliers
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9d13eb27563d637eabfaceb9411d6979 = L.circleMarker(
+                [48.88168, 2.28113],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_d074eb43797490beb3a1121fe46e0c95 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d0bb278b868b0e66e60f4345c78dccb5 = $(`<div id="html_d0bb278b868b0e66e60f4345c78dccb5" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047538<br>Coordonnées du site : 48.88168,2.28113<br><img src="https://filer.eco-counter-tools.com/file/8c/ba297cff6bb2dff3223a9d55fc76065f5c51c101134d537198b99f01c82f978c/Y2H18086314_20210811102257.jpg" width="250"><br><b>Face au 16 avenue de la  Porte des Ternes</b><br>Arrondissement : 0<br>Nb total de vélos en 2023 : 103100<br>Nb moyen de vélos / heure : 35</div>`)[0];
+                popup_d074eb43797490beb3a1121fe46e0c95.setContent(html_d0bb278b868b0e66e60f4345c78dccb5);
+            
+        
+
+        circle_marker_9d13eb27563d637eabfaceb9411d6979.bindPopup(popup_d074eb43797490beb3a1121fe46e0c95)
+        ;
+
+        
+    
+    
+            circle_marker_9d13eb27563d637eabfaceb9411d6979.bindTooltip(
+                `<div>
+                     Face au 16 avenue de la  Porte des Ternes
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a4c9886b388d740b329336580e84904b = L.circleMarker(
+                [48.89141, 2.38482],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.28724, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_1b6b96ae99ddf4c5e8f016f8ee63024e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0a9d0282abefe82b75d9c3c4c38a6873 = $(`<div id="html_0a9d0282abefe82b75d9c3c4c38a6873" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047548<br>Coordonnées du site : 48.89141,2.38482<br><img src="https://filer.eco-counter-tools.com/file/8a/86215b07f1cb409dc81b270ae29ff093ada73abae27adbe376b4ce70f1f79f8a/Y2H20083609_20220406171829.jpg" width="250"><br><b>Face au 25 quai de l'Oise</b><br>Arrondissement : 19<br>Nb total de vélos en 2023 : 328724<br>Nb moyen de vélos / heure : 57</div>`)[0];
+                popup_1b6b96ae99ddf4c5e8f016f8ee63024e.setContent(html_0a9d0282abefe82b75d9c3c4c38a6873);
+            
+        
+
+        circle_marker_a4c9886b388d740b329336580e84904b.bindPopup(popup_1b6b96ae99ddf4c5e8f016f8ee63024e)
+        ;
+
+        
+    
+    
+            circle_marker_a4c9886b388d740b329336580e84904b.bindTooltip(
+                `<div>
+                     Face au 25 quai de l'Oise
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9626f0ec8edcf19b9d006aef22e569f5 = L.circleMarker(
+                [48.86485, 2.40966],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_41bfbff37f40170b7baa7bdc76a7e1b3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_16f5a8be3e776e003fc03f4d37db4950 = $(`<div id="html_16f5a8be3e776e003fc03f4d37db4950" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056327<br>Coordonnées du site : 48.86485,2.40966<br><img src="https://filer.eco-counter-tools.com/file/2c/f87451307e942fee90117c8acc84ec7faf4a0108d0d0a09cbf5139fcd9fc322c/Y2H19070372_20220802162140.jpg" width="250"><br><b>Face au 4 avenue de la porte de Bagnolet</b><br>Arrondissement : 20<br>Nb total de vélos en 2023 : 228129<br>Nb moyen de vélos / heure : 39</div>`)[0];
+                popup_41bfbff37f40170b7baa7bdc76a7e1b3.setContent(html_16f5a8be3e776e003fc03f4d37db4950);
+            
+        
+
+        circle_marker_9626f0ec8edcf19b9d006aef22e569f5.bindPopup(popup_41bfbff37f40170b7baa7bdc76a7e1b3)
+        ;
+
+        
+    
+    
+            circle_marker_9626f0ec8edcf19b9d006aef22e569f5.bindTooltip(
+                `<div>
+                     Face au 4 avenue de la porte de Bagnolet
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_e53feeb45618def04af7d6c99461e8f5 = L.circleMarker(
+                [48.83428, 2.26526],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_a697a9944c6b0d4f38ebaf334c40239d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5d75ffcd7222cec08e326ab5a170e8b6 = $(`<div id="html_5d75ffcd7222cec08e326ab5a170e8b6" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056331<br>Coordonnées du site : 48.83428,2.26526<br><img src="https://filer.eco-counter-tools.com/file/e4/700f4c7c59d558b26280ee8070161f5ecf21c0540bd14f2faab742c16ea65de4/Y2H19070377_20220802155302.jpg" width="250"><br><b>Face au 40 quai D'Issy</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 117387<br>Nb moyen de vélos / heure : 20</div>`)[0];
+                popup_a697a9944c6b0d4f38ebaf334c40239d.setContent(html_5d75ffcd7222cec08e326ab5a170e8b6);
+            
+        
+
+        circle_marker_e53feeb45618def04af7d6c99461e8f5.bindPopup(popup_a697a9944c6b0d4f38ebaf334c40239d)
+        ;
+
+        
+    
+    
+            circle_marker_e53feeb45618def04af7d6c99461e8f5.bindTooltip(
+                `<div>
+                     Face au 40 quai D'Issy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8037b7953efe0d29a22add6f2d109567 = L.circleMarker(
+                [48.89172, 2.38531],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.76118, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_27f5a1b34b9fea5dd2d6745bed1ad3af = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_25a9224d51bb82252f14e94f2bffcb00 = $(`<div id="html_25a9224d51bb82252f14e94f2bffcb00" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047542<br>Coordonnées du site : 48.89172,2.38531<br><img src="https://filer.eco-counter-tools.com/file/93/a970f47692f2519491ec29d0863c30c8c9ae89aa62f3b95c2c895b4a6b371293/15765767542810.jpg" width="250"><br><b>Face au 48 quai de la marne</b><br>Arrondissement : 19<br>Nb total de vélos en 2023 : 576118<br>Nb moyen de vélos / heure : 100</div>`)[0];
+                popup_27f5a1b34b9fea5dd2d6745bed1ad3af.setContent(html_25a9224d51bb82252f14e94f2bffcb00);
+            
+        
+
+        circle_marker_8037b7953efe0d29a22add6f2d109567.bindPopup(popup_27f5a1b34b9fea5dd2d6745bed1ad3af)
+        ;
+
+        
+    
+    
+            circle_marker_8037b7953efe0d29a22add6f2d109567.bindTooltip(
+                `<div>
+                     Face au 48 quai de la marne
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_993684be5d1b8a557902f081508b7077 = L.circleMarker(
+                [48.837055, 2.274019],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_46c299540919266f54c857231c3f77e7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_a8208ca490847ae8c5c53c37acc44fd3 = $(`<div id="html_a8208ca490847ae8c5c53c37acc44fd3" style="width: 100.0%; height: 100.0%;">Identifiant du site : 300030271<br>Coordonnées du site : 48.837055,2.274019<br><img src="https://filer.eco-counter-tools.com/file/c4/fff6c52d5c255ff6c01d6175bc7132ec7badb1806978bee5e0a40f25ee0c8cc4/Y2H22115088_20230202104509.jpg" width="250"><br><b>Face au 49 boulevard du Général Martial Valin</b><br>Arrondissement : 15<br>Nb total de vélos en 2023 : 107204<br>Nb moyen de vélos / heure : 51</div>`)[0];
+                popup_46c299540919266f54c857231c3f77e7.setContent(html_a8208ca490847ae8c5c53c37acc44fd3);
+            
+        
+
+        circle_marker_993684be5d1b8a557902f081508b7077.bindPopup(popup_46c299540919266f54c857231c3f77e7)
+        ;
+
+        
+    
+    
+            circle_marker_993684be5d1b8a557902f081508b7077.bindTooltip(
+                `<div>
+                     Face au 49 boulevard du Général Martial Valin
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8e4dd0340a508a625faa3c41070540a6 = L.circleMarker(
+                [48.829523, 2.38699],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_40e8347f3b64331cfa535010aa122f16 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_85c87a7f49558f8674548c23cdc4944f = $(`<div id="html_85c87a7f49558f8674548c23cdc4944f" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047546<br>Coordonnées du site : 48.829523,2.38699<br><img src="https://filer.eco-counter-tools.com/file/06/ee5f9adfa2dabcea92a2f211d92cc6f2b1fabb5de223f5729674ec14a9753006/Y2H17021589_20200818163138.jpg" width="250"><br><b>Face au 70 quai de Bercy</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 236739<br>Nb moyen de vélos / heure : 41</div>`)[0];
+                popup_40e8347f3b64331cfa535010aa122f16.setContent(html_85c87a7f49558f8674548c23cdc4944f);
+            
+        
+
+        circle_marker_8e4dd0340a508a625faa3c41070540a6.bindPopup(popup_40e8347f3b64331cfa535010aa122f16)
+        ;
+
+        
+    
+    
+            circle_marker_8e4dd0340a508a625faa3c41070540a6.bindTooltip(
+                `<div>
+                     Face au 70 quai de Bercy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_37b8cd08ebb45574ba6e33317292b0bc = L.circleMarker(
+                [48.830331, 2.400551],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_027ce5e9aeb008da32ef103fc4f88719 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6b87a163398312521252478719bb7330 = $(`<div id="html_6b87a163398312521252478719bb7330" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056226<br>Coordonnées du site : 48.830331,2.400551<br><img src="https://filer.eco-counter-tools.com/file/3d/f3604c6fc7bd61d3c2da6b5f0d595f990815c13ae4d9368f554c22746617fa3d/Y2H19070370_20220803133719.jpg" width="250"><br><b>Face au 8 avenue de la porte de Charenton</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 152015<br>Nb moyen de vélos / heure : 26</div>`)[0];
+                popup_027ce5e9aeb008da32ef103fc4f88719.setContent(html_6b87a163398312521252478719bb7330);
+            
+        
+
+        circle_marker_37b8cd08ebb45574ba6e33317292b0bc.bindPopup(popup_027ce5e9aeb008da32ef103fc4f88719)
+        ;
+
+        
+    
+    
+            circle_marker_37b8cd08ebb45574ba6e33317292b0bc.bindTooltip(
+                `<div>
+                     Face au 8 avenue de la porte de Charenton
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_287285eea951ca615d1ec21749aca6da = L.circleMarker(
+                [48.84223, 2.36811],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_ed10075bee994079383497106dd4c59a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c5a1058d0316242a2449a4f20fff2a89 = $(`<div id="html_c5a1058d0316242a2449a4f20fff2a89" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056329<br>Coordonnées du site : 48.84223,2.36811<br><img src="https://filer.eco-counter-tools.com/file/6a/044c51b0bcb97eee6b5b77a2b7630438423711a0715df98028c167c493a8b66a/15760806382630.jpg" width="250"><br><b>Pont Charles De Gaulle</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 275835<br>Nb moyen de vélos / heure : 47</div>`)[0];
+                popup_ed10075bee994079383497106dd4c59a.setContent(html_c5a1058d0316242a2449a4f20fff2a89);
+            
+        
+
+        circle_marker_287285eea951ca615d1ec21749aca6da.bindPopup(popup_ed10075bee994079383497106dd4c59a)
+        ;
+
+        
+    
+    
+            circle_marker_287285eea951ca615d1ec21749aca6da.bindTooltip(
+                `<div>
+                     Pont Charles De Gaulle
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_40f7bda48a2f4cc3757ee4e01ad191f6 = L.circleMarker(
+                [48.82682, 2.38465],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_24a19c3ebdebb3daad45e44cc09a83c6 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b1e9b5135d4e772e0659ebb4bbb884a8 = $(`<div id="html_b1e9b5135d4e772e0659ebb4bbb884a8" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047549<br>Coordonnées du site : 48.82682,2.38465<br><img src="https://filer.eco-counter-tools.com/file/ff/cbc86d615676757fb8eb3c5ebea4d7235d4107a8244253bcdb4a608122d044ff/Y2H18086325_20200818155113.jpg" width="250"><br><b>Pont National</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 211717<br>Nb moyen de vélos / heure : 73</div>`)[0];
+                popup_24a19c3ebdebb3daad45e44cc09a83c6.setContent(html_b1e9b5135d4e772e0659ebb4bbb884a8);
+            
+        
+
+        circle_marker_40f7bda48a2f4cc3757ee4e01ad191f6.bindPopup(popup_24a19c3ebdebb3daad45e44cc09a83c6)
+        ;
+
+        
+    
+    
+            circle_marker_40f7bda48a2f4cc3757ee4e01ad191f6.bindTooltip(
+                `<div>
+                     Pont National
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8a2255f843331eb1ad80398e9917bb65 = L.circleMarker(
+                [48.82639, 2.38448],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_9d82ded43d57fdc73a241a8fdd0361db = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_9bdb21c3fd37a5b672f593223e6e0f90 = $(`<div id="html_9bdb21c3fd37a5b672f593223e6e0f90" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047541<br>Coordonnées du site : 48.82639,2.38448<br><img src="https://filer.eco-counter-tools.com/file/2a/799b98880f593cad49159a30639b855596a7b8448fcb43d18a3eb2f84098772a/Y2H18086317_20200818152643.jpg" width="250"><br><b>Pont National</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 5619<br>Nb moyen de vélos / heure : 1</div>`)[0];
+                popup_9d82ded43d57fdc73a241a8fdd0361db.setContent(html_9bdb21c3fd37a5b672f593223e6e0f90);
+            
+        
+
+        circle_marker_8a2255f843331eb1ad80398e9917bb65.bindPopup(popup_9d82ded43d57fdc73a241a8fdd0361db)
+        ;
+
+        
+    
+    
+            circle_marker_8a2255f843331eb1ad80398e9917bb65.bindTooltip(
+                `<div>
+                     Pont National
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0d85a3a7d8c6e8bf177ed51041406076 = L.circleMarker(
+                [48.83848, 2.37587],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_9e3eddccd066c44ef5fc2591ae4c67e4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4dd8ad49895c9811180d638e38b64db7 = $(`<div id="html_4dd8ad49895c9811180d638e38b64db7" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056332<br>Coordonnées du site : 48.83848,2.37587<br><img src="https://filer.eco-counter-tools.com/file/63/45685ed853b709cbda32ad753ac88ef8cfed6c627756be9019c9564d31536363/15977636723380.jpg" width="250"><br><b>Pont de Bercy</b><br>Arrondissement : 12<br>Nb total de vélos en 2023 : 265889<br>Nb moyen de vélos / heure : 46</div>`)[0];
+                popup_9e3eddccd066c44ef5fc2591ae4c67e4.setContent(html_4dd8ad49895c9811180d638e38b64db7);
+            
+        
+
+        circle_marker_0d85a3a7d8c6e8bf177ed51041406076.bindPopup(popup_9e3eddccd066c44ef5fc2591ae4c67e4)
+        ;
+
+        
+    
+    
+            circle_marker_0d85a3a7d8c6e8bf177ed51041406076.bindTooltip(
+                `<div>
+                     Pont de Bercy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a1c5ac3d2bc88a22feb78c0a6138fdcc = L.circleMarker(
+                [48.86382, 2.32006],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_0e0742013c34020ba50976f3e958231a = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d6c42a69f6c9e5a03aec58958e1a4515 = $(`<div id="html_d6c42a69f6c9e5a03aec58958e1a4515" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056047<br>Coordonnées du site : 48.86382,2.32006<br><img src="https://filer.eco-counter-tools.com/file/cc/30eecc62b9a3b7944ac2cf0cae13cd28171a629a35b074bea4f4594faafd9bcc/Y2H19070356_20210810190805.jpg" width="250"><br><b>Pont de la Concorde</b><br>Arrondissement : 8<br>Nb total de vélos en 2023 : 299407<br>Nb moyen de vélos / heure : 103</div>`)[0];
+                popup_0e0742013c34020ba50976f3e958231a.setContent(html_d6c42a69f6c9e5a03aec58958e1a4515);
+            
+        
+
+        circle_marker_a1c5ac3d2bc88a22feb78c0a6138fdcc.bindPopup(popup_0e0742013c34020ba50976f3e958231a)
+        ;
+
+        
+    
+    
+            circle_marker_a1c5ac3d2bc88a22feb78c0a6138fdcc.bindTooltip(
+                `<div>
+                     Pont de la Concorde
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_ae83978fa85b23e2a72d80d56f5bef28 = L.circleMarker(
+                [48.86373, 2.31973],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.46498, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_bdefde0b8fac7409b37e96d4343a57d1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c004d242a06e0bfe01e29b365f976b06 = $(`<div id="html_c004d242a06e0bfe01e29b365f976b06" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056045<br>Coordonnées du site : 48.86373,2.31973<br><img src="https://filer.eco-counter-tools.com/file/f4/b7379827821d8ad805a0f4fe9322d61ee6633ac8b2a08266dd15b6c1fc263af4/Y2H19070358_20210810191348.jpg" width="250"><br><b>Pont de la Concorde</b><br>Arrondissement : 8<br>Nb total de vélos en 2023 : 346498<br>Nb moyen de vélos / heure : 120</div>`)[0];
+                popup_bdefde0b8fac7409b37e96d4343a57d1.setContent(html_c004d242a06e0bfe01e29b365f976b06);
+            
+        
+
+        circle_marker_ae83978fa85b23e2a72d80d56f5bef28.bindPopup(popup_bdefde0b8fac7409b37e96d4343a57d1)
+        ;
+
+        
+    
+    
+            circle_marker_ae83978fa85b23e2a72d80d56f5bef28.bindTooltip(
+                `<div>
+                     Pont de la Concorde
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_de8161c942a5658842b7af2778cc3275 = L.circleMarker(
+                [48.86279, 2.31055],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_aa8af3dc24f5404d4f5d7319fb4a29e6 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_99db855171d188c57cac57e13d2d2b65 = $(`<div id="html_99db855171d188c57cac57e13d2d2b65" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056046<br>Coordonnées du site : 48.86279,2.31055<br><img src="https://filer.eco-counter-tools.com/file/44/cca7d84852f7cf73ded7d248769fb9851bd5847a1f0bfe0b736ef1d1b6fb1e44/15730354761490.jpg" width="250"><br><b>Pont des Invalides</b><br>Arrondissement : 7<br>Nb total de vélos en 2023 : 135438<br>Nb moyen de vélos / heure : 47</div>`)[0];
+                popup_aa8af3dc24f5404d4f5d7319fb4a29e6.setContent(html_99db855171d188c57cac57e13d2d2b65);
+            
+        
+
+        circle_marker_de8161c942a5658842b7af2778cc3275.bindPopup(popup_aa8af3dc24f5404d4f5d7319fb4a29e6)
+        ;
+
+        
+    
+    
+            circle_marker_de8161c942a5658842b7af2778cc3275.bindTooltip(
+                `<div>
+                     Pont des Invalides
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_218fcd0337c464896cda0a1cf878c5b1 = L.circleMarker(
+                [48.86281, 2.31037],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8c67655fc22338f38ea703656825f6a8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8fc40ea178baff90b4925caf6243f48a = $(`<div id="html_8fc40ea178baff90b4925caf6243f48a" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056223<br>Coordonnées du site : 48.86281,2.31037<br><img src="https://filer.eco-counter-tools.com/file/09/3bbfdc91a8bc53cb0b3b2933a2be0ec48c2af827b3f20a8454e46bc30d6c1009/15730380158370.jpg" width="250"><br><b>Pont des Invalides</b><br>Arrondissement : 7<br>Nb total de vélos en 2023 : 69200<br>Nb moyen de vélos / heure : 24</div>`)[0];
+                popup_8c67655fc22338f38ea703656825f6a8.setContent(html_8fc40ea178baff90b4925caf6243f48a);
+            
+        
+
+        circle_marker_218fcd0337c464896cda0a1cf878c5b1.bindPopup(popup_8c67655fc22338f38ea703656825f6a8)
+        ;
+
+        
+    
+    
+            circle_marker_218fcd0337c464896cda0a1cf878c5b1.bindTooltip(
+                `<div>
+                     Pont des Invalides
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_854daa73e26c721c63a7c309b5e570d2 = L.circleMarker(
+                [48.83992, 2.26708],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_03ce82c9ef83b93ebd3f479b13e24273 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_1efcf1ee5c1f25d7480286614153247e = $(`<div id="html_1efcf1ee5c1f25d7480286614153247e" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047551<br>Coordonnées du site : 48.83992,2.26708<br><img src="https://filer.eco-counter-tools.com/file/ba/cd471966c161a6fee92ba11db56995c93a3eba3be40cfe9d0b8e9118358e58ba/Y2H18086327_20220802153508.jpg" width="250"><br><b>Pont du Garigliano</b><br>Arrondissement : 16<br>Nb total de vélos en 2023 : 149120<br>Nb moyen de vélos / heure : 51</div>`)[0];
+                popup_03ce82c9ef83b93ebd3f479b13e24273.setContent(html_1efcf1ee5c1f25d7480286614153247e);
+            
+        
+
+        circle_marker_854daa73e26c721c63a7c309b5e570d2.bindPopup(popup_03ce82c9ef83b93ebd3f479b13e24273)
+        ;
+
+        
+    
+    
+            circle_marker_854daa73e26c721c63a7c309b5e570d2.bindTooltip(
+                `<div>
+                     Pont du Garigliano
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_83a5ee97495ae11154f5eac1c9840d61 = L.circleMarker(
+                [48.83994, 2.26692],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_95cbed422a0abab6ecd6a3ce71ad039e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_7f7583ba1b52e81bab90f7fa1c8c7765 = $(`<div id="html_7f7583ba1b52e81bab90f7fa1c8c7765" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100047535<br>Coordonnées du site : 48.83994,2.26692<br><img src="https://filer.eco-counter-tools.com/file/82/d4369f0de2acc2b5c50d71eeb58cba1ac7ef9f09d7bf24be0326fd8b6688e482/Y2H18086311_20200818085845.jpg" width="250"><br><b>Pont du Garigliano</b><br>Arrondissement : 16<br>Nb total de vélos en 2023 : 188001<br>Nb moyen de vélos / heure : 65</div>`)[0];
+                popup_95cbed422a0abab6ecd6a3ce71ad039e.setContent(html_7f7583ba1b52e81bab90f7fa1c8c7765);
+            
+        
+
+        circle_marker_83a5ee97495ae11154f5eac1c9840d61.bindPopup(popup_95cbed422a0abab6ecd6a3ce71ad039e)
+        ;
+
+        
+    
+    
+            circle_marker_83a5ee97495ae11154f5eac1c9840d61.bindTooltip(
+                `<div>
+                     Pont du Garigliano
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d32daa37ef99b23ea4b754822b009c69 = L.circleMarker(
+                [48.8629, 2.3118],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.89879, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_fab5a7af4b6466c754d4e92604749dd8 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_6f1ff777019a82105bc73765fa0c38d8 = $(`<div id="html_6f1ff777019a82105bc73765fa0c38d8" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056335<br>Coordonnées du site : 48.8629,2.3118<br><img src="https://filer.eco-counter-tools.com/file/8a/a852e704555f60f6aecd54c9ad619010d90ab8521a5aa2c2c4f7f2576f3b288a/Y2H19070382_20220802120717.jpg" width="250"><br><b>Quai d'Orsay</b><br>Arrondissement : 7<br>Nb total de vélos en 2023 : 589879<br>Nb moyen de vélos / heure : 102</div>`)[0];
+                popup_fab5a7af4b6466c754d4e92604749dd8.setContent(html_6f1ff777019a82105bc73765fa0c38d8);
+            
+        
+
+        circle_marker_d32daa37ef99b23ea4b754822b009c69.bindPopup(popup_fab5a7af4b6466c754d4e92604749dd8)
+        ;
+
+        
+    
+    
+            circle_marker_d32daa37ef99b23ea4b754822b009c69.bindTooltip(
+                `<div>
+                     Quai d'Orsay
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_5aea345f25150450dbc4505eff6ce4ab = L.circleMarker(
+                [48.8635, 2.32239],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.61391, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_6c99852937808325250d56548e076475 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c3c246cc0a993a6e047247415c1cf1ae = $(`<div id="html_c3c246cc0a993a6e047247415c1cf1ae" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100056035<br>Coordonnées du site : 48.8635,2.32239<br><img src="https://filer.eco-counter-tools.com/file/ec/84a9f13955d5d770d03726963cafa37d37ba56e90690831637badffb2766ebec/Y2H19070337_20210810185344.jpg" width="250"><br><b>Quai des Tuileries</b><br>Arrondissement : 1<br>Nb total de vélos en 2023 : 461391<br>Nb moyen de vélos / heure : 80</div>`)[0];
+                popup_6c99852937808325250d56548e076475.setContent(html_c3c246cc0a993a6e047247415c1cf1ae);
+            
+        
+
+        circle_marker_5aea345f25150450dbc4505eff6ce4ab.bindPopup(popup_6c99852937808325250d56548e076475)
+        ;
+
+        
+    
+    
+            circle_marker_5aea345f25150450dbc4505eff6ce4ab.bindTooltip(
+                `<div>
+                     Quai des Tuileries
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_b8f0eea669f5cebf1a8182c8d73848dd = L.circleMarker(
+                [48.85735, 2.35211],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.57005, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_8368fef042b70bd21f35ae313b3c8675 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0fdf8176c71f55cfbde538e506ef7f29 = $(`<div id="html_0fdf8176c71f55cfbde538e506ef7f29" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100050876<br>Coordonnées du site : 48.85735,2.35211<br><img src="https://filer.eco-counter-tools.com/file/b5/0b7ff66e3691ec45884b7126743451f2bbcbf28529d2ced6a350eaee1bfe33b5/15886904766270.jpg" width="250"><br><b>Totem 64 Rue de Rivoli</b><br>Arrondissement : 4<br>Nb total de vélos en 2023 : 957005<br>Nb moyen de vélos / heure : 166</div>`)[0];
+                popup_8368fef042b70bd21f35ae313b3c8675.setContent(html_0fdf8176c71f55cfbde538e506ef7f29);
+            
+        
+
+        circle_marker_b8f0eea669f5cebf1a8182c8d73848dd.bindPopup(popup_8368fef042b70bd21f35ae313b3c8675)
+        ;
+
+        
+    
+    
+            circle_marker_b8f0eea669f5cebf1a8182c8d73848dd.bindTooltip(
+                `<div>
+                     Totem 64 Rue de Rivoli
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7e6c9af36781422ce5c0c72781e1633d = L.circleMarker(
+                [48.86377, 2.35096],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.98564, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_de3f9fb182e2dda6aa9b4d6a254e5d97 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_91b4fcf40c32e5f15894b8394e7f9b57 = $(`<div id="html_91b4fcf40c32e5f15894b8394e7f9b57" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100057445<br>Coordonnées du site : 48.86377,2.35096<br><img src="https://filer.eco-counter-tools.com/file/c5/cadc922eb739be6575dfc1e979d754064559108c9d4c0b198dd96ec80092b7c5/15809119368880.jpg" width="250"><br><b>Totem 73 boulevard de Sébastopol</b><br>Arrondissement : 2<br>Nb total de vélos en 2023 : 1498564<br>Nb moyen de vélos / heure : 260</div>`)[0];
+                popup_de3f9fb182e2dda6aa9b4d6a254e5d97.setContent(html_91b4fcf40c32e5f15894b8394e7f9b57);
+            
+        
+
+        circle_marker_7e6c9af36781422ce5c0c72781e1633d.bindPopup(popup_de3f9fb182e2dda6aa9b4d6a254e5d97)
+        ;
+
+        
+    
+    
+            circle_marker_7e6c9af36781422ce5c0c72781e1633d.bindTooltip(
+                `<div>
+                     Totem 73 boulevard de Sébastopol
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_98e78c167ec35307c996c4aed101cee2 = L.circleMarker(
+                [48.84201, 2.36729],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.35606, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_af72a0f4f1443172ee1a34c6ee98d58f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_2c0aded9dff2e94a30e27d7742b5b7b5 = $(`<div id="html_2c0aded9dff2e94a30e27d7742b5b7b5" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100057329<br>Coordonnées du site : 48.84201,2.36729<br><img src="https://filer.eco-counter-tools.com/file/12/afad0fd635a065a418aad9a455f53f21ceeb1a7b0fb409f3563e86d05807fe12/15809064759980.jpg" width="250"><br><b>Totem 85 quai d'Austerlitz</b><br>Arrondissement : 13<br>Nb total de vélos en 2023 : 535606<br>Nb moyen de vélos / heure : 93</div>`)[0];
+                popup_af72a0f4f1443172ee1a34c6ee98d58f.setContent(html_2c0aded9dff2e94a30e27d7742b5b7b5);
+            
+        
+
+        circle_marker_98e78c167ec35307c996c4aed101cee2.bindPopup(popup_af72a0f4f1443172ee1a34c6ee98d58f)
+        ;
+
+        
+    
+    
+            circle_marker_98e78c167ec35307c996c4aed101cee2.bindTooltip(
+                `<div>
+                     Totem 85 quai d'Austerlitz
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_d61d06dbe5f73dfd9d3109cc634fcb3a = L.circleMarker(
+                [48.86462, 2.31444],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.71054, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_01ac67fe05374d8b1e07ea9da915fc22 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_bb2bf54cdc43cd61c8f94b2124a5d782 = $(`<div id="html_bb2bf54cdc43cd61c8f94b2124a5d782" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100057380<br>Coordonnées du site : 48.86462,2.31444<br><img src="https://filer.eco-counter-tools.com/file/49/325a6d9cb77ac26094e805c6ff68588014831f2116ba47223c5d05be1e84ce49/15809102051320.jpg" width="250"><br><b>Totem Cours la Reine</b><br>Arrondissement : 8<br>Nb total de vélos en 2023 : 471054<br>Nb moyen de vélos / heure : 81</div>`)[0];
+                popup_01ac67fe05374d8b1e07ea9da915fc22.setContent(html_bb2bf54cdc43cd61c8f94b2124a5d782);
+            
+        
+
+        circle_marker_d61d06dbe5f73dfd9d3109cc634fcb3a.bindPopup(popup_01ac67fe05374d8b1e07ea9da915fc22)
+        ;
+
+        
+    
+    
+            circle_marker_d61d06dbe5f73dfd9d3109cc634fcb3a.bindTooltip(
+                `<div>
+                     Totem Cours la Reine
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_70966af285d1786b9b35a57a809ba92b = L.circleMarker(
+                [48.84837, 2.27596],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.33926, "stroke": true, "weight": 3}
+            ).addTo(map_90ae369366fe89b91cc01b0fb770b4ca);
+        
+    
+        var popup_16a7d3461ff1b71ec910666460081f81 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_b630768b4d0cfe276c929c9fae18a903 = $(`<div id="html_b630768b4d0cfe276c929c9fae18a903" style="width: 100.0%; height: 100.0%;">Identifiant du site : 100042374<br>Coordonnées du site : 48.84837,2.27596<br><img src="https://filer.eco-counter-tools.com/file/d3/e13e40d3b13aba5096e32a0db43cf614d3d6a285fbeb0f14f751dcc678caecd3/15172173000772.jpg" width="250"><br><b>Voie Georges Pompidou</b><br>Arrondissement : 16<br>Nb total de vélos en 2023 : 333926<br>Nb moyen de vélos / heure : 57</div>`)[0];
+                popup_16a7d3461ff1b71ec910666460081f81.setContent(html_b630768b4d0cfe276c929c9fae18a903);
+            
+        
+
+        circle_marker_70966af285d1786b9b35a57a809ba92b.bindPopup(popup_16a7d3461ff1b71ec910666460081f81)
+        ;
+
+        
+    
+    
+            circle_marker_70966af285d1786b9b35a57a809ba92b.bindTooltip(
+                `<div>
+                     Voie Georges Pompidou
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
