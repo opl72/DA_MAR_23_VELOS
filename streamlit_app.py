@@ -76,8 +76,14 @@ page = option_menu(
 if page == pages[0] : 
 	st.title("Contexte du projet")
 	st.write("---")
-	
-	
+	texte="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du 1er janvier 2020 au 30 avril 2023. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
+	#st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
+	texte="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
+	#st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
+	texte="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
+	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	
+
+
 # PAGE 2
 if page == pages[1] : 
 	#st.title("Jeux de données")
