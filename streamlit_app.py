@@ -67,7 +67,7 @@ st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exp
 
 # MENU HORIZONTAL
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
-pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
+pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives', 'Test']
 page = option_menu(
 				None, 
 				options=pages,
@@ -145,23 +145,21 @@ if page == pages[2] :
 			with cols[0] :
 				st.image("Outliers_3.png")			
 			with cols[1] :
-				st.write("A REFAIRE")
 				st.image("Outliers_1.png")
 		# ONGLET 2
 		with tabs[1] :	
-			st.write("A REFAIRE")
-			st.image("Outliers_2.png", width=500)
+			cols = st.columns([0.7,0.3], gap="medium")
+			with cols[0] :
+				st.image("Outliers_4.png")			
+			with cols[1] :
+				st.image("Outliers_2.png", width=411) # 411px : meme taille que l'image "Outliers_1.png"
+				
 			
 	if tab_bar_id == "2" :
 		st.header("Sites de comptage multimodal")		
-# 		my_grid = grid([0.438, 0.562], gap="medium")
-# 		my_grid.image("SiteDeComptage_1.png")
-# 		my_grid.image("SiteDeComptage_2.png")
-		cols = st.columns([0.438, 0.562], gap="medium")
-		with cols[0] :
-			st.image("SiteDeComptage_1.png")			
-		with cols[1] :
-			st.image("SiteDeComptage_2.png")
+		st.markdown('<p style="text-align: center;"><b>Sur les <font color="red">9</font> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <font color="red">5</font> sites arrivent à distinguer les vélos :</p>', unsafe_allow_html=True)
+		st.image("SiteDeComptage_3.png", use_column_width="auto")			
+		
 		
 	if tab_bar_id == "3" :
 		st.header("Densité du trafic en 2023")		
@@ -280,6 +278,9 @@ if page == 'Test' :
 # 	    st.slider("Filter by Weight", 0.0, 100.0, 50.0)
 # 	my_grid.dataframe(random_df, use_container_width=True)
 	
+# 		my_grid = grid([0.438, 0.562], gap="medium")
+# 		my_grid.image("SiteDeComptage_1.png")
+# 		my_grid.image("SiteDeComptage_2.png")
 
 	
 		
