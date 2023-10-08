@@ -244,10 +244,12 @@ if page == pages[4] :
 		with cols[1] :
 			if numero_mois == 1 :
 				st.image("Greves_202301.jpg") 
+			elif numero_mois == 2 :
+				st.image("Greves_202302.jpg") 
 			elif numero_mois == 3 :
 				st.image("Greves_202303.jpg") 
 			elif numero_mois == 4 :
-					st.image("Greves_202304.jpg")
+				st.image("Greves_202304.jpg")
 		
 			
 		
