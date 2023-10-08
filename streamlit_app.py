@@ -7,6 +7,7 @@
 #import numpy as np
 #from streamlit_extras.row import row
 #from streamlit_extras.grid import grid
+import time
 
 import streamlit as st
 import pandas as pd
@@ -66,7 +67,7 @@ st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exp
 
 # MENU HORIZONTAL
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
-pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
+pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives', 'Test']
 page = option_menu(
 				None, 
 				options=pages,
@@ -100,12 +101,12 @@ if page == pages[0] :
 # PAGE 2 : JDD
 if page == pages[1] : 		
 	# SLIDER HORIZONTAL
-	chosen_id = stx.tab_bar(data=[
+	tab_bar_id = stx.tab_bar(data=[
 		   stx.TabBarItemData(id=1, title="Dataset principal", description=""),
 		   stx.TabBarItemData(id=2, title="Datasets secondaires", description="")], default=1)	
 
 	# CONTENU
-	if chosen_id == "1" :
+	if tab_bar_id == "1" :
 		#st.header("Dataset principal : trafic cycliste")
 		st.header("Dataset principal : Comptages horaires de vélos")
 		
@@ -115,7 +116,7 @@ if page == pages[1] :
 		st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
 
 		
-	if chosen_id == "2" :
+	if tab_bar_id == "2" :
 		st.header("Datasets secondaires")
 		st.subheader('1. Comptage multimodal')
 		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-multimodal-comptages/information/?disjunctive.label&disjunctive.mode&disjunctive.voie&disjunctive.sens&disjunctive.trajectoire)", unsafe_allow_html=True)
@@ -130,34 +131,56 @@ if page == pages[1] :
 # PAGE 3 : Explorations
 if page == pages[2] : 	
 	# SLIDER HORIZONTAL
-	chosen_id = stx.tab_bar(data=[
+	tab_bar_id = stx.tab_bar(data=[
 			stx.TabBarItemData(id=1, title="Outliers", description=""), 
 			stx.TabBarItemData(id=2, title="Sites de comptage", description=""),
 			stx.TabBarItemData(id=3, title="Cartes", description="")], default=1)
 	
-	if chosen_id == "1" :
-		st.header("Outliers dataset principal")
-		
-	if chosen_id == "2" :
-		st.header("Sites de comptage multimodal")
-		
-	if chosen_id == "3" :
-		st.header("Densité de trafic")
-		# chargement des cartes folium en cache
-		@st.cache_data
-		def load_maps_and_cache(file_path) :
-			with open(file_path, 'r', encoding='utf-8') as f : 
-				fic_html = f.read()
-			st.components.v1.html(fic_html, height=590, width=590)
+	# CONTENU
+	if tab_bar_id == "1" :
+		tabs = st.tabs(["Dataset principal", "Dataset Multimodal"])
+		# ONGLET 1
+		with tabs[0] :		
+			cols = st.columns([0.7,0.3], gap="medium")
+			with cols[0] :
+				st.image("Outliers_3.png")			
+			with cols[1] :
+				st.write("A REFAIRE")
+				st.image("Outliers_1.png")
+		# ONGLET 2
+		with tabs[1] :	
+			st.write("A REFAIRE")
+			st.image("Outliers_2.png", width=500)
 			
-		load_maps_and_cache("carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html")
-		load_maps_and_cache("carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html")
+	if tab_bar_id == "2" :
+		st.header("Sites de comptage multimodal")		
+# 		my_grid = grid([0.438, 0.562], gap="medium")
+# 		my_grid.image("SiteDeComptage_1.png")
+# 		my_grid.image("SiteDeComptage_2.png")
+		cols = st.columns([0.438, 0.562], gap="medium")
+		with cols[0] :
+			st.image("SiteDeComptage_1.png")			
+		with cols[1] :
+			st.image("SiteDeComptage_2.png")
 		
-
+	if tab_bar_id == "3" :
+		st.header("Densité du trafic en 2023")		
+		# chargement des cartes folium
+		cols = st.columns(2)
+		with open("carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f :
+			with cols[0] :
+				st.markdown('<p style="text-align: center;"><b>Sans clustering</p>', unsafe_allow_html=True)
+				st.components.v1.html(f.read(), height=590, width=590)
+		with open("carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f : 
+			with cols[1] :
+				st.markdown('<p style="text-align: center;"><b>Avec clustering</p>', unsafe_allow_html=True)
+				st.components.v1.html(f.read(), height=590, width=590)
+		
+		
 # PAGE 4 : DataViz
 if page == pages[3] : 
 	# SLIDER HORIZONTAL
-	chosen_id = stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Data visualisations", description="")], default=1)	
+	tab_bar_id = stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Data visualisations", description="")], default=1)	
 	
 	st.write("A compléter")
 
@@ -165,20 +188,32 @@ if page == pages[3] :
 # PAGE 5 : ML
 if page == pages[4] : 	
 	# SLIDER HORIZONTAL
-	chosen_id = stx.tab_bar(data=[
+	tab_bar_id = stx.tab_bar(data=[
 		   stx.TabBarItemData(id=1, title="Séries temporelles", description=""),
 		   stx.TabBarItemData(id=2, title="Modélisations", description=""),
 		   stx.TabBarItemData(id=3, title="Prédictions", description="")], default=1)
 
-	if chosen_id == "1" :
+	# CONTENU
+	if tab_bar_id == "1" :
 		st.header("Séries temporelles")
 		st.write("A compléter")
 		
-	if chosen_id == "2" :
+	if tab_bar_id == "2" :
 		st.header("Modèles de Machine Learning")
 		st.write("A compléter")
 		
-	if chosen_id == "3" :
+		options = st.multiselect(
+			   'What are your favorite colors',
+			      ['Green', 'Yellow', 'Red', 'Blue'],
+					     ['Yellow', 'Red'])
+
+		st.write('You selected:', options)
+		
+		with st.spinner("Predict en cours ..."):
+			time.sleep(5)
+			
+		
+	if tab_bar_id == "3" :
 		st.header("Prédictions du trafic 2023")	
 	
 		liste_sites = df_group_par_j_2023.nom_compteur.unique()
@@ -199,17 +234,17 @@ if page == pages[5] :
 	st.write("A compléter")	
 	
 	
-if page == 'Tests' :
-	st.title("TESTS") 
-	st.write("---")	
+if page == 'Test' :
+	st.title("ZONE DE TESTS :)") 
+	#st.write("---")	
 	#st.info(f"{chosen_id=}")
 	
 	# Créer un slider horizontal
-	valeur_slider = st.slider('Sélectionnez une valeur', min_value=0, max_value=100, value=50, step=1)
-	st.write(f"Vous avez sélectionné : {valeur_slider}")
-	
-	mois = st.select_slider("", ['Janvier', 'Février', 'Mars', 'Avril'])
-	st.write(f"Vous avez sélectionné : {mois}")
+# 	valeur_slider = st.slider('Sélectionnez une valeur', min_value=0, max_value=100, value=50, step=1)
+# 	st.write(f"Vous avez sélectionné : {valeur_slider}")
+# 	
+# 	mois = st.select_slider("", ['Janvier', 'Février', 'Mars', 'Avril'])
+# 	st.write(f"Vous avez sélectionné : {mois}")
 	
 # 	random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 # 	row1 = row(2, vertical_align="center")
@@ -221,26 +256,55 @@ if page == 'Tests' :
 # 	row2.button("Send", use_container_width=True)
 	
 	
-	random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-	my_grid = grid(2, [2, 4, 1], 1, 4, vertical_align="bottom")
-	# Row 1:
-	my_grid.dataframe(random_df, use_container_width=True)
-	my_grid.line_chart(random_df, use_container_width=True)
-	# Row 2:
-	my_grid.selectbox("Select Country", ["Germany", "Italy", "Japan", "USA"])
-	my_grid.text_input("Your name")
-	my_grid.button("Send", use_container_width=True)
-	# Row 3:
-	my_grid.text_area("Your message", height=40)
-	# Row 4:
-	my_grid.button("Example 1", use_container_width=True)
-	my_grid.button("Example 2", use_container_width=True)
-	my_grid.button("Example 3", use_container_width=True)
-	my_grid.button("Example 4", use_container_width=True)
-	# Row 5 (uses the spec from row 1):
-	with my_grid.expander("Show Filters", expanded=True):
-	    st.slider("Filter by Age", 0, 100, 50)
-	    st.slider("Filter by Height", 0.0, 2.0, 1.0)
-	    st.slider("Filter by Weight", 0.0, 100.0, 50.0)
-	my_grid.dataframe(random_df, use_container_width=True)
+# 	random_df = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
+# 	my_grid = grid(2, [2, 4, 1], 1, 4, vertical_align="bottom")
+# 	# Row 1:
+# 	my_grid.dataframe(random_df, use_container_width=True)
+# 	my_grid.line_chart(random_df, use_container_width=True)
+# 	# Row 2:
+# 	my_grid.selectbox("Select Country", ["Germany", "Italy", "Japan", "USA"])
+# 	my_grid.text_input("Your name")
+# 	my_grid.button("Send", use_container_width=True)
+# 	# Row 3:
+# 	my_grid.text_area("Your message", height=40)
+# 	# Row 4:
+# 	my_grid.button("Example 1", use_container_width=True)
+# 	my_grid.button("Example 2", use_container_width=True)
+# 	my_grid.button("Example 3", use_container_width=True)
+# 	my_grid.button("Example 4", use_container_width=True)
+# 	# Row 5 (uses the spec from row 1):
+# 	with my_grid.expander("Show Filters", expanded=True):
+# 	    st.slider("Filter by Age", 0, 100, 50)
+# 	    st.slider("Filter by Height", 0.0, 2.0, 1.0)
+# 	    st.slider("Filter by Weight", 0.0, 100.0, 50.0)
+# 	my_grid.dataframe(random_df, use_container_width=True)
 	
+
+	
+		
+	
+# 	tab1, tab2 = st.tabs(["📈 Chart", "🗃 Data"])
+# 	data = np.random.randn(10, 1)	
+# 	tab1.subheader("A tab with a chart")
+# 	tab1.line_chart(data)	
+# 	tab2.subheader("A tab with the data")
+# 	tab2.write(data)
+# 	
+# 	
+# 	st.balloons()
+# 	st.snow()
+	
+	
+	
+# 	progress_text = "Operation in progress. Please wait."
+# 	my_bar = st.progress(0, text=progress_text)	
+# 	for percent_complete in range(100):
+# 	    time.sleep(0.01)
+# 	    my_bar.progress(percent_complete + 1, text=progress_text)
+# 	time.sleep(1)
+# 	my_bar.empty()
+# 	st.button("Rerun BAR PROGRESS")
+	
+	
+
+	    
