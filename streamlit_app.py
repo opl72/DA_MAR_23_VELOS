@@ -141,18 +141,18 @@ if page == pages[2] :
 		tabs = st.tabs(["Dataset principal", "Dataset Multimodal"])
 		# ONGLET 1
 		with tabs[0] :		
-			cols = st.columns([0.7,0.3], gap="medium")
+			cols = st.columns([0.7505, 0.2495], gap="large")
 			with cols[0] :
 				st.image("Outliers_3.png")			
 			with cols[1] :
 				st.image("Outliers_1.png")
 		# ONGLET 2
 		with tabs[1] :	
-			cols = st.columns([0.7,0.3], gap="medium")
+			cols = st.columns([0.585, 0.415], gap="large")
 			with cols[0] :
 				st.image("Outliers_4.png")			
 			with cols[1] :
-				st.image("Outliers_2.png", width=411) # 411px : meme taille que l'image "Outliers_1.png"
+				st.image("Outliers_2.png") 
 				
 			
 	if tab_bar_id == "2" :
