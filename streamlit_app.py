@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 
+
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
 				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
@@ -49,20 +50,31 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 	ax.yaxis.set_label_coords(-0.05, 0.5)
 	plt.title(f"Trafic cycliste parisien sur le mois de {mois} 2023\nSite de comptage : {site} ");
 	plt.grid(True)
-	plt.legend()
-	st.pyplot(fig)
+	plt.legend()	
+	return fig
+	#st.pyplot(fig)
 
 
-# BARRE LATERALE
-image = "logoDS.png"
-st.sidebar.markdown("Formation continue<br>Data Analyst<br>Promotion Mars 2023", unsafe_allow_html=True)	
-st.sidebar.image(image, width=150)
-st.sidebar.markdown("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>", unsafe_allow_html=True)	
-st.sidebar.markdown("<b>Auteurs :</b><br>[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albet-322593143)<br>Olivier PELLETEY", unsafe_allow_html=True)
+# GESTION DE LA SIDEBAR
+# permet de figer la taille de la sidebar
+st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
+           min-width: 180px;   
+           max-width: 180px;}""", unsafe_allow_html=True)   
+
+# contenu de la sidebar
+img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
+st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
+#  il faudrait essayer de charger avec l'image en local
+#st.sidebar.markdown(f"""<a href="https://datascientest.com/"><img src="logoDS.png" width="150px" alt="DataScientest"></a>""", unsafe_allow_html=True)
+st.sidebar.divider()
+st.sidebar.markdown('Formation continue<br>[Data Analyst](https://datascientest.com/formation-data-analyst)<br>Promotion Mars 2023', unsafe_allow_html=True)
+st.sidebar.divider()
+st.sidebar.subheader("Auteurs :")
+st.sidebar.markdown("[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albet-322593143)<br>[Olivier PELLETEY](https://fr.linkedin.com/)", unsafe_allow_html=True)
 
 
-# TITRE
-st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
+# TITRE : décalé vers le haut (margin-top:-80px;)
+st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold; margin-top:-80px; margin-bottom:30px">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
 
 # MENU HORIZONTAL
@@ -75,10 +87,10 @@ page = option_menu(
 				default_index=0, 						
 				orientation="horizontal",
 				styles={
-				   "container": {"padding": "0!important", "background-color": "#0e1117"},##
-				   "icon": {"color": "white", "font-size": "17px"}, 
-				   "nav-link": {"font-size": "17px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},#
-				   "nav-link-selected": {"font-size": "16px", "background-color": "#FF0000"} #
+				   "container": {"padding": "0!important", "background-color": "#0e1117", "margin-left":"10px"},
+				   "icon": {"color": "white", "font-size": "18px"}, 
+				   "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "#c1c0c0"},
+				   "nav-link-selected": {"font-size": "16px", "background-color": "#FF0000"} 
 				      })
 
 
@@ -90,7 +102,7 @@ if page == pages[0] :
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Contexte du projet", description="")], default=1)
 	
 	# CONTENU
-	texte1="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du 1er janvier 2020 au 30 avril 2023. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
+	texte1="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <b>1er janvier 2020</b> au <b>30 avril 2023</b>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
 	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
 	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
 		
@@ -158,7 +170,7 @@ if page == pages[2] :
 	if tab_bar_id == "2" :
 		st.header("Sites de comptage multimodal")		
 		st.markdown('<p style="text-align: center;"><b>Sur les <font color="red">9</font> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <font color="red">5</font> sites arrivent à distinguer les vélos :</p>', unsafe_allow_html=True)
-		st.image("SiteDeComptage_3.png", use_column_width="auto")			
+		st.image("SiteDeComptage_3.png", use_column_width="auto")
 		
 		
 	if tab_bar_id == "3" :
@@ -216,14 +228,51 @@ if page == pages[4] :
 		st.header("Prédictions du trafic 2023")	
 	
 		liste_sites = df_group_par_j_2023.nom_compteur.unique()
-		site = st.selectbox('Sélectionnez un site de comptage :', liste_sites)
+		site = st.selectbox('Sélectionnez un site de comptage :', liste_sites, index=5)
 		
 		liste_mois = ['Janvier', 'Février', 'Mars', 'Avril']
 		#liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
-		mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois)	
+		mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois, index=2)
 		numero_mois = liste_mois.index(mois.capitalize()) + 1
 		
-		plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
+		st.markdown("<br>", unsafe_allow_html=True)
+		fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
+		
+		cols = st.columns([150, 50], gap="small")
+		with cols[0] :
+			st.pyplot(fig, clear_figure=True, use_container_width=True)		
+		with cols[1] :
+			if numero_mois == 1 :
+				st.image("Greves_202301.jpg") 
+			elif numero_mois == 3 :
+				st.image("Greves_202303.jpg") 
+			elif numero_mois == 4 :
+					st.image("Greves_202304.jpg")
+		
+			
+		
+# 		if st.button("Run") :		
+# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
+# 		
+
+				
+# 		if 'clicked' not in st.session_state:
+# 			   st.session_state.clicked = False
+
+# 		def click_button():
+# 		    st.session_state.clicked = True
+# 		
+# 		if st.button('Run', on_click=click_button):
+# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
+# 			if numero_mois == 1 :
+# 				st.image("Greves_202301.jpg") 
+# 			elif numero_mois == 3 :
+# 				st.image("Greves_202303.jpg") 
+# 			elif numero_mois == 4 :
+# 					st.image("Greves_202304.jpg")
+# 					
+		#if st.session_state.clicked:
+		    
 	
 	
 # PAGE 6 : Perspectives
@@ -306,6 +355,26 @@ if page == 'Test' :
 # 	time.sleep(1)
 # 	my_bar.empty()
 # 	st.button("Rerun BAR PROGRESS")
+
+
+# placeholder = st.empty()
+# # Replace the placeholder with some text:
+# placeholder.text("Hello")
+# # Replace the text with a chart:
+# placeholder.line_chart({"data": [1, 5, 2, 6]})
+# # Replace the chart with several elements:
+# with placeholder.container():
+#     st.write("This is one element")
+#     st.write("This is another")
+# # Clear all those elements:
+# placeholder.empty()
+
+
+# with st.container():
+#    st.write("This is inside the container")
+#    # You can call any Streamlit command, including custom components:
+#    st.bar_chart(np.random.randn(50, 3))
+# st.write("This is outside the container")
 	
 	
 
