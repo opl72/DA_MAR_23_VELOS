@@ -166,13 +166,14 @@ if page == pages[2] :
 	if tab_bar_id == "3" :
 		st.header("Densité du trafic en 2023")		
 		# chargement des cartes folium
-		cols = st.columns(2)
+		cols = st.columns([2, 0.5, 2], gap="large") # on créé 3 colonnes pour gérer le centrage des titres
 		with open("carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f :
 			with cols[0] :
 				st.markdown('<p style="text-align: center;"><b>Sans clustering</p>', unsafe_allow_html=True)
-				st.components.v1.html(f.read(), height=590, width=590)
+				st.components.v1.html(f.read(), height=590, width=590)		
+		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
 		with open("carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f : 
-			with cols[1] :
+			with cols[2] :
 				st.markdown('<p style="text-align: center;"><b>Avec clustering</p>', unsafe_allow_html=True)
 				st.components.v1.html(f.read(), height=590, width=590)
 		
