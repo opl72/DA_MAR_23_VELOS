@@ -67,7 +67,7 @@ st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold;">Exp
 
 # MENU HORIZONTAL
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
-pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives', 'Test']
+pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
 page = option_menu(
 				None, 
 				options=pages,
