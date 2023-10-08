@@ -133,8 +133,8 @@ if page == pages[2] :
 	# SLIDER HORIZONTAL
 	tab_bar_id = stx.tab_bar(data=[
 			stx.TabBarItemData(id=1, title="Outliers", description=""), 
-			stx.TabBarItemData(id=2, title="Sites de comptage", description=""),
-			stx.TabBarItemData(id=3, title="Cartes", description="")], default=1)
+			stx.TabBarItemData(id=2, title="Sites Multimodal", description=""),
+			stx.TabBarItemData(id=3, title="Cartes du trafic", description="")], default=1)
 	
 	# CONTENU
 	if tab_bar_id == "1" :
