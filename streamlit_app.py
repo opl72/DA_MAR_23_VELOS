@@ -15,13 +15,16 @@ import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 
+path_image_3 = "im/im_3/"
+path_image_4 = "im/im_4/"
+path_image_5 = "im/im_5/"
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
 				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
 				   initial_sidebar_state = "collapsed", # apparence de la barre latérale
 				   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
-
+#st.markdown('<meta name="viewport" content="width=device-width, initial-scale=1.0">', unsafe_allow_html=True)
 
 # MISE EN CACHE DES RESSOURCES UTILES
 @st.cache_data
@@ -48,12 +51,12 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 	plt.ylabel('Nb de vélos par jour') 
 	# déplacement du titre de l'axe Y vers la gauche
 	ax.yaxis.set_label_coords(-0.05, 0.5)
-	plt.title(f"Trafic cycliste parisien sur le mois de {mois} 2023\nSite de comptage : {site} ");
+	plt.title(f"Trafic cycliste parisien sur le mois de {mois} 2023\nSite de comptage : {nom_compteur} ");
 	plt.grid(True)
 	plt.legend()	
 	return fig
-	#st.pyplot(fig)
-
+# chargement et mise en cahe des prédictions de mars 2023, pour le site 132 rue Lecourbe NE-SO
+fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, "Mars", 3, "132 rue Lecourbe NE-SO")
 
 # GESTION DE LA SIDEBAR
 # permet de figer la taille de la sidebar
@@ -65,7 +68,7 @@ st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
 #  il faudrait essayer de charger avec l'image en local
-#st.sidebar.markdown(f"""<a href="https://datascientest.com/"><img src="logoDS.png" width="150px" alt="DataScientest"></a>""", unsafe_allow_html=True)
+#st.sidebar.markdown(f"""<a href="https://datascientest.com/"><img src="logoDS.jpg" width="150px" alt="DataScientest"></a>""", unsafe_allow_html=True)
 st.sidebar.divider()
 st.sidebar.markdown('Formation continue<br>[Data Analyst](https://datascientest.com/formation-data-analyst)<br>Promotion Mars 2023', unsafe_allow_html=True)
 st.sidebar.divider()
@@ -73,13 +76,13 @@ st.sidebar.subheader("Auteurs :")
 st.sidebar.markdown("[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albet-322593143)<br>[Olivier PELLETEY](https://fr.linkedin.com/)", unsafe_allow_html=True)
 
 
-# TITRE : décalé vers le haut (margin-top:-80px;)
+# TITRE : volontairement décalé vers le haut de la page (margin-top:-80px;)
 st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold; margin-top:-80px; margin-bottom:30px">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
 
 # MENU HORIZONTAL
 icons = ['bicycle', 'database', 'binoculars', 'bar-chart-line', 'cpu', 'question-diamond']
-pages = ['Contexte', 'Jeux de données', 'Explorations', 'DataViz', 'Machine Learning', 'Perspectives']
+pages = ['Contexte', 'Jeux de données', 'Analyses', 'Data Viz', 'Machine Learning', 'Perspectives']
 page = option_menu(
 				None, 
 				options=pages,
@@ -89,8 +92,8 @@ page = option_menu(
 				styles={
 				   "container": {"padding": "0!important", "background-color": "#0e1117", "margin-left":"10px"},
 				   "icon": {"color": "white", "font-size": "18px"}, 
-				   "nav-link": {"font-size": "18px", "text-align": "left", "margin":"0px", "--hover-color": "#c1c0c0"},
-				   "nav-link-selected": {"font-size": "16px", "background-color": "#FF0000"} 
+				   "nav-link": {"font-size": "18px", "font-family":"Arial, sans-serif", "text-align": "center", "margin":"0px", "--hover-color": "#c1c0c0"},
+				   "nav-link-selected": {"font-size": "16px", "font-family":"Arial, sans-serif", "background-color": "#FF0000"} 
 				      })
 
 
@@ -106,7 +109,7 @@ if page == pages[0] :
 	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
 	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
 		
-	texte = texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
+	texte = "<br>" + texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
 	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	 
 	
 	
@@ -117,83 +120,150 @@ if page == pages[1] :
 		   stx.TabBarItemData(id=1, title="Dataset principal", description=""),
 		   stx.TabBarItemData(id=2, title="Datasets secondaires", description="")], default=1)	
 
-	# CONTENU
+	# ONGLET 1 : Dataset principal
 	if tab_bar_id == "1" :
-		#st.header("Dataset principal : trafic cycliste")
-		st.header("Dataset principal : Comptages horaires de vélos")
+		st.markdown('<p style="text-align:left; font-size:18px;font-family:Arial;"><b>Dataset principal : Comptages horaires des vélos</p>', unsafe_allow_html=True)
 		
-		st.subheader('Source')
-		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/)", unsafe_allow_html=True)    	
-		st.markdown('<p style="text-align: justify;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
-		st.markdown('<p style="text-align: justify;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>', unsafe_allow_html=True)
+		#st.subheader('Source')
+		st.markdown("""<p style="text-align:left; padding-left:15px;">Le jeu de données provient du site : <a href="https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/" target="_blank">opendata.paris.fr</a></p>""", unsafe_allow_html=True) 	
+		st.markdown('<p style="text-align: justify;padding-left:15px;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
+		st.markdown("""<p style="text-align: left;padding-left:15px;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>""", unsafe_allow_html=True)
 
-		
+	# ONGLET 2 : Datasets secondaires
 	if tab_bar_id == "2" :
-		st.header("Datasets secondaires")
-		st.subheader('1. Comptage multimodal')
-		st.markdown("Le jeu de données provient du site : [opendata.paris.fr](https://opendata.paris.fr/explore/dataset/comptage-multimodal-comptages/information/?disjunctive.label&disjunctive.mode&disjunctive.voie&disjunctive.sens&disjunctive.trajectoire)", unsafe_allow_html=True)
-	
-		st.subheader('2. Accidents corporels de la circulation')
-		st.markdown("Le jeu de données provient du site : [data.gouv.fr](https://www.data.gouv.fr/fr/datasets/base-de-donnees-des-accidents-corporels-de-la-circulation/)", unsafe_allow_html=True)
+		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Datasets secondaires</p>', unsafe_allow_html=True)
+		st.markdown('<p style="text-align:left; font-size:16px; font-family:Arial; padding-left:15px;"><b>1. Comptage multimodal</p>', unsafe_allow_html=True)
+		st.markdown("""<p style="text-align:left; padding-left: 30px;">Le jeu de données provient du site : <a href="https://opendata.paris.fr/explore/dataset/comptage-multimodal-comptages/information/?disjunctive.label&disjunctive.mode&disjunctive.voie&disjunctive.sens&disjunctive.trajectoire" target="_blank">opendata.paris.fr</a></p>""", unsafe_allow_html=True)	
+		st.markdown('<p style="text-align:left; font-size:16px; font-family:Arial; padding-left:15px;"><br><b>2. Accidents corporels de la circulation en 2021</p>', unsafe_allow_html=True)
+		st.markdown("""<p style="text-align:left; padding-left: 30px;">Le jeu de données provient du site : <a href="https://www.data.gouv.fr/fr/datasets/base-de-donnees-des-accidents-corporels-de-la-circulation/" target="_blank">data.gouv.fr</a></p>""", unsafe_allow_html=True)
+		st.markdown('<p style="text-align:left; font-size:16px; font-family:Arial; padding-left:15px;"><br><b>3. Historique Météo de Paris</p>', unsafe_allow_html=True)
+		st.markdown("""<p style="text-align: left; padding-left: 30px;">Le jeu de données provient du site : <a href="https://www.historique-meteo.net/france/ile-de-france/paris/" target="_blank">historique-meteo.net</a></p>""", unsafe_allow_html=True)
+				
 		
-		st.subheader('3. Historique Météo de Paris')
-		st.markdown("Le jeu de données provient du site : [historique-meteo.net](https://www.historique-meteo.net/france/ile-de-france/paris/)", unsafe_allow_html=True)
-		
-		
-# PAGE 3 : Explorations
+# PAGE 3 : Analyses
 if page == pages[2] : 	
 	# SLIDER HORIZONTAL
 	tab_bar_id = stx.tab_bar(data=[
 			stx.TabBarItemData(id=1, title="Outliers", description=""), 
-			stx.TabBarItemData(id=2, title="Sites Multimodal", description=""),
+			stx.TabBarItemData(id=2, title="Sites multimodaux", description=""),
 			stx.TabBarItemData(id=3, title="Cartes du trafic", description="")], default=1)
 	
-	# CONTENU
+	# ONGLET 1 : OUTLIERS
 	if tab_bar_id == "1" :
-		tabs = st.tabs(["Dataset principal", "Dataset Multimodal"])
-		# ONGLET 1
+		tabs = st.tabs(["Dataset principal", "Dataset multimodal"])
+		
+		# TAB 1 : Dataset principal
 		with tabs[0] :		
-			cols = st.columns([0.7505, 0.2495], gap="large")
+			cols = st.columns([200, 100], gap="small")
 			with cols[0] :
-				st.image("Outliers_3.png")			
+				st.image(path_image_3+"Outliers_3.png", use_column_width=True)	
+				st.write('<style>img {vertical-align: bottom;}</style>', unsafe_allow_html=True)
 			with cols[1] :
-				st.image("Outliers_1.png")
-		# ONGLET 2
-		with tabs[1] :	
-			cols = st.columns([0.585, 0.415], gap="large")
-			with cols[0] :
-				st.image("Outliers_4.png")			
-			with cols[1] :
-				st.image("Outliers_2.png") 
+				st.image(path_image_3+"Outliers_1.png", use_column_width=True)
+				st.write('<style>img {vertical-align: bottom;}</style>', unsafe_allow_html=True)
+						
+		# TAB 2 : Dataset Multimodal
+		with tabs[1] :				
+			cols = st.columns([175, 100], gap="small")
+			with cols[0] : st.image(path_image_3+"Outliers_4.jpg", use_column_width=True)	
+			with cols[1] : st.image(path_image_3+"Outliers_2.png", use_column_width=True)
 				
-			
+	# ONGLET 2 : SITES MULTIMODAUX		
 	if tab_bar_id == "2" :
-		st.header("Sites de comptage multimodal")		
-		st.markdown('<p style="text-align: center;"><b>Sur les <font color="red">9</font> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <font color="red">5</font> sites arrivent à distinguer les vélos :</p>', unsafe_allow_html=True)
-		st.image("SiteDeComptage_3.png", use_column_width="auto")
+		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Sites de comptages multimodaux</p>', unsafe_allow_html=True)
+		cols = st.columns([125, 1150, 125], gap="small")
+		with cols[1] : 
+			st.image(path_image_3+"SiteDeComptage_3.png", use_column_width=True)
+			st.markdown('<p style="text-align:center;">Sur les <font color="red">9</font> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <b><font color="red">5</font></b> sites arrivent à distinguer les vélos</p>', unsafe_allow_html=True)
 		
-		
+	# ONGLET 3 : CARTES DU TRAFIC
 	if tab_bar_id == "3" :
-		st.header("Densité du trafic en 2023")		
+		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic à vélo en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
-		cols = st.columns([2, 0.5, 2], gap="large") # on créé 3 colonnes pour gérer le centrage des titres
-		with open("carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f :
-			with cols[0] :
-				st.markdown('<p style="text-align: center;"><b>Sans clustering</p>', unsafe_allow_html=True)
-				st.components.v1.html(f.read(), height=590, width=590)		
-		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
-		with open("carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f : 
-			with cols[2] :
-				st.markdown('<p style="text-align: center;"><b>Avec clustering</p>', unsafe_allow_html=True)
-				st.components.v1.html(f.read(), height=590, width=590)
+		cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
+		with cols[0] :
+			st.markdown('<p style="text-align: left;"><b><font color="red">Sans</font></b> clustering :</p>', unsafe_allow_html=True)
+			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
+				st.components.v1.html(f1.read(), width=580, height=530)		
 		
+		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
+				
+		with cols[2] :			
+			st.markdown('<p style="text-align: left;"><b><font color="red">Avec</font></b> clustering :</p>', unsafe_allow_html=True)
+			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
+				st.components.v1.html(f2.read(), width=580, height=530)
+
 		
 # PAGE 4 : DataViz
 if page == pages[3] : 
 	# SLIDER HORIZONTAL
-	tab_bar_id = stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Data visualisations", description="")], default=1)	
+	tab_bar_id = stx.tab_bar(data=[
+		stx.TabBarItemData(id=1, title="Trafic cumulé à vélo", description=""),
+		stx.TabBarItemData(id=2, title="Trafic vélos vs. trottinettes", description=""),
+		stx.TabBarItemData(id=3, title="Evolution des accidents en 2021", description=""),
+		stx.TabBarItemData(id=4, title="Cartes des accidents", description="")
+		], default=1)	
 	
-	st.write("A compléter")
+	# ONGLET 1 : Trafic cumulé à vélo	
+	if tab_bar_id == "1" :
+		cols = st.columns([325, 845, 325], gap="small")
+		with cols[1] :
+			st.image(path_image_4+"GrapheCumuléVélos.png") 
+		
+	# ONGLET 2 : Trafic vélos vs. trottinettes
+	if tab_bar_id == "2" :
+		tabs = st.tabs(["Semaine", "Week-end"])
+		# TAB 1 : SEMAINE
+		with tabs[0] :	
+			#st.markdown('<p style="text-align: left;"><b>Semaine :</p>', unsafe_allow_html=True)
+			st.image(path_image_4+"TraficVéloParHeureSemaine.png", width=1300)
+			st.image(path_image_4+"TraficTrotParHeureSemaine.png", width=1300)			
+		# TAB 2 : WE
+		with tabs[1] :	
+			cols = st.columns([495, 505], gap="medium") 
+			with cols[0] : st.image(path_image_4+"TraficVéloParHeureWE.png")
+			with cols[1] : st.image(path_image_4+"TraficTrotParHeureWE.png")
+		
+	# ONGLET 3 : Evolution des accidents en 2021
+	if tab_bar_id == "3" :				
+		tabs = st.tabs(["Par mois", "Par heure"])
+		# TAB 1 : MENSUEL
+		with tabs[0] :
+			cols = st.columns(2, gap="small")
+			with cols[0] : 
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste mensuel :</p>', unsafe_allow_html=True)
+				st.image(path_image_4+"TraficVélo2021_2.png", use_column_width=True)	
+			with cols[1] : 
+				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par mois :</p>', unsafe_allow_html=True)
+				st.image(path_image_4+"AccVélos2021_2.png", use_column_width=True)				
+		# TAB 2 : HORAIRE
+		with tabs[1] :
+			cols = st.columns(2, gap="small")
+			with cols[0] : 
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste horaire :</p>', unsafe_allow_html=True)
+				st.image(path_image_4+"TraficVéloParHeureSemaineWE.png", use_column_width=True)	
+			with cols[1] : 
+				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par heure :</p>', unsafe_allow_html=True)
+				st.image(path_image_4+"TraficVéloAccParHeureSemaineWE.png", use_column_width=True)
+						
+	# ONGLET 4 : Carte des accidents
+	if tab_bar_id == "4" :	
+		cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
+		with cols[0] :
+			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
+			with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
+				st.components.v1.html(f1.read(), height=570, width=690)	
+		with cols[2] :
+			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
+			with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
+				st.components.v1.html(f2.read(), height=570, width=690)	
+		
+		st.divider()
+		cols = st.columns(1, gap="small") 
+		with cols[0] :
+			st.markdown('<p style="text-align: left;"><b>Comptage des vélos par site en 2023</p>', unsafe_allow_html=True)
+			with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
+				st.components.v1.html(f3.read(), height=590, width=590)
 
 
 # PAGE 5 : ML
@@ -204,11 +274,12 @@ if page == pages[4] :
 		   stx.TabBarItemData(id=2, title="Modélisations", description=""),
 		   stx.TabBarItemData(id=3, title="Prédictions", description="")], default=1)
 
-	# CONTENU
+	# ONGLET 1 : Séries temporelles
 	if tab_bar_id == "1" :
 		st.header("Séries temporelles")
 		st.write("A compléter")
 		
+	# ONGLET 2 : Modélisations
 	if tab_bar_id == "2" :
 		st.header("Modèles de Machine Learning")
 		st.write("A compléter")
@@ -223,10 +294,10 @@ if page == pages[4] :
 		with st.spinner("Predict en cours ..."):
 			time.sleep(5)
 			
-		
+	# ONGLET 3 : Prédictions
 	if tab_bar_id == "3" :
-		st.header("Prédictions du trafic 2023")	
-	
+		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Prédictions du trafic 2023</p>', unsafe_allow_html=True)
+		
 		liste_sites = df_group_par_j_2023.nom_compteur.unique()
 		site = st.selectbox('Sélectionnez un site de comptage :', liste_sites, index=5)
 		
@@ -235,35 +306,29 @@ if page == pages[4] :
 		mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois, index=2)
 		numero_mois = liste_mois.index(mois.capitalize()) + 1
 		
-		st.markdown("<br>", unsafe_allow_html=True)
+		#st.markdown("<br>", unsafe_allow_html=True)
 		fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
 		
 		cols = st.columns([150, 50], gap="small")
 		with cols[0] :
-			st.pyplot(fig, clear_figure=True, use_container_width=True)		
+			st.pyplot(fig, clear_figure=False, use_container_width=True)		
 		with cols[1] :
 			if numero_mois == 1 :
-				st.image("Greves_202301.jpg") 
+				st.image(path_image_5+"Greves_202301.jpg") 
 			elif numero_mois == 2 :
-				st.image("Greves_202302.jpg") 
+				st.image(path_image_5+"Greves_202302.jpg") 
 			elif numero_mois == 3 :
-				st.image("Greves_202303.jpg") 
+				st.image(path_image_5+"Greves_202303.jpg") 
 			elif numero_mois == 4 :
-				st.image("Greves_202304.jpg")
-		
-			
+				st.image(path_image_5+"Greves_202304.jpg")
+					
 		
 # 		if st.button("Run") :		
 # 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
-# 		
-
-				
 # 		if 'clicked' not in st.session_state:
 # 			   st.session_state.clicked = False
-
 # 		def click_button():
 # 		    st.session_state.clicked = True
-# 		
 # 		if st.button('Run', on_click=click_button):
 # 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
 # 			if numero_mois == 1 :
@@ -272,8 +337,7 @@ if page == pages[4] :
 # 				st.image("Greves_202303.jpg") 
 # 			elif numero_mois == 4 :
 # 					st.image("Greves_202304.jpg")
-# 					
-		#if st.session_state.clicked:
+# 		if st.session_state.clicked:
 		    
 	
 	
