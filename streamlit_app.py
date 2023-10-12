@@ -105,7 +105,7 @@ if page == pages[0] :
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Contexte du projet", description="")], default=1)
 	
 	# CONTENU
-	texte1="La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <b>1er janvier 2020</b> au <b>30 avril 2023</b>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."
+	texte1="""La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <font color="red">1er janvier 2020</font> au <font color="red">30 avril 2023</font>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."""
 	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
 	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
 		
@@ -198,13 +198,13 @@ if page == pages[2] :
 if page == pages[3] : 
 	# SLIDER HORIZONTAL
 	tab_bar_id = stx.tab_bar(data=[
-		stx.TabBarItemData(id=1, title="Trafic cumulé à vélo", description=""),
+		stx.TabBarItemData(id=1, title="Trafic cycliste cumulé", description=""),
 		stx.TabBarItemData(id=2, title="Trafic vélos vs. trottinettes", description=""),
 		stx.TabBarItemData(id=3, title="Evolution des accidents en 2021", description=""),
 		stx.TabBarItemData(id=4, title="Cartes des accidents", description="")
 		], default=1)	
 	
-	# ONGLET 1 : Trafic cumulé à vélo	
+	# ONGLET 1 : Trafic cycliste cumulé	
 	if tab_bar_id == "1" :
 		cols = st.columns([325, 845, 325], gap="small")
 		with cols[1] :
