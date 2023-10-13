@@ -16,11 +16,11 @@ from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 import pickle
 
+
 path_image_3 = "im/im_3/"
 path_image_4 = "im/im_4/"
 path_image_5 = "im/im_5/"
 path_pickle = "pickle/"
-cpt = 0
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
@@ -311,11 +311,11 @@ if page == pages[4] :
  							column_config={"Annee":st.column_config.NumberColumn("Annee",format="%d")}
 						)
 			
-		on = st.toggle('Sélection du modèle RFR')	
+		on = st.toggle('Sélection du modèle LR')	
 		if on :
-			with st.spinner("Chargement RFR en cours ...") :
-				model_RFR = pickle.load(open(path_pickle + "model_RFR", 'rb'))
-				st.success('Chargement terminé !', icon="✅")
+			with st.spinner("Chargement LR en cours ...") :
+				model_LR = pickle.load(open(path_pickle + "model_LR", 'rb'))
+				st.success('Chargement LR terminé !', icon="✅")
 
 		
 		
