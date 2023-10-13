@@ -3,4 +3,4 @@ pandas
 matplotlib
 streamlit-option-menu
 extra-streamlit-components
-sklearn
+scikit-learn
