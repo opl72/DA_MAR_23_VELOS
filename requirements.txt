@@ -3,3 +3,4 @@ pandas
 matplotlib
 streamlit-option-menu
 extra-streamlit-components
+pickle
