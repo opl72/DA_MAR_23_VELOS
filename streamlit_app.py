@@ -14,10 +14,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
+import pickle
 
 path_image_3 = "im/im_3/"
 path_image_4 = "im/im_4/"
 path_image_5 = "im/im_5/"
+path_pickle = "pickle/"
+cpt = 0
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
@@ -28,12 +31,24 @@ st.set_page_config(layout="wide", # affichage par défaut en mode wide
 
 # MISE EN CACHE DES RESSOURCES UTILES
 @st.cache_data
-def load_and_cache(file_path):
-	df = pd.read_csv(file_path)
-	return df
+def load_and_cache(file_path) :
+	return pd.read_csv(file_path)
 # chargement et mise en cahe des fichiers utiles à la prédictions du trafic
-df_group_par_j_2023 = load_and_cache('df_group_par_jour_2023.csv')
-df_predict_2023 = load_and_cache('df_pred_2023.csv')
+#df_group_par_j_2023 = load_and_cache('df_group_par_jour_2023.csv')
+#df_predict_2023 = load_and_cache('df_pred_2023.csv')
+
+@st.cache_data
+def load_pickle_and_cache(file_path) :
+	return pickle.load(open(path_pickle + file_path, 'rb'))
+# chargement et mise en cahe des fichiers utiles à la prédictions du trafic
+df_group_par_j_2023 = load_pickle_and_cache('df_group_par_jour_2023')
+df_predict_2023 = load_pickle_and_cache('df_pred_2023')
+# chargement et mise en cahe des fichiers utiles au ML
+X_2020_2022_ohe = load_pickle_and_cache("X_2020_2022_ohe")
+y_2020_2022 = load_pickle_and_cache("y_2020_2022")
+X_2023_ohe = load_pickle_and_cache("X_2023_ohe")
+y_2023 = load_pickle_and_cache("y_2023")
+
 
 @st.cache_data
 def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
@@ -59,11 +74,11 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, "Mars", 3, "132 rue Lecourbe NE-SO")
 
 # GESTION DE LA SIDEBAR
-# permet de figer la taille de la sidebar
+# permet de figer la taille de la sidebar	
 st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
            min-width: 180px;   
-           max-width: 180px;}""", unsafe_allow_html=True)   
-
+           max-width: 180px;}""", unsafe_allow_html=True)  
+	
 # contenu de la sidebar
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
@@ -253,6 +268,7 @@ if page == pages[3] :
 			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
 			with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
 				st.components.v1.html(f1.read(), height=570, width=690)	
+				st.image(path_image_4+"colormap.jpg", width=690)
 		with cols[2] :
 			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
 			with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
@@ -282,8 +298,30 @@ if page == pages[4] :
 	# ONGLET 2 : Modélisations
 	if tab_bar_id == "2" :
 		st.header("Modèles de Machine Learning")
-		st.write("A compléter")
+		st.write("afficher le dataset avec les variables explicatives supplémentaires")
 		
+		on = st.toggle('Afficher le dataset source')
+		if on :
+			st.dataframe(df_group_par_j_2023, 
+ 							width=None, 
+ 							height=275, 
+ 							use_container_width=True, 
+ 							hide_index=None, 
+ 							column_order=None, 
+ 							column_config={"Annee":st.column_config.NumberColumn("Annee",format="%d")}
+						)
+			
+		on = st.toggle('Sélection du modèle RFR')	
+		if on :
+			with st.spinner("Chargement RFR en cours ...") :
+				model_RFR = pickle.load(open(path_pickle + "model_RFR", 'rb'))
+				st.success('Chargement terminé !', icon="✅")
+
+		
+		
+ 		
+
+
 		options = st.multiselect(
 			   'What are your favorite colors',
 			      ['Green', 'Yellow', 'Red', 'Blue'],
@@ -291,8 +329,8 @@ if page == pages[4] :
 
 		st.write('You selected:', options)
 		
-		with st.spinner("Predict en cours ..."):
-			time.sleep(5)
+# 		with st.spinner("Predict en cours ..."):
+# 			time.sleep(2)
 			
 	# ONGLET 3 : Prédictions
 	if tab_bar_id == "3" :
@@ -311,7 +349,7 @@ if page == pages[4] :
 		
 		cols = st.columns([150, 50], gap="small")
 		with cols[0] :
-			st.pyplot(fig, clear_figure=False, use_container_width=True)		
+			st.pyplot(fig, clear_figure=True, use_container_width=True)		
 		with cols[1] :
 			if numero_mois == 1 :
 				st.image(path_image_5+"Greves_202301.jpg") 
@@ -441,6 +479,16 @@ if page == 'Test' :
 #    # You can call any Streamlit command, including custom components:
 #    st.bar_chart(np.random.randn(50, 3))
 # st.write("This is outside the container")
+
+
+# 		progress_text = "Operation in progress. Please wait."
+# 		my_bar = st.progress(0, text=progress_text)		
+# 		for percent_complete in range(100):
+# 		    time.sleep(0.01)
+# 		    my_bar.progress(percent_complete + 1, text=progress_text)
+# 		time.sleep(1)
+# 		my_bar.empty()		
+# 		st.button("Rerun")
 	
 	
 
