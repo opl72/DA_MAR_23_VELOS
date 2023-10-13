@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
 import pickle
+import joblib
 
 
 path_image_3 = "im/im_3/"
@@ -314,27 +315,27 @@ if page == pages[4] :
 		on = st.toggle('Sélection du modèle LR')	
 		if on :
 			with st.spinner("Chargement LR en cours ...") :
-				model_LR = pickle.load(open(path_pickle + "model_LR", 'rb'))
+				model_LR = joblib.load(open(path_pickle + "model_LR", 'rb'))
 				st.success('Chargement LR terminé !', icon="✅")
 
 		
 		on = st.toggle('Sélection du modèle DTR')	
 		if on :
 			with st.spinner("Chargement DTR en cours ...") :
-				model_DTR = pickle.load(open(path_pickle + "model_DTR", 'rb'))
+				model_DTR = joblib.load(open(path_pickle + "model_DTR", 'rb'))
 				st.success('Chargement DTR terminé !', icon="✅")
 				
 				
 		on = st.toggle('Sélection du modèle GBR')	
 		if on :
 			with st.spinner("Chargement GBR en cours ...") :
-				model_GBR = pickle.load(open(path_pickle + "model_GBR", 'rb'))
+				model_GBR = joblib.load(open(path_pickle + "model_GBR", 'rb'))
 				st.success('Chargement GBR terminé !', icon="✅")
 				
 		on = st.toggle('Sélection du modèle RFR')	
 		if on :
 			with st.spinner("Chargement RFR en cours ...") :
-				model_RFR = pickle.load(open(path_pickle + "model_RFR", 'rb'))
+				model_RFR = joblib.load(open(path_pickle + "model_RFR", 'rb'))
 				st.success('Chargement RFR terminé !', icon="✅")
  		
 
