@@ -7,49 +7,84 @@
 #import numpy as np
 #from streamlit_extras.row import row
 #from streamlit_extras.grid import grid
-import time
+#import time
+#from sklearn.metrics import mean_squared_error
+#from sklearn.metrics import r2_score
+
 
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from streamlit_option_menu import option_menu
 import extra_streamlit_components as stx
-import pickle
 import joblib
 
 
+# CHEMINS : DES IMAGES 
+#			DES DATASETS CHARGÉS VIA JOBLIB 
+path_image_2 = "im/im_2/"
 path_image_3 = "im/im_3/"
 path_image_4 = "im/im_4/"
 path_image_5 = "im/im_5/"
-path_pickle = "pickle/"
+path_joblib  = "joblib/"
+path_csv 	 = "csv/"
+text_color   = "#f63366"
+
 
 # CONFIG DE L'APPARENCE DE L'APPLI
 st.set_page_config(layout="wide", # affichage par défaut en mode wide
 				   page_title="Trafic cycliste parisien", # titre de l'appli dans la barre du navigateur
 				   initial_sidebar_state = "collapsed", # apparence de la barre latérale
 				   page_icon=":bike:") # icone de l'appli dans la barre du navigateur
-#st.markdown('<meta name="viewport" content="width=device-width, initial-scale=1.0">', unsafe_allow_html=True)
+
 
 # MISE EN CACHE DES RESSOURCES UTILES
 @st.cache_data
-def load_and_cache(file_path) :
-	return pd.read_csv(file_path)
+def load_joblib_and_cache(file_path) :
+	try :
+		path = path_csv + file_path + ".csv"		
+		return pd.read_csv(path)
+	except Exception as e :
+		st.write("/!\ Exception dans la fonction load_joblib_and_cache : ", e)
+		st.write("Chargement de ",file_path)
+		return joblib.load(open(path_joblib + file_path, 'rb'))
+	
 # chargement et mise en cahe des fichiers utiles à la prédictions du trafic
-#df_group_par_j_2023 = load_and_cache('df_group_par_jour_2023.csv')
-#df_predict_2023 = load_and_cache('df_pred_2023.csv')
-
-@st.cache_data
-def load_pickle_and_cache(file_path) :
-	return pickle.load(open(path_pickle + file_path, 'rb'))
-# chargement et mise en cahe des fichiers utiles à la prédictions du trafic
-df_group_par_j_2023 = load_pickle_and_cache('df_group_par_jour_2023')
-df_predict_2023 = load_pickle_and_cache('df_pred_2023')
+df_group_par_j_2023 = load_joblib_and_cache('df_group_par_jour_2023')
+df_predict_2023 = load_joblib_and_cache('df_pred_2023')
 # chargement et mise en cahe des fichiers utiles au ML
-X_2020_2022_ohe = load_pickle_and_cache("X_2020_2022_ohe")
-y_2020_2022 = load_pickle_and_cache("y_2020_2022")
-X_2023_ohe = load_pickle_and_cache("X_2023_ohe")
-y_2023 = load_pickle_and_cache("y_2023")
+# X_2020_2022_ohe = load_joblib_and_cache("X_2020_2022_ohe")
+# y_2020_2022 = load_joblib_and_cache("y_2020_2022")
+# X_2023_ohe = load_joblib_and_cache("X_2023_ohe")
+# y_2023 = load_joblib_and_cache("y_2023")
 
+
+# @st.cache_data
+# def load_and_predict(path) :	
+# 	try :
+# 	 	model = joblib.load(open(path, 'rb'))
+# 	 	# Prédit les valeurs sur l'ensemble de train / test
+# 	 	y_train_pred = model.predict(X_2020_2022_ohe)
+# 	 	y_test_pred = model.predict(X_2023_ohe)
+# 	 	# Calcul de l'erreur quadratique moyenne (RMSE)
+# 	 	rmse_train = mean_squared_error(y_2020_2022, y_train_pred, squared=False) 
+# 	 	rmse_test = mean_squared_error(y_2023, y_test_pred, squared=False)
+# 	 	#st.write(rmse_train, rmse_test)
+# 	 	# Calcul du coefficient de détermination R²
+# 	 	r2_train = r2_score(y_2020_2022, y_train_pred) 
+# 	 	r2_test = r2_score(y_2023, y_test_pred) 
+# 	 	#st.write(r2_train, r2_test)
+# 	 	return rmse_train, rmse_test, r2_train, r2_test
+# 	except Exception as e :
+# 		st.write("/!\ Exception dans la fonction load_and_predict : ",e)
+# 		st.write("Chargement de ",path, " impossible")
+# 		return None 
+# # chargement et mise en cahe des résultats du ML
+# load_and_predict(path_joblib + "model_LR")
+# load_and_predict(path_joblib + "model_DTR")
+# load_and_predict(path_joblib + "model_GBR")
+# load_and_predict(path_joblib + "model_RFR")
+		
 
 @st.cache_data
 def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
@@ -74,13 +109,13 @@ def plot_site_2023(df_src, df_pred, mois, numero_mois, nom_compteur) :
 # chargement et mise en cahe des prédictions de mars 2023, pour le site 132 rue Lecourbe NE-SO
 fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, "Mars", 3, "132 rue Lecourbe NE-SO")
 
+
 # GESTION DE LA SIDEBAR
 # permet de figer la taille de la sidebar	
 st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
            min-width: 180px;   
            max-width: 180px;}""", unsafe_allow_html=True)  
-	
-# contenu de la sidebar
+	# contenu de la sidebar
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
 #  il faudrait essayer de charger avec l'image en local
@@ -109,7 +144,7 @@ page = option_menu(
 				   "container": {"padding": "0!important", "background-color": "#0e1117", "margin-left":"10px"},
 				   "icon": {"color": "white", "font-size": "18px"}, 
 				   "nav-link": {"font-size": "18px", "font-family":"Arial, sans-serif", "text-align": "center", "margin":"0px", "--hover-color": "#c1c0c0"},
-				   "nav-link-selected": {"font-size": "16px", "font-family":"Arial, sans-serif", "background-color": "#FF0000"} 
+				   "nav-link-selected": {"font-size": "16px", "font-family":"Arial, sans-serif", "background-color": "#f63366"} #FF0000
 				      })
 
 
@@ -120,13 +155,14 @@ if page == pages[0] :
 	# SLIDER HORIZONTAL
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Contexte du projet", description="")], default=1)
 	
-	# CONTENU
-	texte1="""La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <font color="red">1er janvier 2020</font> au <font color="red">30 avril 2023</font>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."""
-	texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
-	texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
-		
-	texte = "<br>" + texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
-	st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)	 
+	# CONTENU 
+	st.markdown("""
+				 <p style="text-align: justify;">
+				 <br>La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <span style="color: #f63366;">1er janvier 2020</span> au <span style="color: #f63366;">30 avril 2023</span>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique.
+				<br><br>De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique.
+				<br><br>Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville.
+				 </p>
+				 """, unsafe_allow_html=True)	 
 	
 	
 # PAGE 2 : JDD
@@ -140,11 +176,14 @@ if page == pages[1] :
 	if tab_bar_id == "1" :
 		st.markdown('<p style="text-align:left; font-size:18px;font-family:Arial;"><b>Dataset principal : Comptages horaires des vélos</p>', unsafe_allow_html=True)
 		
-		#st.subheader('Source')
 		st.markdown("""<p style="text-align:left; padding-left:15px;">Le jeu de données provient du site : <a href="https://opendata.paris.fr/explore/dataset/comptage-velo-donnees-compteurs/" target="_blank">opendata.paris.fr</a></p>""", unsafe_allow_html=True) 	
-		st.markdown('<p style="text-align: justify;padding-left:15px;"><br>La Ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
+		st.markdown('<p style="text-align: justify;padding-left:15px;">La ville de Paris déploie depuis plusieurs années des compteurs vélo permanents  (site ou point de comptage) pour évaluer le développement de la pratique cycliste. Les compteurs sont situés sur des pistes cyclables et dans certains couloirs bus ouverts aux vélos. Les autres véhicules (ex : trottinettes…) ne sont pas comptés.</p>', unsafe_allow_html=True)	
 		st.markdown("""<p style="text-align: left;padding-left:15px;"><u>Remarque :</u><br> Le nombre de compteurs évolue au fur et à mesure des aménagements cyclables. Certains compteurs peuvent être désactivés pour travaux ou subir ponctuellement une panne.</p>""", unsafe_allow_html=True)
-
+		
+		cols = st.columns([100, 50], gap="large")
+		with cols[0] :
+			st.image(path_image_2 + "PbTechniqueSiteComptagesParis.jpg", use_column_width=True)
+		
 	# ONGLET 2 : Datasets secondaires
 	if tab_bar_id == "2" :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Datasets secondaires</p>', unsafe_allow_html=True)
@@ -190,22 +229,22 @@ if page == pages[2] :
 		cols = st.columns([125, 1150, 125], gap="small")
 		with cols[1] : 
 			st.image(path_image_3+"SiteDeComptage_3.png", use_column_width=True)
-			st.markdown('<p style="text-align:center;">Sur les <font color="red">9</font> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <b><font color="red">5</font></b> sites arrivent à distinguer les vélos</p>', unsafe_allow_html=True)
+			st.markdown('<p style="text-align:center;">Sur les <span style="color: #f63366;">9</span> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <b><span style="color: #f63366;">5</span></b> sites arrivent à distinguer les vélos</p>', unsafe_allow_html=True)
 		
 	# ONGLET 3 : CARTES DU TRAFIC
 	if tab_bar_id == "3" :
-		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic à vélo en 2023</p>', unsafe_allow_html=True)
+		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
 		cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b><font color="red">Sans</font></b> clustering :</p>', unsafe_allow_html=True)
+			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
 			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
 				st.components.v1.html(f1.read(), width=580, height=530)		
 		
 		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
 				
 		with cols[2] :			
-			st.markdown('<p style="text-align: left;"><b><font color="red">Avec</font></b> clustering :</p>', unsafe_allow_html=True)
+			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
 			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
 				st.components.v1.html(f2.read(), width=580, height=530)
 
@@ -231,9 +270,10 @@ if page == pages[3] :
 		tabs = st.tabs(["Semaine", "Week-end"])
 		# TAB 1 : SEMAINE
 		with tabs[0] :	
-			#st.markdown('<p style="text-align: left;"><b>Semaine :</p>', unsafe_allow_html=True)
-			st.image(path_image_4+"TraficVéloParHeureSemaine.png", width=1300)
-			st.image(path_image_4+"TraficTrotParHeureSemaine.png", width=1300)			
+			cols = st.columns([95, 5], gap="small") 
+			with cols[0] : st.image(path_image_4+"TraficVéloParHeureSemaine.png")			
+			cols = st.columns([95, 5], gap="small") 
+			with cols[0] : st.image(path_image_4+"TraficTrotParHeureSemaine.png")
 		# TAB 2 : WE
 		with tabs[1] :	
 			cols = st.columns([495, 505], gap="medium") 
@@ -247,19 +287,19 @@ if page == pages[3] :
 		with tabs[0] :
 			cols = st.columns(2, gap="small")
 			with cols[0] : 
-				st.markdown('<p style="text-align: left;"><b>Trafic cycliste mensuel :</p>', unsafe_allow_html=True)
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste mensuel</p>', unsafe_allow_html=True)
 				st.image(path_image_4+"TraficVélo2021_2.png", use_column_width=True)	
 			with cols[1] : 
-				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par mois :</p>', unsafe_allow_html=True)
+				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par mois</p>', unsafe_allow_html=True)
 				st.image(path_image_4+"AccVélos2021_2.png", use_column_width=True)				
 		# TAB 2 : HORAIRE
 		with tabs[1] :
 			cols = st.columns(2, gap="small")
 			with cols[0] : 
-				st.markdown('<p style="text-align: left;"><b>Trafic cycliste horaire :</p>', unsafe_allow_html=True)
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste horaire</p>', unsafe_allow_html=True)
 				st.image(path_image_4+"TraficVéloParHeureSemaineWE.png", use_column_width=True)	
 			with cols[1] : 
-				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par heure :</p>', unsafe_allow_html=True)
+				st.markdown('<p style="text-align: left;"><b>Nombre de vélos impliqués dans des accidents corporels, par heure</p>', unsafe_allow_html=True)
 				st.image(path_image_4+"TraficVéloAccParHeureSemaineWE.png", use_column_width=True)
 						
 	# ONGLET 4 : Carte des accidents
@@ -269,7 +309,7 @@ if page == pages[3] :
 			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
 			with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
 				st.components.v1.html(f1.read(), height=570, width=690)	
-				st.image(path_image_4+"colormap.jpg", width=690)
+				st.image(path_image_4+"colormap.jpg", use_column_width=True)
 		with cols[2] :
 			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
 			with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
@@ -278,7 +318,7 @@ if page == pages[3] :
 		st.divider()
 		cols = st.columns(1, gap="small") 
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b>Comptage des vélos par site en 2023</p>', unsafe_allow_html=True)
+			st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
 			with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
 				st.components.v1.html(f3.read(), height=590, width=590)
 
@@ -293,78 +333,137 @@ if page == pages[4] :
 
 	# ONGLET 1 : Séries temporelles
 	if tab_bar_id == "1" :
-		st.header("Séries temporelles")
-		st.write("A compléter")
-		
+		tabs = st.tabs(["Analyses", "Prédictions"])
+		# TAB 1 : Décomposition
+		with tabs[0] :
+			st.markdown('<p style="text-align: left;font-size:18px; font-family:Arial;"><b>Décomposition saisonnière avec modèle multiplicatif</p>', unsafe_allow_html=True)
+			cols = st.columns(3, gap="small")
+			with cols[0] :
+				st.markdown('<p style="text-align: left;">Par mois, du 01/01/2020 au 30/04/2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"TimeSeriesParMois.png", use_column_width=True)
+			with cols[1] :
+				st.markdown('<p style="text-align: left;">Par semaine, du 01/01/2020 au 30/04/2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"TimeSeriesParSem2020-2023.png", use_column_width=True)
+			with cols[2] :
+				st.markdown('<p style="text-align: left;">Par semaine, du 01/01/<span style="color: #f63366;">2021</span> au 30/04/2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"TimeSeriesParSem2021-2023.png", use_column_width=True)
+		# TAB 2 : Prédictions	
+		with tabs[1] :
+			st.markdown('<span style="font-size:18px;font-family:Arial;"><b>Modèle </span>$$\it SARIMA(𝑝,d,𝑞)(𝑃,D,𝑄)_{k=12}$$', unsafe_allow_html=True)
+						
+			cols = st.columns(3, gap="small")
+			with cols[0] :
+				st.markdown('<p style="text-align: left;">Evolutions sur des données mensuelles de 2020 à 2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"SarimaParMois.png", use_column_width=True)
+			with cols[1] :
+				st.markdown('<p style="text-align: left;">Evolutions sur des données hebdomadaires de 2020 à 2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"SarimaParSem2020-2023.png", use_column_width=True)
+			with cols[2] :
+				st.markdown('<p style="text-align: left;">Evolutions sur des données hebdomadaires de <span style="color: #f63366;">2021</span> à 2023</p>', unsafe_allow_html=True)
+				st.image(path_image_5+"SarimaParSem2021-2023.png", use_column_width=True)
+	
 	# ONGLET 2 : Modélisations
 	if tab_bar_id == "2" :
-		st.header("Modèles de Machine Learning")
-		st.write("afficher le dataset avec les variables explicatives supplémentaires")
+		st.markdown("""<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Modélisations réalisées avec les paramètres suivants :</p>""", unsafe_allow_html=True)					  
+		st.markdown("""
+					  <ul style="list-style-type:disclosure-closed;padding-left:30px;margin-bottom:-10px;">
+						  <li>Ajout de nouvelles variables explicatives (vacances, météo, jours fériés, confinement)</li>
+						  <li>Compteurs (nom_compteur) communs entre 2020 et 2023</li>
+						  <li>Aggrégation des comptages de chaque site par jour</li>
+						  <li>Jeu d'entraînement sur un historique de 3 ans (2020 à 2022)
+						  <li>Jeu de test sur 4 mois (01/01 au 30/04/2023)</li>
+					  </ul>
+				  """, unsafe_allow_html=True)		
+		st.divider()
 		
-		on = st.toggle('Afficher le dataset source')
-		if on :
-			st.dataframe(df_group_par_j_2023, 
- 							width=None, 
- 							height=275, 
- 							use_container_width=True, 
- 							hide_index=None, 
- 							column_order=None, 
- 							column_config={"Annee":st.column_config.NumberColumn("Annee",format="%d")}
-						)
-			
-		on = st.toggle('Sélection du modèle LR')	
-		if on :
-			with st.spinner("Chargement LR en cours ...") :
-				model_LR = joblib.load(open(path_pickle + "model_LR", 'rb'))
-				st.success('Chargement LR terminé !', icon="✅")
-
+		cols = st.columns([3,45,3, 50], gap="medium")
+		with cols[0] : on_1 = st.toggle(label="collapsed", key="toggle_1", value=True, label_visibility="collapsed")
+		with cols[1] : st.markdown('<span style="color:#f63366; text-align:left; font-size:16px; margin-bottom:5px">Dataset source</span>', unsafe_allow_html=True)		
+		with cols[2] : on_2 = st.toggle(label="collapsed", key="toggle_2", value=True, label_visibility="collapsed")
+		with cols[3] : st.markdown('<span style="color:#f63366; text-align:left; font-size:16px; margin-bottom:5px">Mesures de performance</span>', unsafe_allow_html=True)
 		
-		on = st.toggle('Sélection du modèle DTR')	
-		if on :
-			with st.spinner("Chargement DTR en cours ...") :
-				model_DTR = joblib.load(open(path_pickle + "model_DTR", 'rb'))
-				st.success('Chargement DTR terminé !', icon="✅")
+		cols = st.columns([48, 53], gap="medium")
+		with cols[0] :
+			if on_1 : st.dataframe(df_group_par_j_2023, 
+	 							width=None, 
+	 							height=275, 
+	 							use_container_width=False, 
+	 							hide_index=True, 
+	 							column_order=None, 
+	 							column_config={"Annee":st.column_config.NumberColumn("Année",format="%d"),
+										   "":st.column_config.NumberColumn("",format="%d"),# modif du format d'affichage de la colonne 'index' du df
+										   "Jour":st.column_config.NumberColumn("Jr"),
+										   "jour_semaine_numero":st.column_config.NumberColumn("no_jr"),
+										   "jour_we":st.column_config.NumberColumn("jr_we") })
+			with cols[1] :
+				if on_2 :
+						data = {
+						    'Modèle': ['Linear Regression', 'Decision Tree Regressor', 'Gradient Boosting Regressor', 'Random Forest Regressor'],
+						    'RMSE train': [628, 253, 698, 117],
+							'RMSE test': [616, 670, 818, 607],
+						    'R² train': [0.76, 0.96, 0.71, 0.99],
+							'R² test': [0.79, 0.76, 0.64, 0.80],
+							'Perf': [False, False, False, True]
+							#'Perf':['   ++', '   ++', '   +', '   +++']
+							}
+						st.dataframe(data, use_container_width=True, 
+										 column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
+														   "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
+														   "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False) })
 				
-				
-		on = st.toggle('Sélection du modèle GBR')	
-		if on :
-			with st.spinner("Chargement GBR en cours ...") :
-				model_GBR = joblib.load(open(path_pickle + "model_GBR", 'rb'))
-				st.success('Chargement GBR terminé !', icon="✅")
-				
-		on = st.toggle('Sélection du modèle RFR')	
-		if on :
-			with st.spinner("Chargement RFR en cours ...") :
-				model_RFR = joblib.load(open(path_pickle + "model_RFR", 'rb'))
-				st.success('Chargement RFR terminé !', icon="✅")
- 		
-
-
-		options = st.multiselect(
-			   'What are your favorite colors',
-			      ['Green', 'Yellow', 'Red', 'Blue'],
-					     ['Yellow', 'Red'])
-
-		st.write('You selected:', options)
+# 		cols = st.columns(2, gap="medium")
+# 		with cols[0] :
+# 			on = st.toggle(":red[Dataset source]", True) # en Latex : "$$\color{#f63366}Dataset\enspace source$$"
+# 			if on :							
+# 				st.dataframe(df_group_par_j_2023, 
+# 	 							width=None, 
+# 	 							height=275, 
+# 	 							use_container_width=True, 
+# 	 							hide_index=True, 
+# 	 							column_order=None, 
+# 	 							column_config={"Annee":st.column_config.NumberColumn("Année",format="%d"),
+# 											   #"":st.column_config.NumberColumn("",format="%d")# modif du format d'affichage de la colonne 'index' du df
+# 											   })
+# 		with cols[1] :
+# 			on = st.toggle(":red[Performances]", True)
+# 			if on :
+# 				data = {
+# 				    'Modèle': ['Linear Regression', 'Decision Tree Regressor', 'Gradient Boosting Regressor', 'Random Forest Regressor'],
+# 				    'RMSE train': [628, 253, 698, 117],
+# 					'RMSE test': [616, 670, 818, 607],
+# 				    'R² train': [0.76, 0.96, 0.71, 0.99],
+# 					'R² test': [0.79, 0.76, 0.64, 0.80],
+# 					'Perf': [False, False, False, True]
+# 					#'Perf':['   ++', '   ++', '   +', '   +++']
+# 					}
+# 				st.dataframe(data, use_container_width=True, 
+# 								 column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
+# 												   "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
+# 												   "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False)
+# 												   					
+# 								})
 		
-# 		with st.spinner("Predict en cours ..."):
-# 			time.sleep(2)
-			
 	# ONGLET 3 : Prédictions
 	if tab_bar_id == "3" :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Prédictions du trafic 2023</p>', unsafe_allow_html=True)
-		
-		liste_sites = df_group_par_j_2023.nom_compteur.unique()
-		site = st.selectbox('Sélectionnez un site de comptage :', liste_sites, index=5)
-		
-		liste_mois = ['Janvier', 'Février', 'Mars', 'Avril']
-		#liste_mois_cap = [calendar.month_name[mois].capitalize() for mois in liste_mois]
-		mois = st.selectbox('Sélectionnez le mois à prédir :', liste_mois, index=2)
-		numero_mois = liste_mois.index(mois.capitalize()) + 1
-		
-		#st.markdown("<br>", unsafe_allow_html=True)
-		fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
-		
+		cols = st.columns([150, 50], gap="small")
+		with cols[0] :
+			# traitement de la liste des sites
+			def site_format(option):
+				return f"site : {option}"
+			liste_sites = df_group_par_j_2023.nom_compteur.unique()
+			st.markdown('<div style="color:#f63366; text-align:left; font-size:14px; margin-bottom:5px">Sélectionnez un site de comptage :</div>', unsafe_allow_html=True)
+			site = st.selectbox(label="je masque le label", label_visibility="collapsed", format_func=site_format, options=liste_sites, index=5)
+			# traitement de la liste des mois
+			def mois_format(option):
+				return f"{option} 2023"
+			liste_mois = ['Janvier', 'Février', 'Mars', 'Avril']
+			st.markdown('<div style="color:#f63366; text-align:left; font-size:14px; margin-bottom:5px">Sélectionnez le mois à prédir :</div>', unsafe_allow_html=True)
+			mois = st.selectbox(label="je masque le label", label_visibility="collapsed", format_func=mois_format, options=liste_mois, index=2)  
+			numero_mois = liste_mois.index(mois.capitalize()) + 1			
+			# init du graphique
+			fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
+		# affichage du graphique
 		cols = st.columns([150, 50], gap="small")
 		with cols[0] :
 			st.pyplot(fig, clear_figure=True, use_container_width=True)		
@@ -379,37 +478,90 @@ if page == pages[4] :
 				st.image(path_image_5+"Greves_202304.jpg")
 					
 		
-# 		if st.button("Run") :		
-# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
-# 		if 'clicked' not in st.session_state:
-# 			   st.session_state.clicked = False
-# 		def click_button():
-# 		    st.session_state.clicked = True
-# 		if st.button('Run', on_click=click_button):
-# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
-# 			if numero_mois == 1 :
-# 				st.image("Greves_202301.jpg") 
-# 			elif numero_mois == 3 :
-# 				st.image("Greves_202303.jpg") 
-# 			elif numero_mois == 4 :
-# 					st.image("Greves_202304.jpg")
-# 		if st.session_state.clicked:
-		    
-	
-	
 # PAGE 6 : Perspectives
 if page == pages[5] :
 	# SLIDER HORIZONTAL
-	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="Perspectives", description="")], default=1)	
-	st.write("A compléter")	
+	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="", description="")], default=0)	# on affiche juste la barre rouge sans item
 	
+# 	st.markdown("""
+# 				  <ul style="list-style-type:disclosure-closed;padding-left:30px;margin-bottom:-10px;">
+# 					  <li>ajout de nouvelles variables explicatives (vacances, météo, jours fériés, confinement)</li>
+# 					  <li>compteurs (nom_compteur) communs entre 2020 et 2023</li>
+# 					  <li>aggrégation des comptages de chaque site par jour</li>
+# 					  <li>jeu d'entraînement sur un historique de 3 ans (2020 à 2022)
+# 					  <li>jeu de test sur 4 mois (01/01 au 30/04/2023)</li>
+# 				  </ul>
+# 			  """, unsafe_allow_html=True)	
+			  
+	"- Le projet a nécessité beaucoup de rigueur."
+	"- enseignements: exploration qui nous a pris beaucoup de temps et d’énergie surtout face à des datasets dont la qualité pourrait être améliorée notamment dès la collecte des données et leur mise à disposition ( continuité dans les nommâmes des sites de comptage, meilleur répartition des compteurs, descriptif des méta données …)."
+	"- La pratique nous permettra sans doute d’être à l’avenir. Il faudra toutefois rester vigilant sur le fait qu’il convient de garder un oeil neuf et sans a priori sur les données (cas outliers)."
+	"- Le gain en efficacité vient sans doute du fait que nous saurons plus vite changer notre fusil d’épaule face aux problématiques rencontrées."
+	"- Nous avons été ambitieux en introduisant de nouvelles thématiques dans notre projet et n’avons pas pu rendre un travail aussi parfait que nous l’aurions souhaité mais fait le choix de nous laisser guider par les données et d’accepter l’imperfection."
+	"- Nous n’avons qu’une envie, explorer de nouveaux datasets pour progresser encore."
 	
+	st.divider()
+	
+	"""Pour conclure ces différents travaux d’analyses et de visualisations de données, il nous semble pertinent
+d’évoquer les contraintes rencontrées durant le projet . Nous ferons d’abord un focus sur la qualité des
+données du dataset principal puis aborderons les difficultés rencontrées lors des travaux relatifs au
+Machine Learning."""
+
+	"""Tout d’abord, les différentes analyses réalisées nous ont permis de constater différentes difficultés relatives
+	à la qualité des données du Dataset « Comptage vélos-Compteurs » impactant ainsi leur pertinence.
+	Concernant les jeux de données, nous avons déploré l’absence de description des métadonnées et la
+	présence dans les datasets de variables différentes selon les années."""
+	
+	"""Concernant les sites de comptage, nous avons relevé un défaut de permanence dans le temps de leurs
+	caractéristiques avec des changements de dénomination, de coordonnées géographiques…
+	Afin de disposer de comptage vélos horaires représentatifs du trafic sur l’ensemble de son territoire, il
+	serait pertinent que la Ville de Paris installe des sites de comptage dans chacun des arrondissements en
+	veillant à équilibrer le nombre de compteurs par arrondissement."""
+	
+	"""Un travail plus approfondi sur la sélection des sites de comptage pour alimenter nos modèles de ML aurait
+	été nécessaire. En effet, nous avons vu que la granularité des données avait un impact direct sur les
+	résultats obtenus (agrégation par jour), aussi bien en termes de performance qu'en terme de temps de
+	traitement, voire de puissance de calculs."""
+	
+	"""Nous sommes persuadés que prendre en compte les compteurs ayant enregistré le même nombre de
+	relevés sur une période de 3 ans et 4 mois (période utilisée pour notre jeu d'entrainement et de test) aurait
+	permis d'avoir des résultats plus concluant lors de nos tests avec les time series.
+	Les prédictions obtenues à l’issue de nos travaux ne sont pas à la hauteur de nos espérances. En cause,
+	une année 2020 très particulière en raison du confinement du 1er trimestre, au même titre que les
+	épisodes de grèves rencontrées sur le 1er trimestre 2023.
+	Il serait donc tout à fait légitime de se demander s’il n’aurait pas été préférable de retirer ces données de
+	notre modèle d’apprentissage ? La réponse est simplement « Non » !
+	Le modèle a besoin de se nourrir d’une certaine quantité (masse) de données pour pouvoir améliorer son
+	apprentissage, et ses prédictions, afin d’être plus performant."""
+	
+	"""Tout porte à croire que la récupération d’un historique plus important sur l’année 2023 (de mai à octobre
+	par exemple) nous aurait permis d'améliorer la performance de nos modèles.
+	Nous aurions également aimé avoir le temps de travailler sur une autre utilisation des variables
+	temporelles sur nos différents modèles de ML. Par exemple, voir l'effet d'un découpage des variables à
+	l’aide de la méthode des moyennes roulantes."""
+	
+	"""L'utilisation de nouvelles variables explicatives, comme les jours de grève, aurait pu être une nouvelle piste
+	intéressante à explorer en ce qui concerne le travail de modélisation.
+	Les suites à donner à ce projet, dans le but principal de pouvoir aider au mieux la mairie de Paris dans
+	d’éventuelles améliorations à apporter sur les différents endroits cyclables de la ville, serait sans aucun
+	doute de poursuivre nos travaux de modélisation. Dans l’intérêt principal de pouvoir améliorer les
+	prédictions du trafic.
+	En effet, le développement de projets avec une stratégie data driven devient de plus en plus important
+	avec un impact direct sur la prise de décisions opérationnelles et budgétaires."""
+	
+	"""Nous tenions à terminer ce rapport en mentionnant notre satisfaction à avoir pu mettre en application, tout
+	au long de ce projet, toutes les connaissances acquises durant notre cursus de formation. Cela a rendu
+	encore plus enrichissant et captivant notre approche de la Data Analyse au cours de ces 8 derniers mois."""
+
+
+
+
 if page == 'Test' :
-	st.title("ZONE DE TESTS :)") 
-	#st.write("---")	
-	#st.info(f"{chosen_id=}")
-	
-	# Créer un slider horizontal
+# 	st.title("ZONE DE TESTS :)") 
+# 	st.write("---")	
+# 	st.info(f"{chosen_id=}")
+# 	
+# 	Créer un slider horizontal
 # 	valeur_slider = st.slider('Sélectionnez une valeur', min_value=0, max_value=100, value=50, step=1)
 # 	st.write(f"Vous avez sélectionné : {valeur_slider}")
 # 	
@@ -507,7 +659,91 @@ if page == 'Test' :
 # 		time.sleep(1)
 # 		my_bar.empty()		
 # 		st.button("Rerun")
-	
-	
 
-	    
+
+# 		options = st.multiselect(
+# 			   'What are your favorite colors',
+# 			      ['Green', 'Yellow', 'Red', 'Blue'],
+# 					     ['Yellow', 'Red'])
+# 		st.write('You selected:', options)
+
+		
+# 		with st.spinner("Predict en cours ..."):
+# 			time.sleep(2)   
+
+
+# 		st.divider()
+# 		
+# 		on = st.toggle('Mesures du modèle LR')	
+# 		if on :
+# 			with st.spinner("Chargement LR en cours ...") :
+# 				rmse_train, rmse_test, r2_train, r2_test = load_and_predict(path_joblib + "model_LR")
+# 				
+# 				col1, col2, col3 = st.columns([30, 30, 40])
+# 				with col2 :	
+# 					st.write("Train")
+# 					st.write("RMSE :", rmse_train)
+# 					st.write("R² :", r2_train)
+# 				with col3 :	
+# 					st.write("Test")
+# 					st.write("RMSE :", rmse_test)
+# 					st.write("R² :", r2_test)
+# 				#st.write("RMSE (train / test) :", rmse_train, "/", rmse_test)
+# 				#st.write("R² (train / test) :", r2_train, r2_test)
+# 			#st.success('Chargement LR terminé !', icon="✅")
+
+# 		on = st.toggle('Mesures du modèle DTR')	
+# 		if on :
+# 			with st.spinner("Chargement DTR en cours ...") :
+# 				rmse_train, rmse_test, r2_train, r2_test = load_and_predict(path_joblib + "model_DTR")
+# 				st.write("RMSE :", rmse_train, rmse_test)
+# 				st.write("R² :", r2_train, r2_test)
+# 			#st.success('Chargement DTR terminé !', icon="✅")
+# 				
+# 		on = st.toggle('Mesures du modèle GBR')	
+# 		if on :
+# 			with st.spinner("Chargement GBR en cours ...") :
+# 				rmse_train, rmse_test, r2_train, r2_test = load_and_predict(path_joblib + "model_GBR")
+# 				st.write("RMSE :", rmse_train, rmse_test)
+# 				st.write("R² :", r2_train, r2_test)
+# 			#st.success('Chargement GBR terminé !', icon="✅")
+# 				
+# 		on = st.toggle('Mesures du modèle RFR')	
+# 		if on :
+# 			with st.spinner("Chargement RFR en cours ...") :
+# 				rmse_train, rmse_test, r2_train, r2_test = load_and_predict(path_joblib + "model_RFR")
+# 				st.write("RMSE :", rmse_train, rmse_test)
+# 				st.write("R² :", r2_train, r2_test)
+# 				#model_RFR = joblib.load(open(path_joblib + "model_RFR", 'rb'))
+# 			#st.success('Chargement RFR terminé !', icon="✅")
+
+
+# 		if st.button("Run") :		
+# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site) 
+# 		if 'clicked' not in st.session_state:
+# 			   st.session_state.clicked = False
+# 		def click_button():
+# 		    st.session_state.clicked = True
+# 		if st.button('Run', on_click=click_button):
+# 			plot_site_2023(df_group_par_j_2023, df_predict_2023, mois, numero_mois, site)
+# 			if numero_mois == 1 :
+# 				st.image("Greves_202301.jpg") 
+# 			elif numero_mois == 3 :
+# 				st.image("Greves_202303.jpg") 
+# 			elif numero_mois == 4 :
+# 					st.image("Greves_202304.jpg")
+# 		if st.session_state.clicked:
+	
+	
+# texte1="""La ville de Paris a déployé des compteurs vélo permanents au cours des dernières années pour évaluer l'évolution de la pratique cycliste. Dans cette optique, nous avons entrepris une analyse des relevés horaires quotidiens sur la période allant du <font color="red">1er janvier 2020</font> au <font color="red">30 avril 2023</font>. Notre objectif étant de proposer à la ville de Paris des pistes de réflexion concernant cette pratique."""
+# texte2="De plus, afin de mieux appréhender les tendances en matière de trafic cycliste, nous avons également examiné les données relatives à un autre mode de transport personnel, à savoir les trottinettes. Parallèlement, nous avons examiné les données relatives aux accidents corporels impliquant à la fois des vélos et des trottinettes dans cette même zone géographique."
+# texte3="Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville."
+# 	
+# texte = "<br>" + texte1 + "<br><br>" + texte2 + "<br><br>" + texte3
+# st.markdown(f'<p style="text-align: justify;">{texte}</p>', unsafe_allow_html=True)
+
+
+# st.write("$$\Pi\Delta$$")
+# st.write("$$\def\sqr#1{#1^2} \sqr{y}$$")
+# st.write("$$\displaystyle\sum_0^n$$")
+	st.write('Zone de tests')
