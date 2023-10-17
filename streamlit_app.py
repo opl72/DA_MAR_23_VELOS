@@ -469,31 +469,83 @@ if page == pages[5] :
 			  
 	
 	
-#	st.divider()
-	with st.expander("A ajouter si on a le temps !"):
-		"- La pratique nous permettra sans doute d’être xxx à l’avenir. Il faudra toutefois rester vigilant sur le fait qu’il convient de garder un oeil neuf et sans a priori sur les données (cas outliers)."
-		"- Le gain en efficacité vient sans doute du fait que nous saurons plus vite changer notre fusil d’épaule face aux problématiques rencontrées."
-		"- Nous avons été ambitieux en introduisant de nouvelles thématiques dans notre projet et n’avons pas pu rendre un travail aussi parfait que nous l’aurions souhaité mais fait le choix de nous laisser guider par les données et d’accepter l’imperfection."
-		"- Nous n’avons qu’une envie, explorer de nouveaux datasets pour progresser encore..."
+	# st.divider()
+	# with st.expander("A ajouter si on a le temps !"):
+		# "- La pratique nous permettra sans doute d’être xxx à l’avenir. Il faudra toutefois rester vigilant sur le fait qu’il convient de garder un oeil neuf et sans a priori sur les données (cas outliers)."
+		# "- Le gain en efficacité vient sans doute du fait que nous saurons plus vite changer notre fusil d’épaule face aux problématiques rencontrées."
+		# "- Nous avons été ambitieux en introduisant de nouvelles thématiques dans notre projet et n’avons pas pu rendre un travail aussi parfait que nous l’aurions souhaité mais fait le choix de nous laisser guider par les données et d’accepter l’imperfection."
+		# "- Nous n’avons qu’une envie, explorer de nouveaux datasets pour progresser encore..."
 	
-	with st.expander("A l'oral"):
-            "1.Le projet a nécessité beaucoup de rigueur..."
-            "2.Des contraintes rencontrées au niveau de la qualité des données, rendant les explorations chronophages."
-            "   En raison de :"
-            "       a-l'absence de méta-données," 
-            "		b-des caractéristiques internes des compteurs non permanente dans le temps (nom des sites, id des compteurs),"
-            "		c-la répartition hétérogène des sites (flagrant par arrondissement)."
-            "3.Il faudrait envisager des pistes pour améliorer les prédictions actuelles qui ne sont pas à la hauteur de nos espérances :"
-            "       a-En combinant une sélection judicieuse des compteurs avec la granularité temporelle adaptée"
-            "       b-les modèles de prédiction du trafic seraient en mesure de mieux capter les tendances et les variations du trafic."
-            "       (Une sélection + approfondie des compteurs et de leur granularité temporelle : elle a un impact sur la performance des modèles)"
-            "       c-Intégrer dans nos futures modélisations l'influence de la période 2020 et des grèves de 2023 : en commencant par prendre un historique complet de 2023"
-            "		d-Mettre en place de nouvelles variables explicatives comme les jours de grèves"
-            "		e-Tester l'effet d'un découpage des variables à l’aide de la méthode des moyennes mobiles"		
-            "4.Améliorations permettant ainsi une meilleure prise de décisions opérationnelles et budgétaires."
-            "5.Ce qui optimiserait la gestion des infrastructures de transport parisien."
+	# with st.expander("A l'oral"):
+            # "1.Le projet a nécessité beaucoup de rigueur..."
+            # "2.Des contraintes rencontrées au niveau de la qualité des données, rendant les explorations chronophages."
+            # "   En raison de :"
+            # "       a-l'absence de méta-données," 
+            # "		b-des caractéristiques internes des compteurs non permanente dans le temps (nom des sites, id des compteurs),"
+            # "		c-la répartition hétérogène des sites (flagrant par arrondissement)."
+            # "3.Il faudrait envisager des pistes pour améliorer les prédictions actuelles qui ne sont pas à la hauteur de nos espérances :"
+            # "       a-En combinant une sélection judicieuse des compteurs avec la granularité temporelle adaptée"
+            # "       b-les modèles de prédiction du trafic seraient en mesure de mieux capter les tendances et les variations du trafic."
+            # "       (Une sélection + approfondie des compteurs et de leur granularité temporelle : elle a un impact sur la performance des modèles)"
+            # "       c-Intégrer dans nos futures modélisations l'influence de la période 2020 et des grèves de 2023 : en commencant par prendre un historique complet de 2023"
+            # "		d-Mettre en place de nouvelles variables explicatives comme les jours de grèves"
+            # "		e-Tester l'effet d'un découpage des variables à l’aide de la méthode des moyennes mobiles"		
+            # "4.Améliorations permettant ainsi une meilleure prise de décisions opérationnelles et budgétaires."
+            # "5.Ce qui optimiserait la gestion des infrastructures de transport parisien."
 		 
          
+	# with st.expander("Conclusion du rapport"):
+		# """Pour conclure ces différents travaux d’analyses et de visualisations de données, il nous semble pertinent
+	# d’évoquer les contraintes rencontrées durant le projet . Nous ferons d’abord un focus sur la qualité des
+	# données du dataset principal puis aborderons les difficultés rencontrées lors des travaux relatifs au
+	# Machine Learning."""
+	
+		# """Tout d’abord, les différentes analyses réalisées nous ont permis de constater différentes difficultés relatives
+		# à la qualité des données du Dataset « Comptage vélos-Compteurs » impactant ainsi leur pertinence.
+		# Concernant les jeux de données, nous avons déploré l’absence de description des métadonnées et la
+		# présence dans les datasets de variables différentes selon les années."""
+		
+		# """Concernant les sites de comptage, nous avons relevé un défaut de permanence dans le temps de leurs
+		# caractéristiques avec des changements de dénomination, de coordonnées géographiques…
+		# Afin de disposer de comptage vélos horaires représentatifs du trafic sur l’ensemble de son territoire, il
+		# serait pertinent que la Ville de Paris installe des sites de comptage dans chacun des arrondissements en
+		# veillant à équilibrer le nombre de compteurs par arrondissement."""
+		
+		# """Un travail plus approfondi sur la sélection des sites de comptage pour alimenter nos modèles de ML aurait
+		# été nécessaire. En effet, nous avons vu que la granularité des données avait un impact direct sur les
+		# résultats obtenus (agrégation par jour), aussi bien en termes de performance qu'en terme de temps de
+		# traitement, voire de puissance de calculs."""
+		
+		# """Nous sommes persuadés que prendre en compte les compteurs ayant enregistré le même nombre de
+		# relevés sur une période de 3 ans et 4 mois (période utilisée pour notre jeu d'entrainement et de test) aurait
+		# permis d'avoir des résultats plus concluant lors de nos tests avec les time series.
+		# Les prédictions obtenues à l’issue de nos travaux ne sont pas à la hauteur de nos espérances. En cause,
+		# une année 2020 très particulière en raison du confinement du 1er trimestre, au même titre que les
+		# épisodes de grèves rencontrées sur le 1er trimestre 2023.
+		# Il serait donc tout à fait légitime de se demander s’il n’aurait pas été préférable de retirer ces données de
+		# notre modèle d’apprentissage ? La réponse est simplement « Non » !
+		# Le modèle a besoin de se nourrir d’une certaine quantité (masse) de données pour pouvoir améliorer son
+		# apprentissage, et ses prédictions, afin d’être plus performant."""
+		
+		# """Tout porte à croire que la récupération d’un historique plus important sur l’année 2023 (de mai à octobre
+		# par exemple) nous aurait permis d'améliorer la performance de nos modèles.
+		# Nous aurions également aimé avoir le temps de travailler sur une autre utilisation des variables
+		# temporelles sur nos différents modèles de ML. Par exemple, voir l'effet d'un découpage des variables à
+		# l’aide de la méthode des moyennes roulantes."""
+		
+		# """L'utilisation de nouvelles variables explicatives, comme les jours de grève, aurait pu être une nouvelle piste
+		# intéressante à explorer en ce qui concerne le travail de modélisation.
+		# Les suites à donner à ce projet, dans le but principal de pouvoir aider au mieux la mairie de Paris dans
+		# d’éventuelles améliorations à apporter sur les différents endroits cyclables de la ville, serait sans aucun
+		# doute de poursuivre nos travaux de modélisation. Dans l’intérêt principal de pouvoir améliorer les
+		# prédictions du trafic.
+		# En effet, le développement de projets avec une stratégie data driven devient de plus en plus important
+		# avec un impact direct sur la prise de décisions opérationnelles et budgétaires."""
+		
+		# """Nous tenions à terminer ce rapport en mentionnant notre satisfaction à avoir pu mettre en application, tout
+		# au long de ce projet, toutes les connaissances acquises durant notre cursus de formation. Cela a rendu
+		# encore plus enrichissant et captivant notre approche de la Data Analyse au cours de ces 8 derniers mois."""
+
 
 
 
