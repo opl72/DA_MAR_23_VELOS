@@ -114,7 +114,8 @@ fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, "Mars", 3, "132 rue L
 # permet de figer la taille de la sidebar	
 st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
            min-width: 180px;   
-           max-width: 180px;}""", unsafe_allow_html=True)  
+           max-width: 180px;  }""", unsafe_allow_html=True)  
+
 	# contenu de la sidebar
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
@@ -232,21 +233,28 @@ if page == pages[2] :
 			st.markdown('<p style="text-align:center;">Sur les <span style="color: #f63366;">9</span> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <b><span style="color: #f63366;">5</span></b> sites arrivent à distinguer les vélos</p>', unsafe_allow_html=True)
 		
 	# ONGLET 3 : CARTES DU TRAFIC
-	if tab_bar_id == "3" :
+	if tab_bar_id == "3" :		
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
-		cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
+		#cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
+		cols = st.columns([47, 1, 47], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
 		with cols[0] :
-			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
-			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
-				st.components.v1.html(f1.read(), width=580, height=530)		
-		
-		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
+			with st.form("carte1") :					
+				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
+				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
+					st.components.v1.html(f1.read(), height=530)#, width=580, height=530
+				st.form_submit_button()			
 				
-		with cols[2] :			
-			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
-			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
-				st.components.v1.html(f2.read(), width=580, height=530)
+		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
+		with cols[1] : st.markdown("""<style>[data-testid="baseButton-secondaryFormSubmit"]{display:none;}""", unsafe_allow_html=True) 			
+		
+		with cols[2] :				
+			with st.form("carte2") :						
+				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
+				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
+					st.components.v1.html(f2.read(), height=530)#, width=580, height=530
+				st.form_submit_button()
+			
 
 		
 # PAGE 4 : DataViz
@@ -306,22 +314,31 @@ if page == pages[3] :
 	if tab_bar_id == "4" :	
 		cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
-				st.components.v1.html(f1.read(), height=570, width=690)	
+			with st.form("carte3") :	
+				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
+					st.components.v1.html(f1.read(), height=570)	#, width=690
 				st.image(path_image_4+"colormap.jpg", use_column_width=True)
-		with cols[2] :
-			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
-				st.components.v1.html(f2.read(), height=570, width=690)	
+				st.form_submit_button()	
+			
+		with cols[1] : st.markdown("""<style>[data-testid="baseButton-secondaryFormSubmit"]{display:none;}""", unsafe_allow_html=True) 		
 		
-		st.divider()
-		cols = st.columns(1, gap="small") 
+		with cols[2] :
+			with st.form("carte4") :	
+				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
+					st.components.v1.html(f2.read(), height=570)	#, width=690
+				st.image(path_image_4+"colormap_vide.jpg", use_column_width=True)
+				st.form_submit_button()		
+					
+		st.markdown("#  #") # ligne vide
+		cols = st.columns([90, 3, 90], gap="small")
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
-				st.components.v1.html(f3.read(), height=590, width=590)
-
+			with st.form("carte5") :
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
+					st.components.v1.html(f3.read(), height=590)#, width=590
+				st.form_submit_button()		
 
 # PAGE 5 : ML
 if page == pages[4] : 	
@@ -376,7 +393,7 @@ if page == pages[4] :
 				  """, unsafe_allow_html=True)		
 		st.divider()
 		
-		cols = st.columns([3,45,3, 50], gap="medium")
+		cols = st.columns([3, 45, 3, 50], gap="medium")
 		with cols[0] : on_1 = st.toggle(label="collapsed", key="toggle_1", value=True, label_visibility="collapsed")
 		with cols[1] : st.markdown('<span style="color:#f63366; text-align:left; font-size:16px; margin-bottom:5px">Dataset source</span>', unsafe_allow_html=True)		
 		with cols[2] : on_2 = st.toggle(label="collapsed", key="toggle_2", value=True, label_visibility="collapsed")
@@ -387,7 +404,7 @@ if page == pages[4] :
 			if on_1 : st.dataframe(df_group_par_j_2023, 
 	 							width=None, 
 	 							height=275, 
-	 							use_container_width=False, 
+	 							use_container_width=True, 
 	 							hide_index=True, 
 	 							column_order=None, 
 	 							column_config={"Annee":st.column_config.NumberColumn("Année",format="%d"),
@@ -406,43 +423,12 @@ if page == pages[4] :
 							'Perf': [False, False, False, True]
 							#'Perf':['   ++', '   ++', '   +', '   +++']
 							}
-						st.dataframe(data, use_container_width=True, 
-										 column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
-														   "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
-														   "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False) })
+						st.dataframe(data, 
+                                     use_container_width=True, 
+                                     column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
+                                                    "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
+                                                    "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False) })
 				
-# 		cols = st.columns(2, gap="medium")
-# 		with cols[0] :
-# 			on = st.toggle(":red[Dataset source]", True) # en Latex : "$$\color{#f63366}Dataset\enspace source$$"
-# 			if on :							
-# 				st.dataframe(df_group_par_j_2023, 
-# 	 							width=None, 
-# 	 							height=275, 
-# 	 							use_container_width=True, 
-# 	 							hide_index=True, 
-# 	 							column_order=None, 
-# 	 							column_config={"Annee":st.column_config.NumberColumn("Année",format="%d"),
-# 											   #"":st.column_config.NumberColumn("",format="%d")# modif du format d'affichage de la colonne 'index' du df
-# 											   })
-# 		with cols[1] :
-# 			on = st.toggle(":red[Performances]", True)
-# 			if on :
-# 				data = {
-# 				    'Modèle': ['Linear Regression', 'Decision Tree Regressor', 'Gradient Boosting Regressor', 'Random Forest Regressor'],
-# 				    'RMSE train': [628, 253, 698, 117],
-# 					'RMSE test': [616, 670, 818, 607],
-# 				    'R² train': [0.76, 0.96, 0.71, 0.99],
-# 					'R² test': [0.79, 0.76, 0.64, 0.80],
-# 					'Perf': [False, False, False, True]
-# 					#'Perf':['   ++', '   ++', '   +', '   +++']
-# 					}
-# 				st.dataframe(data, use_container_width=True, 
-# 								 column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
-# 												   "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
-# 												   "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False)
-# 												   					
-# 								})
-		
 	# ONGLET 3 : Prédictions
 	if tab_bar_id == "3" :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Prédictions du trafic 2023</p>', unsafe_allow_html=True)
@@ -483,75 +469,100 @@ if page == pages[5] :
 	# SLIDER HORIZONTAL
 	stx.tab_bar(data=[stx.TabBarItemData(id=1, title="", description="")], default=0)	# on affiche juste la barre rouge sans item
 	
-# 	st.markdown("""
-# 				  <ul style="list-style-type:disclosure-closed;padding-left:30px;margin-bottom:-10px;">
-# 					  <li>ajout de nouvelles variables explicatives (vacances, météo, jours fériés, confinement)</li>
-# 					  <li>compteurs (nom_compteur) communs entre 2020 et 2023</li>
-# 					  <li>aggrégation des comptages de chaque site par jour</li>
-# 					  <li>jeu d'entraînement sur un historique de 3 ans (2020 à 2022)
-# 					  <li>jeu de test sur 4 mois (01/01 au 30/04/2023)</li>
-# 				  </ul>
-# 			  """, unsafe_allow_html=True)	
+	st.markdown("""<blockquote>
+			 <ul style="list-style-type:disclosure-closed;margin-top:20px;">
+			    <li style="margin-bottom: 10px;">Le projet a nécessité beaucoup de rigueur...</li>
+				<li style="margin-bottom: 10px;">Des contraintes rencontrées au niveau de la qualité des données, rendant les explorations chronophages.</li>
+				<li style="margin-bottom: 10px;">Quelques pistes pour améliorer les prédictions :</li>
+				<ul style="list-style-type:disc;padding-left:40px;">
+					<li style="margin-bottom: 10px;">Approfondir la sélection des compteurs, et leur granularité temporelle,</li>
+					<li style="margin-bottom: 10px;">Intégrer l'influence de la période 2020 et des grèves de 2023,</li>							   
+					<li style="margin-bottom: 10px;">Mettre en place d'autres variables explicatives,</li>	
+                    <li style="margin-bottom: 10px;">Tester d'autres techniques de ML...</li>
+				</ul>							
+                <li>Meilleure prise de décisions opérationnelles et budgétaires.</li>
+                <li>Optimisation de la gestion des infrastructures de transport parisien.</li>
+			</ul>
+				  </blockquote>""", unsafe_allow_html=True)	
 			  
-	"- Le projet a nécessité beaucoup de rigueur."
-	"- enseignements: exploration qui nous a pris beaucoup de temps et d’énergie surtout face à des datasets dont la qualité pourrait être améliorée notamment dès la collecte des données et leur mise à disposition ( continuité dans les nommâmes des sites de comptage, meilleur répartition des compteurs, descriptif des méta données …)."
-	"- La pratique nous permettra sans doute d’être à l’avenir. Il faudra toutefois rester vigilant sur le fait qu’il convient de garder un oeil neuf et sans a priori sur les données (cas outliers)."
-	"- Le gain en efficacité vient sans doute du fait que nous saurons plus vite changer notre fusil d’épaule face aux problématiques rencontrées."
-	"- Nous avons été ambitieux en introduisant de nouvelles thématiques dans notre projet et n’avons pas pu rendre un travail aussi parfait que nous l’aurions souhaité mais fait le choix de nous laisser guider par les données et d’accepter l’imperfection."
-	"- Nous n’avons qu’une envie, explorer de nouveaux datasets pour progresser encore."
 	
-	st.divider()
 	
-	"""Pour conclure ces différents travaux d’analyses et de visualisations de données, il nous semble pertinent
-d’évoquer les contraintes rencontrées durant le projet . Nous ferons d’abord un focus sur la qualité des
-données du dataset principal puis aborderons les difficultés rencontrées lors des travaux relatifs au
-Machine Learning."""
-
-	"""Tout d’abord, les différentes analyses réalisées nous ont permis de constater différentes difficultés relatives
-	à la qualité des données du Dataset « Comptage vélos-Compteurs » impactant ainsi leur pertinence.
-	Concernant les jeux de données, nous avons déploré l’absence de description des métadonnées et la
-	présence dans les datasets de variables différentes selon les années."""
+	# st.divider()
+	# with st.expander("A ajouter si on a le temps !"):
+		# "- La pratique nous permettra sans doute d’être xxx à l’avenir. Il faudra toutefois rester vigilant sur le fait qu’il convient de garder un oeil neuf et sans a priori sur les données (cas outliers)."
+		# "- Le gain en efficacité vient sans doute du fait que nous saurons plus vite changer notre fusil d’épaule face aux problématiques rencontrées."
+		# "- Nous avons été ambitieux en introduisant de nouvelles thématiques dans notre projet et n’avons pas pu rendre un travail aussi parfait que nous l’aurions souhaité mais fait le choix de nous laisser guider par les données et d’accepter l’imperfection."
+		# "- Nous n’avons qu’une envie, explorer de nouveaux datasets pour progresser encore..."
 	
-	"""Concernant les sites de comptage, nous avons relevé un défaut de permanence dans le temps de leurs
-	caractéristiques avec des changements de dénomination, de coordonnées géographiques…
-	Afin de disposer de comptage vélos horaires représentatifs du trafic sur l’ensemble de son territoire, il
-	serait pertinent que la Ville de Paris installe des sites de comptage dans chacun des arrondissements en
-	veillant à équilibrer le nombre de compteurs par arrondissement."""
+	# with st.expander("A l'oral"):
+            # "1.Le projet a nécessité beaucoup de rigueur..."
+            # "2.Des contraintes rencontrées au niveau de la qualité des données, rendant les explorations chronophages."
+            # "   En raison de :"
+            # "       a-l'absence de méta-données," 
+            # "		b-des caractéristiques internes des compteurs non permanente dans le temps (nom des sites, id des compteurs),"
+            # "		c-la répartition hétérogène des sites (flagrant par arrondissement)."
+            # "3.Il faudrait envisager des pistes pour améliorer les prédictions actuelles qui ne sont pas à la hauteur de nos espérances :"
+            # "       a-En combinant une sélection judicieuse des compteurs avec la granularité temporelle adaptée"
+            # "       b-les modèles de prédiction du trafic seraient en mesure de mieux capter les tendances et les variations du trafic."
+            # "       (Une sélection + approfondie des compteurs et de leur granularité temporelle : elle a un impact sur la performance des modèles)"
+            # "       c-Intégrer dans nos futures modélisations l'influence de la période 2020 et des grèves de 2023 : en commencant par prendre un historique complet de 2023"
+            # "		d-Mettre en place de nouvelles variables explicatives comme les jours de grèves"
+            # "		e-Tester l'effet d'un découpage des variables à l’aide de la méthode des moyennes mobiles"		
+            # "4.Améliorations permettant ainsi une meilleure prise de décisions opérationnelles et budgétaires."
+            # "5.Ce qui optimiserait la gestion des infrastructures de transport parisien."
+		 
+         
+	# with st.expander("Conclusion du rapport"):
+		# """Pour conclure ces différents travaux d’analyses et de visualisations de données, il nous semble pertinent
+	# d’évoquer les contraintes rencontrées durant le projet . Nous ferons d’abord un focus sur la qualité des
+	# données du dataset principal puis aborderons les difficultés rencontrées lors des travaux relatifs au
+	# Machine Learning."""
 	
-	"""Un travail plus approfondi sur la sélection des sites de comptage pour alimenter nos modèles de ML aurait
-	été nécessaire. En effet, nous avons vu que la granularité des données avait un impact direct sur les
-	résultats obtenus (agrégation par jour), aussi bien en termes de performance qu'en terme de temps de
-	traitement, voire de puissance de calculs."""
-	
-	"""Nous sommes persuadés que prendre en compte les compteurs ayant enregistré le même nombre de
-	relevés sur une période de 3 ans et 4 mois (période utilisée pour notre jeu d'entrainement et de test) aurait
-	permis d'avoir des résultats plus concluant lors de nos tests avec les time series.
-	Les prédictions obtenues à l’issue de nos travaux ne sont pas à la hauteur de nos espérances. En cause,
-	une année 2020 très particulière en raison du confinement du 1er trimestre, au même titre que les
-	épisodes de grèves rencontrées sur le 1er trimestre 2023.
-	Il serait donc tout à fait légitime de se demander s’il n’aurait pas été préférable de retirer ces données de
-	notre modèle d’apprentissage ? La réponse est simplement « Non » !
-	Le modèle a besoin de se nourrir d’une certaine quantité (masse) de données pour pouvoir améliorer son
-	apprentissage, et ses prédictions, afin d’être plus performant."""
-	
-	"""Tout porte à croire que la récupération d’un historique plus important sur l’année 2023 (de mai à octobre
-	par exemple) nous aurait permis d'améliorer la performance de nos modèles.
-	Nous aurions également aimé avoir le temps de travailler sur une autre utilisation des variables
-	temporelles sur nos différents modèles de ML. Par exemple, voir l'effet d'un découpage des variables à
-	l’aide de la méthode des moyennes roulantes."""
-	
-	"""L'utilisation de nouvelles variables explicatives, comme les jours de grève, aurait pu être une nouvelle piste
-	intéressante à explorer en ce qui concerne le travail de modélisation.
-	Les suites à donner à ce projet, dans le but principal de pouvoir aider au mieux la mairie de Paris dans
-	d’éventuelles améliorations à apporter sur les différents endroits cyclables de la ville, serait sans aucun
-	doute de poursuivre nos travaux de modélisation. Dans l’intérêt principal de pouvoir améliorer les
-	prédictions du trafic.
-	En effet, le développement de projets avec une stratégie data driven devient de plus en plus important
-	avec un impact direct sur la prise de décisions opérationnelles et budgétaires."""
-	
-	"""Nous tenions à terminer ce rapport en mentionnant notre satisfaction à avoir pu mettre en application, tout
-	au long de ce projet, toutes les connaissances acquises durant notre cursus de formation. Cela a rendu
-	encore plus enrichissant et captivant notre approche de la Data Analyse au cours de ces 8 derniers mois."""
+		# """Tout d’abord, les différentes analyses réalisées nous ont permis de constater différentes difficultés relatives
+		# à la qualité des données du Dataset « Comptage vélos-Compteurs » impactant ainsi leur pertinence.
+		# Concernant les jeux de données, nous avons déploré l’absence de description des métadonnées et la
+		# présence dans les datasets de variables différentes selon les années."""
+		
+		# """Concernant les sites de comptage, nous avons relevé un défaut de permanence dans le temps de leurs
+		# caractéristiques avec des changements de dénomination, de coordonnées géographiques…
+		# Afin de disposer de comptage vélos horaires représentatifs du trafic sur l’ensemble de son territoire, il
+		# serait pertinent que la Ville de Paris installe des sites de comptage dans chacun des arrondissements en
+		# veillant à équilibrer le nombre de compteurs par arrondissement."""
+		
+		# """Un travail plus approfondi sur la sélection des sites de comptage pour alimenter nos modèles de ML aurait
+		# été nécessaire. En effet, nous avons vu que la granularité des données avait un impact direct sur les
+		# résultats obtenus (agrégation par jour), aussi bien en termes de performance qu'en terme de temps de
+		# traitement, voire de puissance de calculs."""
+		
+		# """Nous sommes persuadés que prendre en compte les compteurs ayant enregistré le même nombre de
+		# relevés sur une période de 3 ans et 4 mois (période utilisée pour notre jeu d'entrainement et de test) aurait
+		# permis d'avoir des résultats plus concluant lors de nos tests avec les time series.
+		# Les prédictions obtenues à l’issue de nos travaux ne sont pas à la hauteur de nos espérances. En cause,
+		# une année 2020 très particulière en raison du confinement du 1er trimestre, au même titre que les
+		# épisodes de grèves rencontrées sur le 1er trimestre 2023.
+		# Il serait donc tout à fait légitime de se demander s’il n’aurait pas été préférable de retirer ces données de
+		# notre modèle d’apprentissage ? La réponse est simplement « Non » !
+		# Le modèle a besoin de se nourrir d’une certaine quantité (masse) de données pour pouvoir améliorer son
+		# apprentissage, et ses prédictions, afin d’être plus performant."""
+		
+		# """Tout porte à croire que la récupération d’un historique plus important sur l’année 2023 (de mai à octobre
+		# par exemple) nous aurait permis d'améliorer la performance de nos modèles.
+		# Nous aurions également aimé avoir le temps de travailler sur une autre utilisation des variables
+		# temporelles sur nos différents modèles de ML. Par exemple, voir l'effet d'un découpage des variables à
+		# l’aide de la méthode des moyennes roulantes."""
+		
+		# """L'utilisation de nouvelles variables explicatives, comme les jours de grève, aurait pu être une nouvelle piste
+		# intéressante à explorer en ce qui concerne le travail de modélisation.
+		# Les suites à donner à ce projet, dans le but principal de pouvoir aider au mieux la mairie de Paris dans
+		# d’éventuelles améliorations à apporter sur les différents endroits cyclables de la ville, serait sans aucun
+		# doute de poursuivre nos travaux de modélisation. Dans l’intérêt principal de pouvoir améliorer les
+		# prédictions du trafic.
+		# En effet, le développement de projets avec une stratégie data driven devient de plus en plus important
+		# avec un impact direct sur la prise de décisions opérationnelles et budgétaires."""
+		
+		# """Nous tenions à terminer ce rapport en mentionnant notre satisfaction à avoir pu mettre en application, tout
+		# au long de ce projet, toutes les connaissances acquises durant notre cursus de formation. Cela a rendu
+		# encore plus enrichissant et captivant notre approche de la Data Analyse au cours de ces 8 derniers mois."""
 
 
 
