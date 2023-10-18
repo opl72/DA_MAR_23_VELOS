@@ -114,7 +114,8 @@ fig = plot_site_2023(df_group_par_j_2023, df_predict_2023, "Mars", 3, "132 rue L
 # permet de figer la taille de la sidebar	
 st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
            min-width: 180px;   
-           max-width: 180px;}""", unsafe_allow_html=True)  
+           max-width: 180px;  }""", unsafe_allow_html=True)  
+
 	# contenu de la sidebar
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
@@ -232,21 +233,28 @@ if page == pages[2] :
 			st.markdown('<p style="text-align:center;">Sur les <span style="color: #f63366;">9</span> sites enregistrant des passages de vélos ou vélos+trottinettes, seuls <b><span style="color: #f63366;">5</span></b> sites arrivent à distinguer les vélos</p>', unsafe_allow_html=True)
 		
 	# ONGLET 3 : CARTES DU TRAFIC
-	if tab_bar_id == "3" :
+	if tab_bar_id == "3" :		
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
-		cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
+		#cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
+		cols = st.columns([47, 1, 47], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
 		with cols[0] :
-			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
-			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
-				st.components.v1.html(f1.read(), width=580, height=530)		
-		
-		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
+			with st.form("carte1") :					
+				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
+				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
+					st.components.v1.html(f1.read(), height=530)#, width=580, height=530
+				st.form_submit_button()			
 				
-		with cols[2] :			
-			st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
-			with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
-				st.components.v1.html(f2.read(), width=580, height=530)
+		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
+		with cols[1] : st.markdown("""<style>[data-testid="baseButton-secondaryFormSubmit"]{display:none;}""", unsafe_allow_html=True) 			
+		
+		with cols[2] :				
+			with st.form("carte2") :						
+				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
+				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
+					st.components.v1.html(f2.read(), height=530)#, width=580, height=530
+				st.form_submit_button()
+			
 
 		
 # PAGE 4 : DataViz
@@ -306,22 +314,31 @@ if page == pages[3] :
 	if tab_bar_id == "4" :	
 		cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
-				st.components.v1.html(f1.read(), height=570, width=690)	
+			with st.form("carte3") :	
+				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
+					st.components.v1.html(f1.read(), height=570)	#, width=690
 				st.image(path_image_4+"colormap.jpg", use_column_width=True)
-		with cols[2] :
-			st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
-				st.components.v1.html(f2.read(), height=570, width=690)	
+				st.form_submit_button()	
+			
+		with cols[1] : st.markdown("""<style>[data-testid="baseButton-secondaryFormSubmit"]{display:none;}""", unsafe_allow_html=True) 		
 		
-		st.divider()
-		cols = st.columns(1, gap="small") 
+		with cols[2] :
+			with st.form("carte4") :	
+				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
+					st.components.v1.html(f2.read(), height=570)	#, width=690
+				st.image(path_image_4+"colormap_vide.jpg", use_column_width=True)
+				st.form_submit_button()		
+					
+		st.markdown("#  #") # ligne vide
+		cols = st.columns([90, 3, 90], gap="small")
 		with cols[0] :
-			st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
-			with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
-				st.components.v1.html(f3.read(), height=590, width=590)
-
+			with st.form("carte5") :
+				st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
+				with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
+					st.components.v1.html(f3.read(), height=590)#, width=590
+				st.form_submit_button()		
 
 # PAGE 5 : ML
 if page == pages[4] : 	
@@ -376,7 +393,7 @@ if page == pages[4] :
 				  """, unsafe_allow_html=True)		
 		st.divider()
 		
-		cols = st.columns([3,45,3, 50], gap="medium")
+		cols = st.columns([3, 45, 3, 50], gap="medium")
 		with cols[0] : on_1 = st.toggle(label="collapsed", key="toggle_1", value=True, label_visibility="collapsed")
 		with cols[1] : st.markdown('<span style="color:#f63366; text-align:left; font-size:16px; margin-bottom:5px">Dataset source</span>', unsafe_allow_html=True)		
 		with cols[2] : on_2 = st.toggle(label="collapsed", key="toggle_2", value=True, label_visibility="collapsed")
@@ -387,7 +404,7 @@ if page == pages[4] :
 			if on_1 : st.dataframe(df_group_par_j_2023, 
 	 							width=None, 
 	 							height=275, 
-	 							use_container_width=False, 
+	 							use_container_width=True, 
 	 							hide_index=True, 
 	 							column_order=None, 
 	 							column_config={"Annee":st.column_config.NumberColumn("Année",format="%d"),
@@ -406,10 +423,11 @@ if page == pages[4] :
 							'Perf': [False, False, False, True]
 							#'Perf':['   ++', '   ++', '   +', '   +++']
 							}
-						st.dataframe(data, use_container_width=True, 
-										 column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
-														   "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
-														   "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False) })
+						st.dataframe(data, 
+                                     use_container_width=True, 
+                                     column_config={"R² train":st.column_config.ProgressColumn("R² train", min_value=0, max_value=1, format="%.2f"),
+                                                    "R² test":st.column_config.ProgressColumn("R² test", min_value=0, max_value=1, format="%.2f"),
+                                                    "Perf":st.column_config.CheckboxColumn("Choix", help=None, default=False) })
 				
 	# ONGLET 3 : Prédictions
 	if tab_bar_id == "3" :
