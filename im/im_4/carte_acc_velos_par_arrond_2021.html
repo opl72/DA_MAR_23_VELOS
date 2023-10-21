@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fc656c35f93aeaf901224e41b64eb627 {
+                    position: relative;
+                    width: 690.0px;
+                    height: 690.0px;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_fc656c35f93aeaf901224e41b64eb627" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_fc656c35f93aeaf901224e41b64eb627 = L.map(
+                "map_fc656c35f93aeaf901224e41b64eb627",
+                {
+                    center: [48.8529371, 2.3500501],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    disableClustering: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8e5a96a7ced6b8be63e588ea7ac6a6f5 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+            var circle_marker_d0b0cc06cd0ea8171b74c364b95525d6 = L.circleMarker(
+                [48.860075, 2.343403],
+                {"bubblingMouseEvents": true, "color": "#749100ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#749100ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.7, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_ea5ef3a1a91b009dbf4d6ec9416466b9 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_4db31a88bb8ae8e1ee6d3fe9cbe93a6a = $(`<div id="html_4db31a88bb8ae8e1ee6d3fe9cbe93a6a" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.860075, 2.343403)<br>Arrondissement : 1<br>Nb d'accidents en 2021 : 67</div>`)[0];
+                popup_ea5ef3a1a91b009dbf4d6ec9416466b9.setContent(html_4db31a88bb8ae8e1ee6d3fe9cbe93a6a);
+            
+        
+
+        circle_marker_d0b0cc06cd0ea8171b74c364b95525d6.bindPopup(popup_ea5ef3a1a91b009dbf4d6ec9416466b9)
+        ;
+
+        
+    
+    
+            circle_marker_d0b0cc06cd0ea8171b74c364b95525d6.bindTooltip(
+                `<div>
+                     Arrondissement : 1
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_54dac4488391f94cb43e389b9d4e4485 = L.circleMarker(
+                [48.871722, 2.34162],
+                {"bubblingMouseEvents": true, "color": "#008000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.5, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_73979d1d4608be3171987116ede33383 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_cec3e1230216fe250fe43beefa690943 = $(`<div id="html_cec3e1230216fe250fe43beefa690943" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.871722, 2.34162)<br>Arrondissement : 2<br>Nb d'accidents en 2021 : 25</div>`)[0];
+                popup_73979d1d4608be3171987116ede33383.setContent(html_cec3e1230216fe250fe43beefa690943);
+            
+        
+
+        circle_marker_54dac4488391f94cb43e389b9d4e4485.bindPopup(popup_73979d1d4608be3171987116ede33383)
+        ;
+
+        
+    
+    
+            circle_marker_54dac4488391f94cb43e389b9d4e4485.bindTooltip(
+                `<div>
+                     Arrondissement : 2
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_30b2136c6548d548497d205961d8f67a = L.circleMarker(
+                [48.864428, 2.351511],
+                {"bubblingMouseEvents": true, "color": "#298600ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#298600ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.0, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_63f0b9d75bf55c824cc6bc4fa62a96a4 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_bf088b29abc192cfceecc800a1210222 = $(`<div id="html_bf088b29abc192cfceecc800a1210222" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.864428, 2.351511)<br>Arrondissement : 3<br>Nb d'accidents en 2021 : 40</div>`)[0];
+                popup_63f0b9d75bf55c824cc6bc4fa62a96a4.setContent(html_bf088b29abc192cfceecc800a1210222);
+            
+        
+
+        circle_marker_30b2136c6548d548497d205961d8f67a.bindPopup(popup_63f0b9d75bf55c824cc6bc4fa62a96a4)
+        ;
+
+        
+    
+    
+            circle_marker_30b2136c6548d548497d205961d8f67a.bindTooltip(
+                `<div>
+                     Arrondissement : 3
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_f9d4c3b63b73574ea54aaaac6934219b = L.circleMarker(
+                [48.848262, 2.36498],
+                {"bubblingMouseEvents": true, "color": "#909500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#909500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.7, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_6903b0a79ef030a644011340800a6e5b = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_22382000d2b5313a42fb23c29d12ea55 = $(`<div id="html_22382000d2b5313a42fb23c29d12ea55" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.848262, 2.36498)<br>Arrondissement : 4<br>Nb d'accidents en 2021 : 77</div>`)[0];
+                popup_6903b0a79ef030a644011340800a6e5b.setContent(html_22382000d2b5313a42fb23c29d12ea55);
+            
+        
+
+        circle_marker_f9d4c3b63b73574ea54aaaac6934219b.bindPopup(popup_6903b0a79ef030a644011340800a6e5b)
+        ;
+
+        
+    
+    
+            circle_marker_f9d4c3b63b73574ea54aaaac6934219b.bindTooltip(
+                `<div>
+                     Arrondissement : 4
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_77619b2026b3cde6266a7656de2842e5 = L.circleMarker(
+                [48.848553, 2.342158],
+                {"bubblingMouseEvents": true, "color": "#328700ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#328700ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.3, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_44610fca62befb5c5bde9950ac720d06 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c54f81897e866c74ffb7a15c0deaccb5 = $(`<div id="html_c54f81897e866c74ffb7a15c0deaccb5" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.848553, 2.342158)<br>Arrondissement : 5<br>Nb d'accidents en 2021 : 43</div>`)[0];
+                popup_44610fca62befb5c5bde9950ac720d06.setContent(html_c54f81897e866c74ffb7a15c0deaccb5);
+            
+        
+
+        circle_marker_77619b2026b3cde6266a7656de2842e5.bindPopup(popup_44610fca62befb5c5bde9950ac720d06)
+        ;
+
+        
+    
+    
+            circle_marker_77619b2026b3cde6266a7656de2842e5.bindTooltip(
+                `<div>
+                     Arrondissement : 5
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a619ce912c99a72c3c11dbb6f6104c71 = L.circleMarker(
+                [48.849617, 2.329318],
+                {"bubblingMouseEvents": true, "color": "#0d8200ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d8200ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 3.0, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_043a3b1e87ab595d52e1dee15f960d53 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_72d97373fba2f67ff023684207ceb01b = $(`<div id="html_72d97373fba2f67ff023684207ceb01b" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.849617, 2.329318)<br>Arrondissement : 6<br>Nb d'accidents en 2021 : 30</div>`)[0];
+                popup_043a3b1e87ab595d52e1dee15f960d53.setContent(html_72d97373fba2f67ff023684207ceb01b);
+            
+        
+
+        circle_marker_a619ce912c99a72c3c11dbb6f6104c71.bindPopup(popup_043a3b1e87ab595d52e1dee15f960d53)
+        ;
+
+        
+    
+    
+            circle_marker_a619ce912c99a72c3c11dbb6f6104c71.bindTooltip(
+                `<div>
+                     Arrondissement : 6
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_de4f943a4cb4e835134b42355a9e0a23 = L.circleMarker(
+                [48.856338, 2.309819],
+                {"bubblingMouseEvents": true, "color": "#8b9400ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8b9400ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_dcf1e8cf43d59128b0d25698e4340127 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8db4174d6c29bc066cb1a9f2f8212c7b = $(`<div id="html_8db4174d6c29bc066cb1a9f2f8212c7b" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.856338, 2.309819)<br>Arrondissement : 7<br>Nb d'accidents en 2021 : 75</div>`)[0];
+                popup_dcf1e8cf43d59128b0d25698e4340127.setContent(html_8db4174d6c29bc066cb1a9f2f8212c7b);
+            
+        
+
+        circle_marker_de4f943a4cb4e835134b42355a9e0a23.bindPopup(popup_dcf1e8cf43d59128b0d25698e4340127)
+        ;
+
+        
+    
+    
+            circle_marker_de4f943a4cb4e835134b42355a9e0a23.bindTooltip(
+                `<div>
+                     Arrondissement : 7
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_a4a44614212738ef675db5f447437015 = L.circleMarker(
+                [48.880491, 2.312992],
+                {"bubblingMouseEvents": true, "color": "#829300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#829300ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.2, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_63f21a99dd28945c9b91c0e14d46adf5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_8de3292afbb1817f67d09a0e91055613 = $(`<div id="html_8de3292afbb1817f67d09a0e91055613" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.880491, 2.312992)<br>Arrondissement : 8<br>Nb d'accidents en 2021 : 72</div>`)[0];
+                popup_63f21a99dd28945c9b91c0e14d46adf5.setContent(html_8de3292afbb1817f67d09a0e91055613);
+            
+        
+
+        circle_marker_a4a44614212738ef675db5f447437015.bindPopup(popup_63f21a99dd28945c9b91c0e14d46adf5)
+        ;
+
+        
+    
+    
+            circle_marker_a4a44614212738ef675db5f447437015.bindTooltip(
+                `<div>
+                     Arrondissement : 8
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_875e7bfe2681f61f3f5221ab0cfb02ac = L.circleMarker(
+                [48.882976, 2.33486],
+                {"bubblingMouseEvents": true, "color": "#488a00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#488a00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.1, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_deff5491e653440c45231251a8fc289d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_41af3f6a31f57c8629f99ea114cc26c7 = $(`<div id="html_41af3f6a31f57c8629f99ea114cc26c7" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.882976, 2.33486)<br>Arrondissement : 9<br>Nb d'accidents en 2021 : 51</div>`)[0];
+                popup_deff5491e653440c45231251a8fc289d.setContent(html_41af3f6a31f57c8629f99ea114cc26c7);
+            
+        
+
+        circle_marker_875e7bfe2681f61f3f5221ab0cfb02ac.bindPopup(popup_deff5491e653440c45231251a8fc289d)
+        ;
+
+        
+    
+    
+            circle_marker_875e7bfe2681f61f3f5221ab0cfb02ac.bindTooltip(
+                `<div>
+                     Arrondissement : 9
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_23c0bf02524e34269e1b642a0cd9e756 = L.circleMarker(
+                [48.88133, 2.364722],
+                {"bubblingMouseEvents": true, "color": "#dea000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#dea000ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.5, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_0baa3c2f6a67aa6a8ffe3ef145da1449 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_c4ee52067d6779f92db7eed4672d8b77 = $(`<div id="html_c4ee52067d6779f92db7eed4672d8b77" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.88133, 2.364722)<br>Arrondissement : 10<br>Nb d'accidents en 2021 : 105</div>`)[0];
+                popup_0baa3c2f6a67aa6a8ffe3ef145da1449.setContent(html_c4ee52067d6779f92db7eed4672d8b77);
+            
+        
+
+        circle_marker_23c0bf02524e34269e1b642a0cd9e756.bindPopup(popup_0baa3c2f6a67aa6a8ffe3ef145da1449)
+        ;
+
+        
+    
+    
+            circle_marker_23c0bf02524e34269e1b642a0cd9e756.bindTooltip(
+                `<div>
+                     Arrondissement : 10
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_9a971a9e67e0efff6898b29eead09a37 = L.circleMarker(
+                [48.862383, 2.372528],
+                {"bubblingMouseEvents": true, "color": "#ffa500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.7, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_7844e290bf9127786754a80ee01cbea7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f8a47e635ada97af02a2315c50a75aaf = $(`<div id="html_f8a47e635ada97af02a2315c50a75aaf" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.862383, 2.372528)<br>Arrondissement : 11<br>Nb d'accidents en 2021 : 117</div>`)[0];
+                popup_7844e290bf9127786754a80ee01cbea7.setContent(html_f8a47e635ada97af02a2315c50a75aaf);
+            
+        
+
+        circle_marker_9a971a9e67e0efff6898b29eead09a37.bindPopup(popup_7844e290bf9127786754a80ee01cbea7)
+        ;
+
+        
+    
+    
+            circle_marker_9a971a9e67e0efff6898b29eead09a37.bindTooltip(
+                `<div>
+                     Arrondissement : 11
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cd1db48e5d564d964d4f176c5db4d444 = L.circleMarker(
+                [48.844276, 2.381581],
+                {"bubblingMouseEvents": true, "color": "#bf9c00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#bf9c00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.4, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_d451a2b40087fb04fc17ec082df6cdb3 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_d78ce90f653b70d34ae7ca47a0e93626 = $(`<div id="html_d78ce90f653b70d34ae7ca47a0e93626" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.844276, 2.381581)<br>Arrondissement : 12<br>Nb d'accidents en 2021 : 94</div>`)[0];
+                popup_d451a2b40087fb04fc17ec082df6cdb3.setContent(html_d78ce90f653b70d34ae7ca47a0e93626);
+            
+        
+
+        circle_marker_cd1db48e5d564d964d4f176c5db4d444.bindPopup(popup_d451a2b40087fb04fc17ec082df6cdb3)
+        ;
+
+        
+    
+    
+            circle_marker_cd1db48e5d564d964d4f176c5db4d444.bindTooltip(
+                `<div>
+                     Arrondissement : 12
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_aeaad978122525a9e779ca3710ed3064 = L.circleMarker(
+                [48.831887, 2.355849],
+                {"bubblingMouseEvents": true, "color": "#c29c00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#c29c00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.5, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_292396ed467a2dcec244b1626b2ba60d = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_683252e9d18c4c5f0f48ad955ea304e4 = $(`<div id="html_683252e9d18c4c5f0f48ad955ea304e4" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.831887, 2.355849)<br>Arrondissement : 13<br>Nb d'accidents en 2021 : 95</div>`)[0];
+                popup_292396ed467a2dcec244b1626b2ba60d.setContent(html_683252e9d18c4c5f0f48ad955ea304e4);
+            
+        
+
+        circle_marker_aeaad978122525a9e779ca3710ed3064.bindPopup(popup_292396ed467a2dcec244b1626b2ba60d)
+        ;
+
+        
+    
+    
+            circle_marker_aeaad978122525a9e779ca3710ed3064.bindTooltip(
+                `<div>
+                     Arrondissement : 13
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_8af85c8359c1ca13cf550589d681a235 = L.circleMarker(
+                [48.821209, 2.334299],
+                {"bubblingMouseEvents": true, "color": "#7d9200ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7d9200ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_2faef4c92a2c6a335ee8dc0b8dd24334 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5951cb9f189f84ce914210e5cb6b5304 = $(`<div id="html_5951cb9f189f84ce914210e5cb6b5304" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.821209, 2.334299)<br>Arrondissement : 14<br>Nb d'accidents en 2021 : 70</div>`)[0];
+                popup_2faef4c92a2c6a335ee8dc0b8dd24334.setContent(html_5951cb9f189f84ce914210e5cb6b5304);
+            
+        
+
+        circle_marker_8af85c8359c1ca13cf550589d681a235.bindPopup(popup_2faef4c92a2c6a335ee8dc0b8dd24334)
+        ;
+
+        
+    
+    
+            circle_marker_8af85c8359c1ca13cf550589d681a235.bindTooltip(
+                `<div>
+                     Arrondissement : 14
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_88fe049a849550c3946f8a4d3efff64a = L.circleMarker(
+                [48.846759, 2.285647],
+                {"bubblingMouseEvents": true, "color": "#e1a100ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e1a100ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.6, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_e26c137e425f267a2a4e57ae7a14a9ee = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_0e4967a4c501a44a8ee613fcb12e77e6 = $(`<div id="html_0e4967a4c501a44a8ee613fcb12e77e6" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.846759, 2.285647)<br>Arrondissement : 15<br>Nb d'accidents en 2021 : 106</div>`)[0];
+                popup_e26c137e425f267a2a4e57ae7a14a9ee.setContent(html_0e4967a4c501a44a8ee613fcb12e77e6);
+            
+        
+
+        circle_marker_88fe049a849550c3946f8a4d3efff64a.bindPopup(popup_e26c137e425f267a2a4e57ae7a14a9ee)
+        ;
+
+        
+    
+    
+            circle_marker_88fe049a849550c3946f8a4d3efff64a.bindTooltip(
+                `<div>
+                     Arrondissement : 15
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_98e2a6cbeef3c61fc657ab31f8a139b2 = L.circleMarker(
+                [48.857223, 2.237362],
+                {"bubblingMouseEvents": true, "color": "#cd9e00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cd9e00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.9, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_d6fa22a9a85fabb0a2c281e7f71fb49e = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_f80fe0dd8f2859a98fc543797150bc78 = $(`<div id="html_f80fe0dd8f2859a98fc543797150bc78" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.857223, 2.237362)<br>Arrondissement : 16<br>Nb d'accidents en 2021 : 99</div>`)[0];
+                popup_d6fa22a9a85fabb0a2c281e7f71fb49e.setContent(html_f80fe0dd8f2859a98fc543797150bc78);
+            
+        
+
+        circle_marker_98e2a6cbeef3c61fc657ab31f8a139b2.bindPopup(popup_d6fa22a9a85fabb0a2c281e7f71fb49e)
+        ;
+
+        
+    
+    
+            circle_marker_98e2a6cbeef3c61fc657ab31f8a139b2.bindTooltip(
+                `<div>
+                     Arrondissement : 16
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_7d9efb298a7dc86ada4c2c968bdda88b = L.circleMarker(
+                [48.883275, 2.307251],
+                {"bubblingMouseEvents": true, "color": "#3a8800ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#3a8800ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.6, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_1a8052f90825d7eaf967c61a271d32c7 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_5ddda50010b48957d23af3dbebacc302 = $(`<div id="html_5ddda50010b48957d23af3dbebacc302" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.883275, 2.307251)<br>Arrondissement : 17<br>Nb d'accidents en 2021 : 46</div>`)[0];
+                popup_1a8052f90825d7eaf967c61a271d32c7.setContent(html_5ddda50010b48957d23af3dbebacc302);
+            
+        
+
+        circle_marker_7d9efb298a7dc86ada4c2c968bdda88b.bindPopup(popup_1a8052f90825d7eaf967c61a271d32c7)
+        ;
+
+        
+    
+    
+            circle_marker_7d9efb298a7dc86ada4c2c968bdda88b.bindTooltip(
+                `<div>
+                     Arrondissement : 17
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_cc1b2f0c561d437b9bfdb1708e5ad87a = L.circleMarker(
+                [48.894171, 2.332709],
+                {"bubblingMouseEvents": true, "color": "#698f00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#698f00ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.3, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_2698f93fd847d3d96ebf5abf1eb07a2f = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_7bddb15c8982999f4f1dd936e1f69b53 = $(`<div id="html_7bddb15c8982999f4f1dd936e1f69b53" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.894171, 2.332709)<br>Arrondissement : 18<br>Nb d'accidents en 2021 : 63</div>`)[0];
+                popup_2698f93fd847d3d96ebf5abf1eb07a2f.setContent(html_7bddb15c8982999f4f1dd936e1f69b53);
+            
+        
+
+        circle_marker_cc1b2f0c561d437b9bfdb1708e5ad87a.bindPopup(popup_2698f93fd847d3d96ebf5abf1eb07a2f)
+        ;
+
+        
+    
+    
+            circle_marker_cc1b2f0c561d437b9bfdb1708e5ad87a.bindTooltip(
+                `<div>
+                     Arrondissement : 18
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_da706ac84d9cd6df61734de7064ecd05 = L.circleMarker(
+                [48.8846, 2.37965],
+                {"bubblingMouseEvents": true, "color": "#a19700ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a19700ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.3, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_e379623cbccb4fd2a04236cdd84a85a5 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_854dd6dead9bc8210932bba3e1e8cf93 = $(`<div id="html_854dd6dead9bc8210932bba3e1e8cf93" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.8846, 2.37965)<br>Arrondissement : 19<br>Nb d'accidents en 2021 : 83</div>`)[0];
+                popup_e379623cbccb4fd2a04236cdd84a85a5.setContent(html_854dd6dead9bc8210932bba3e1e8cf93);
+            
+        
+
+        circle_marker_da706ac84d9cd6df61734de7064ecd05.bindPopup(popup_e379623cbccb4fd2a04236cdd84a85a5)
+        ;
+
+        
+    
+    
+            circle_marker_da706ac84d9cd6df61734de7064ecd05.bindTooltip(
+                `<div>
+                     Arrondissement : 19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_marker_0d28807736ad5fa91a0deb8abc297ed4 = L.circleMarker(
+                [48.869612, 2.394799],
+                {"bubblingMouseEvents": true, "color": "#9b9700ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#9b9700ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.1, "stroke": true, "weight": 3}
+            ).addTo(map_fc656c35f93aeaf901224e41b64eb627);
+        
+    
+        var popup_b56064fea71aa840ef826ae525e6edc1 = L.popup({"maxWidth": 300});
+
+        
+            
+                var html_177d66ac450d4bd0bca2b6bfe56dda48 = $(`<div id="html_177d66ac450d4bd0bca2b6bfe56dda48" style="width: 100.0%; height: 100.0%;">Coordonnées de l'accident : (48.869612, 2.394799)<br>Arrondissement : 20<br>Nb d'accidents en 2021 : 81</div>`)[0];
+                popup_b56064fea71aa840ef826ae525e6edc1.setContent(html_177d66ac450d4bd0bca2b6bfe56dda48);
+            
+        
+
+        circle_marker_0d28807736ad5fa91a0deb8abc297ed4.bindPopup(popup_b56064fea71aa840ef826ae525e6edc1)
+        ;
+
+        
+    
+    
+            circle_marker_0d28807736ad5fa91a0deb8abc297ed4.bindTooltip(
+                `<div>
+                     Arrondissement : 20
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+    var color_map_458f4ccf87c4b7c636182a9010883df4 = {};
+
+    
+    color_map_458f4ccf87c4b7c636182a9010883df4.color = d3.scale.threshold()
+              .domain([25.0, 25.18436873747495, 25.3687374749499, 25.55310621242485, 25.7374749498998, 25.92184368737475, 26.106212424849698, 26.29058116232465, 26.4749498997996, 26.65931863727455, 26.8436873747495, 27.028056112224448, 27.2124248496994, 27.39679358717435, 27.5811623246493, 27.76553106212425, 27.949899799599198, 28.13426853707415, 28.318637274549097, 28.50300601202405, 28.687374749499, 28.871743486973948, 29.056112224448896, 29.240480961923847, 29.4248496993988, 29.609218436873746, 29.793587174348698, 29.97795591182365, 30.162324649298597, 30.346693386773545, 30.531062124248496, 30.715430861723448, 30.899799599198396, 31.084168336673347, 31.2685370741483, 31.452905811623246, 31.637274549098198, 31.821643286573146, 32.0060120240481, 32.190380761523045, 32.374749498998, 32.55911823647295, 32.743486973947896, 32.92785571142284, 33.11222444889779, 33.296593186372746, 33.480961923847694, 33.66533066132264, 33.8496993987976, 34.034068136272545, 34.21843687374749, 34.40280561122245, 34.587174348697395, 34.77154308617234, 34.9559118236473, 35.140280561122246, 35.324649298597194, 35.50901803607214, 35.69338677354709, 35.877755511022045, 36.06212424849699, 36.24649298597194, 36.430861723446895, 36.61523046092184, 36.79959919839679, 36.983967935871746, 37.168336673346694, 37.35270541082164, 37.5370741482966, 37.721442885771545, 37.90581162324649, 38.09018036072144, 38.274549098196395, 38.45891783567134, 38.64328657314629, 38.82765531062124, 39.012024048096194, 39.19639278557114, 39.38076152304609, 39.565130260521045, 39.74949899799599, 39.93386773547094, 40.118236472945895, 40.30260521042084, 40.48697394789579, 40.67134268537074, 40.855711422845694, 41.04008016032064, 41.22444889779559, 41.40881763527054, 41.59318637274549, 41.77755511022044, 41.96192384769539, 42.14629258517034, 42.33066132264529, 42.51503006012024, 42.699398797595194, 42.88376753507014, 43.06813627254509, 43.252505010020045, 43.436873747494985, 43.62124248496994, 43.80561122244489, 43.989979959919836, 44.17434869739479, 44.35871743486974, 44.54308617234469, 44.72745490981964, 44.91182364729459, 45.09619238476954, 45.28056112224449, 45.46492985971944, 45.64929859719439, 45.83366733466934, 46.018036072144284, 46.20240480961924, 46.38677354709419, 46.571142284569135, 46.75551102204409, 46.93987975951904, 47.124248496993985, 47.30861723446894, 47.49298597194389, 47.677354709418836, 47.86172344689379, 48.04609218436874, 48.23046092184369, 48.41482965931864, 48.59919839679358, 48.78356713426854, 48.96793587174349, 49.15230460921843, 49.33667334669339, 49.521042084168336, 49.705410821643284, 49.88977955911824, 50.07414829659319, 50.258517034068134, 50.44288577154309, 50.62725450901804, 50.811623246492985, 50.99599198396794, 51.18036072144288, 51.364729458917836, 51.54909819639279, 51.73346693386773, 51.91783567134269, 52.102204408817634, 52.28657314629258, 52.47094188376754, 52.655310621242485, 52.83967935871743, 53.02404809619239, 53.208416833667336, 53.392785571142284, 53.57715430861724, 53.76152304609218, 53.945891783567134, 54.13026052104209, 54.31462925851703, 54.498997995991985, 54.68336673346693, 54.86773547094188, 55.052104208416836, 55.236472945891784, 55.42084168336673, 55.605210420841686, 55.789579158316634, 55.97394789579158, 56.15831663326654, 56.34268537074148, 56.52705410821643, 56.71142284569139, 56.89579158316633, 57.08016032064128, 57.26452905811623, 57.44889779559118, 57.633266533066134, 57.81763527054108, 58.00200400801603, 58.186372745490985, 58.37074148296593, 58.55511022044088, 58.73947895791583, 58.92384769539078, 59.10821643286573, 59.29258517034068, 59.476953907815634, 59.66132264529058, 59.84569138276553, 60.03006012024048, 60.21442885771543, 60.39879759519038, 60.58316633266533, 60.76753507014028, 60.95190380761523, 61.13627254509018, 61.32064128256513, 61.50501002004008, 61.68937875751503, 61.87374749498998, 62.05811623246493, 62.24248496993988, 62.42685370741483, 62.611222444889776, 62.79559118236473, 62.97995991983968, 63.16432865731463, 63.34869739478958, 63.53306613226453, 63.71743486973948, 63.901803607214426, 64.08617234468937, 64.27054108216433, 64.45490981963928, 64.63927855711424, 64.82364729458918, 65.00801603206412, 65.19238476953907, 65.37675350701403, 65.56112224448898, 65.74549098196393, 65.92985971943888, 66.11422845691382, 66.29859719438878, 66.48296593186373, 66.66733466933869, 66.85170340681363, 67.03607214428857, 67.22044088176352, 67.40480961923848, 67.58917835671343, 67.77354709418837, 67.95791583166333, 68.14228456913827, 68.32665330661322, 68.51102204408818, 68.69539078156313, 68.87975951903807, 69.06412825651302, 69.24849699398797, 69.43286573146293, 69.61723446893788, 69.80160320641284, 69.98597194388778, 70.17034068136272, 70.35470941883767, 70.53907815631263, 70.72344689378758, 70.90781563126252, 71.09218436873748, 71.27655310621242, 71.46092184368737, 71.64529058116233, 71.82965931863728, 72.01402805611222, 72.19839679358716, 72.38276553106212, 72.56713426853707, 72.75150300601203, 72.93587174348698, 73.12024048096193, 73.30460921843687, 73.48897795591182, 73.67334669338678, 73.85771543086173, 74.04208416833667, 74.22645290581163, 74.41082164328657, 74.59519038076152, 74.77955911823648, 74.96392785571143, 75.14829659318637, 75.33266533066131, 75.51703406813627, 75.70140280561122, 75.88577154308618, 76.07014028056112, 76.25450901803607, 76.43887775551102, 76.62324649298597, 76.80761523046093, 76.99198396793588, 77.17635270541082, 77.36072144288576, 77.54509018036072, 77.72945891783567, 77.91382765531063, 78.09819639278558, 78.28256513026052, 78.46693386773546, 78.65130260521042, 78.83567134268537, 79.02004008016033, 79.20440881763527, 79.38877755511022, 79.57314629258516, 79.75751503006012, 79.94188376753507, 80.12625250501003, 80.31062124248497, 80.49498997995991, 80.67935871743487, 80.86372745490982, 81.04809619238478, 81.23246492985972, 81.41683366733467, 81.60120240480961, 81.78557114228457, 81.96993987975952, 82.15430861723448, 82.33867735470942, 82.52304609218436, 82.70741482965931, 82.89178356713427, 83.07615230460922, 83.26052104208418, 83.44488977955912, 83.62925851703406, 83.81362725450902, 83.99799599198397, 84.18236472945893, 84.36673346693387, 84.55110220440882, 84.73547094188376, 84.91983967935872, 85.10420841683367, 85.28857715430863, 85.47294589178357, 85.65731462925851, 85.84168336673346, 86.02605210420842, 86.21042084168337, 86.39478957915831, 86.57915831663327, 86.76352705410821, 86.94789579158316, 87.13226452905812, 87.31663326653307, 87.50100200400801, 87.68537074148296, 87.86973947895791, 88.05410821643287, 88.23847695390782, 88.42284569138278, 88.60721442885772, 88.79158316633266, 88.97595190380761, 89.16032064128257, 89.34468937875752, 89.52905811623246, 89.71342685370742, 89.89779559118236, 90.08216432865731, 90.26653306613227, 90.45090180360721, 90.63527054108216, 90.81963927855712, 91.00400801603206, 91.18837675350701, 91.37274549098197, 91.55711422845691, 91.74148296593187, 91.92585170340682, 92.11022044088176, 92.29458917835672, 92.47895791583166, 92.66332665330661, 92.84769539078157, 93.03206412825651, 93.21643286573146, 93.40080160320642, 93.58517034068136, 93.76953907815631, 93.95390781563127, 94.13827655310621, 94.32264529058116, 94.50701402805612, 94.69138276553106, 94.87575150300601, 95.06012024048096, 95.24448897795591, 95.42885771543087, 95.6132264529058, 95.79759519038076, 95.98196392785572, 96.16633266533066, 96.35070140280561, 96.53507014028057, 96.71943887775551, 96.90380761523046, 97.08817635270542, 97.27254509018036, 97.45691382765531, 97.64128256513025, 97.82565130260521, 98.01002004008016, 98.1943887775551, 98.37875751503006, 98.56312625250501, 98.74749498997996, 98.93186372745491, 99.11623246492987, 99.3006012024048, 99.48496993987976, 99.66933867735472, 99.85370741482966, 100.03807615230461, 100.22244488977955, 100.40681362725451, 100.59118236472946, 100.7755511022044, 100.95991983967936, 101.14428857715431, 101.32865731462925, 101.51302605210421, 101.69739478957916, 101.8817635270541, 102.06613226452906, 102.25050100200401, 102.43486973947896, 102.61923847695391, 102.80360721442885, 102.9879759519038, 103.17234468937876, 103.3567134268537, 103.54108216432866, 103.72545090180361, 103.90981963927855, 104.09418837675351, 104.27855711422846, 104.4629258517034, 104.64729458917836, 104.83166332665331, 105.01603206412825, 105.20040080160321, 105.38476953907815, 105.5691382765531, 105.75350701402806, 105.937875751503, 106.12224448897796, 106.30661322645291, 106.49098196392785, 106.6753507014028, 106.85971943887776, 107.0440881763527, 107.22845691382766, 107.41282565130261, 107.59719438877755, 107.78156312625251, 107.96593186372745, 108.1503006012024, 108.33466933867736, 108.5190380761523, 108.70340681362725, 108.88777555110221, 109.07214428857715, 109.2565130260521, 109.44088176352706, 109.625250501002, 109.80961923847696, 109.99398797595191, 110.17835671342685, 110.3627254509018, 110.54709418837675, 110.7314629258517, 110.91583166332666, 111.1002004008016, 111.28456913827655, 111.46893787575151, 111.65330661322645, 111.8376753507014, 112.02204408817636, 112.2064128256513, 112.39078156312625, 112.57515030060121, 112.75951903807615, 112.9438877755511, 113.12825651302605, 113.312625250501, 113.49699398797596, 113.6813627254509, 113.86573146292585, 114.0501002004008, 114.23446893787575, 114.4188376753507, 114.60320641282566, 114.7875751503006, 114.97194388777555, 115.15631262525051, 115.34068136272545, 115.5250501002004, 115.70941883767534, 115.8937875751503, 116.07815631262525, 116.2625250501002, 116.44689378757515, 116.6312625250501, 116.81563126252505, 117.0])
+              .range(['#008000ff', '#008000ff', '#018000ff', '#018000ff', '#028000ff', '#028000ff', '#038000ff', '#038100ff', '#048100ff', '#048100ff', '#058100ff', '#058100ff', '#068100ff', '#068100ff', '#078100ff', '#078100ff', '#088100ff', '#088100ff', '#098100ff', '#098100ff', '#0a8100ff', '#0a8200ff', '#0b8200ff', '#0b8200ff', '#0c8200ff', '#0c8200ff', '#0d8200ff', '#0d8200ff', '#0e8200ff', '#0e8200ff', '#0f8200ff', '#0f8200ff', '#108200ff', '#108200ff', '#118300ff', '#118300ff', '#128300ff', '#128300ff', '#138300ff', '#148300ff', '#148300ff', '#158300ff', '#158300ff', '#168300ff', '#168300ff', '#178300ff', '#178300ff', '#188400ff', '#188400ff', '#198400ff', '#198400ff', '#1a8400ff', '#1a8400ff', '#1b8400ff', '#1b8400ff', '#1c8400ff', '#1c8400ff', '#1d8400ff', '#1d8400ff', '#1e8400ff', '#1e8400ff', '#1f8500ff', '#1f8500ff', '#208500ff', '#208500ff', '#218500ff', '#218500ff', '#228500ff', '#228500ff', '#238500ff', '#238500ff', '#248500ff', '#248500ff', '#258500ff', '#258600ff', '#268600ff', '#268600ff', '#278600ff', '#288600ff', '#288600ff', '#298600ff', '#298600ff', '#2a8600ff', '#2a8600ff', '#2b8600ff', '#2b8600ff', '#2c8600ff', '#2c8600ff', '#2d8700ff', '#2d8700ff', '#2e8700ff', '#2e8700ff', '#2f8700ff', '#2f8700ff', '#308700ff', '#308700ff', '#318700ff', '#318700ff', '#328700ff', '#328700ff', '#338700ff', '#338800ff', '#348800ff', '#348800ff', '#358800ff', '#358800ff', '#368800ff', '#368800ff', '#378800ff', '#378800ff', '#388800ff', '#388800ff', '#398800ff', '#398800ff', '#3a8800ff', '#3a8900ff', '#3b8900ff', '#3c8900ff', '#3c8900ff', '#3d8900ff', '#3d8900ff', '#3e8900ff', '#3e8900ff', '#3f8900ff', '#3f8900ff', '#408900ff', '#408900ff', '#418900ff', '#418a00ff', '#428a00ff', '#428a00ff', '#438a00ff', '#438a00ff', '#448a00ff', '#448a00ff', '#458a00ff', '#458a00ff', '#468a00ff', '#468a00ff', '#478a00ff', '#478a00ff', '#488a00ff', '#488b00ff', '#498b00ff', '#498b00ff', '#4a8b00ff', '#4a8b00ff', '#4b8b00ff', '#4b8b00ff', '#4c8b00ff', '#4c8b00ff', '#4d8b00ff', '#4d8b00ff', '#4e8b00ff', '#4f8b00ff', '#4f8c00ff', '#508c00ff', '#508c00ff', '#518c00ff', '#518c00ff', '#528c00ff', '#528c00ff', '#538c00ff', '#538c00ff', '#548c00ff', '#548c00ff', '#558c00ff', '#558c00ff', '#568d00ff', '#568d00ff', '#578d00ff', '#578d00ff', '#588d00ff', '#588d00ff', '#598d00ff', '#598d00ff', '#5a8d00ff', '#5a8d00ff', '#5b8d00ff', '#5b8d00ff', '#5c8d00ff', '#5c8d00ff', '#5d8e00ff', '#5d8e00ff', '#5e8e00ff', '#5e8e00ff', '#5f8e00ff', '#5f8e00ff', '#608e00ff', '#608e00ff', '#618e00ff', '#618e00ff', '#628e00ff', '#638e00ff', '#638e00ff', '#648f00ff', '#648f00ff', '#658f00ff', '#658f00ff', '#668f00ff', '#668f00ff', '#678f00ff', '#678f00ff', '#688f00ff', '#688f00ff', '#698f00ff', '#698f00ff', '#6a8f00ff', '#6a8f00ff', '#6b9000ff', '#6b9000ff', '#6c9000ff', '#6c9000ff', '#6d9000ff', '#6d9000ff', '#6e9000ff', '#6e9000ff', '#6f9000ff', '#6f9000ff', '#709000ff', '#709000ff', '#719000ff', '#719100ff', '#729100ff', '#729100ff', '#739100ff', '#739100ff', '#749100ff', '#749100ff', '#759100ff', '#759100ff', '#769100ff', '#779100ff', '#779100ff', '#789100ff', '#789100ff', '#799200ff', '#799200ff', '#7a9200ff', '#7a9200ff', '#7b9200ff', '#7b9200ff', '#7c9200ff', '#7c9200ff', '#7d9200ff', '#7d9200ff', '#7e9200ff', '#7e9200ff', '#7f9200ff', '#7f9300ff', '#809300ff', '#809300ff', '#819300ff', '#819300ff', '#829300ff', '#829300ff', '#839300ff', '#839300ff', '#849300ff', '#849300ff', '#859300ff', '#859300ff', '#869400ff', '#869400ff', '#879400ff', '#879400ff', '#889400ff', '#889400ff', '#899400ff', '#8a9400ff', '#8a9400ff', '#8b9400ff', '#8b9400ff', '#8c9400ff', '#8c9400ff', '#8d9400ff', '#8d9500ff', '#8e9500ff', '#8e9500ff', '#8f9500ff', '#8f9500ff', '#909500ff', '#909500ff', '#919500ff', '#919500ff', '#929500ff', '#929500ff', '#939500ff', '#939500ff', '#949600ff', '#949600ff', '#959600ff', '#959600ff', '#969600ff', '#969600ff', '#979600ff', '#979600ff', '#989600ff', '#989600ff', '#999600ff', '#999600ff', '#9a9600ff', '#9a9600ff', '#9b9700ff', '#9b9700ff', '#9c9700ff', '#9c9700ff', '#9d9700ff', '#9e9700ff', '#9e9700ff', '#9f9700ff', '#9f9700ff', '#a09700ff', '#a09700ff', '#a19700ff', '#a19700ff', '#a29800ff', '#a29800ff', '#a39800ff', '#a39800ff', '#a49800ff', '#a49800ff', '#a59800ff', '#a59800ff', '#a69800ff', '#a69800ff', '#a79800ff', '#a79800ff', '#a89800ff', '#a89800ff', '#a99900ff', '#a99900ff', '#aa9900ff', '#aa9900ff', '#ab9900ff', '#ab9900ff', '#ac9900ff', '#ac9900ff', '#ad9900ff', '#ad9900ff', '#ae9900ff', '#ae9900ff', '#af9900ff', '#af9a00ff', '#b09a00ff', '#b09a00ff', '#b19a00ff', '#b29a00ff', '#b29a00ff', '#b39a00ff', '#b39a00ff', '#b49a00ff', '#b49a00ff', '#b59a00ff', '#b59a00ff', '#b69a00ff', '#b69b00ff', '#b79b00ff', '#b79b00ff', '#b89b00ff', '#b89b00ff', '#b99b00ff', '#b99b00ff', '#ba9b00ff', '#ba9b00ff', '#bb9b00ff', '#bb9b00ff', '#bc9b00ff', '#bc9b00ff', '#bd9b00ff', '#bd9c00ff', '#be9c00ff', '#be9c00ff', '#bf9c00ff', '#bf9c00ff', '#c09c00ff', '#c09c00ff', '#c19c00ff', '#c19c00ff', '#c29c00ff', '#c29c00ff', '#c39c00ff', '#c39c00ff', '#c49d00ff', '#c59d00ff', '#c59d00ff', '#c69d00ff', '#c69d00ff', '#c79d00ff', '#c79d00ff', '#c89d00ff', '#c89d00ff', '#c99d00ff', '#c99d00ff', '#ca9d00ff', '#ca9d00ff', '#cb9d00ff', '#cb9e00ff', '#cc9e00ff', '#cc9e00ff', '#cd9e00ff', '#cd9e00ff', '#ce9e00ff', '#ce9e00ff', '#cf9e00ff', '#cf9e00ff', '#d09e00ff', '#d09e00ff', '#d19e00ff', '#d19e00ff', '#d29f00ff', '#d29f00ff', '#d39f00ff', '#d39f00ff', '#d49f00ff', '#d49f00ff', '#d59f00ff', '#d59f00ff', '#d69f00ff', '#d69f00ff', '#d79f00ff', '#d79f00ff', '#d89f00ff', '#d99f00ff', '#d9a000ff', '#daa000ff', '#daa000ff', '#dba000ff', '#dba000ff', '#dca000ff', '#dca000ff', '#dda000ff', '#dda000ff', '#dea000ff', '#dea000ff', '#dfa000ff', '#dfa000ff', '#e0a100ff', '#e0a100ff', '#e1a100ff', '#e1a100ff', '#e2a100ff', '#e2a100ff', '#e3a100ff', '#e3a100ff', '#e4a100ff', '#e4a100ff', '#e5a100ff', '#e5a100ff', '#e6a100ff', '#e6a100ff', '#e7a200ff', '#e7a200ff', '#e8a200ff', '#e8a200ff', '#e9a200ff', '#e9a200ff', '#eaa200ff', '#eaa200ff', '#eba200ff', '#eba200ff', '#eca200ff', '#eda200ff', '#eda200ff', '#eea300ff', '#eea300ff', '#efa300ff', '#efa300ff', '#f0a300ff', '#f0a300ff', '#f1a300ff', '#f1a300ff', '#f2a300ff', '#f2a300ff', '#f3a300ff', '#f3a300ff', '#f4a300ff', '#f4a400ff', '#f5a400ff', '#f5a400ff', '#f6a400ff', '#f6a400ff', '#f7a400ff', '#f7a400ff', '#f8a400ff', '#f8a400ff', '#f9a400ff', '#f9a400ff', '#faa400ff', '#faa400ff', '#fba400ff', '#fba500ff', '#fca500ff', '#fca500ff', '#fda500ff', '#fda500ff', '#fea500ff', '#fea500ff', '#ffa500ff', '#ffa500ff']);
+    
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.x = d3.scale.linear()
+              .domain([25.0, 117.0])
+              .range([0, 450 - 50]);
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.legend = L.control({position: 'topright'});
+    color_map_458f4ccf87c4b7c636182a9010883df4.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_458f4ccf87c4b7c636182a9010883df4.legend.addTo(map_fc656c35f93aeaf901224e41b64eb627);
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.xAxis = d3.svg.axis()
+        .scale(color_map_458f4ccf87c4b7c636182a9010883df4.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([25.0, 117.0]);
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.g = color_map_458f4ccf87c4b7c636182a9010883df4.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.g.selectAll("rect")
+        .data(color_map_458f4ccf87c4b7c636182a9010883df4.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_458f4ccf87c4b7c636182a9010883df4.x(color_map_458f4ccf87c4b7c636182a9010883df4.color.domain()[i - 1]) : color_map_458f4ccf87c4b7c636182a9010883df4.x.range()[0],
+            x1: i < color_map_458f4ccf87c4b7c636182a9010883df4.color.domain().length ? color_map_458f4ccf87c4b7c636182a9010883df4.x(color_map_458f4ccf87c4b7c636182a9010883df4.color.domain()[i]) : color_map_458f4ccf87c4b7c636182a9010883df4.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_458f4ccf87c4b7c636182a9010883df4.g.call(color_map_458f4ccf87c4b7c636182a9010883df4.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("");
+</script>
+</html>

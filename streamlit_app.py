@@ -116,7 +116,7 @@ st.markdown("""<style>[data-testid="stSidebar"][aria-expanded="true"]{
            min-width: 180px;   
            max-width: 180px;  }""", unsafe_allow_html=True)  
 
-	# contenu de la sidebar
+# contenu de la sidebar
 img_src="https://support.datascientest.com/uploads/default/original/1X/6bad50418375cccbef7747460d7e86b457dc4eef.png"
 st.sidebar.markdown(f'<a href="https://datascientest.com/"><img src="{img_src}" width="150px" alt="DataScientest"></a>', unsafe_allow_html=True)
 #  il faudrait essayer de charger avec l'image en local
@@ -130,6 +130,24 @@ st.sidebar.markdown("[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albe
 
 # TITRE : volontairement décalé vers le haut de la page (margin-top:-80px;)
 st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold; margin-top:-80px; margin-bottom:30px">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
+
+# MASQUER EN-TETE ET PIED DE PAGE : 2 méthodes
+# hide_streamlit_style = """
+#             <style>
+#             #MainMenu {visibility: hidden;}			
+#             footer {visibility: hidden;}
+# 			header {visibility: hidden;}
+#             </style>
+#             """
+# st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 # MENU HORIZONTAL
@@ -164,7 +182,7 @@ if page == pages[0] :
 				<br><br>Enfin, nous nous sommes penchés sur divers modèles de Machine Learning dans le but de prédire l'évolution du trafic cycliste dans la ville.
 				 </p>
 				 """, unsafe_allow_html=True)	 
-	
+
 	
 # PAGE 2 : JDD
 if page == pages[1] : 		
@@ -237,7 +255,7 @@ if page == pages[2] :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
 		#cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
-		cols = st.columns([47, 1, 47], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
+		cols = st.columns([80, 20, 80], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
 		with cols[0] :
 			with st.form("carte1") :					
 				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
@@ -312,13 +330,14 @@ if page == pages[3] :
 						
 	# ONGLET 4 : Carte des accidents
 	if tab_bar_id == "4" :	
-		cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
+		#cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
+		cols = st.columns([690, 15, 690], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
 		with cols[0] :
 			with st.form("carte3") :	
 				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
-				with open(path_image_4+"carte_acc_velos_par_arrond_2021_2.html", 'r', encoding='utf-8') as f1 :				
-					st.components.v1.html(f1.read(), height=570)	#, width=690
-				st.image(path_image_4+"colormap.jpg", use_column_width=True)
+				with open(path_image_4+"carte_acc_velos_par_arrond_2021.html", 'r', encoding='utf-8') as f1 :				
+					st.components.v1.html(f1.read(), height=540)	#
+				#st.image(path_image_4+"colormap.jpg", use_column_width=True)
 				st.form_submit_button()	
 			
 		with cols[1] : st.markdown("""<style>[data-testid="baseButton-secondaryFormSubmit"]{display:none;}""", unsafe_allow_html=True) 		
@@ -327,17 +346,17 @@ if page == pages[3] :
 			with st.form("carte4") :	
 				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par coordonnées gps</p>', unsafe_allow_html=True)
 				with open(path_image_4+"carte_acc_velos_2021.html", 'r', encoding='utf-8') as f2 :			
-					st.components.v1.html(f2.read(), height=570)	#, width=690
-				st.image(path_image_4+"colormap_vide.jpg", use_column_width=True)
+					st.components.v1.html(f2.read(), height=540)	#, width=690
+				#st.image(path_image_4+"colormap_vide.jpg", use_column_width=True)
 				st.form_submit_button()		
 					
 		st.markdown("#  #") # ligne vide
-		cols = st.columns([90, 3, 90], gap="small")
+		cols = st.columns([690, 15, 690], gap="small")
 		with cols[0] :
 			with st.form("carte5") :
 				st.markdown('<p style="text-align: left;"><b>Trafic cycliste par site en 2023</p>', unsafe_allow_html=True)
-				with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023.html", 'r', encoding='utf-8') as f3 :			
-					st.components.v1.html(f3.read(), height=590)#, width=590
+				with open(path_image_4+"carte_densite_trafic_par_an_par_sum_sans_Clustering_2023_2.html", 'r', encoding='utf-8') as f3 :			
+					st.components.v1.html(f3.read(), height=540)#, width=590
 				st.form_submit_button()		
 
 # PAGE 5 : ML
