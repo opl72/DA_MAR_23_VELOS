@@ -497,7 +497,7 @@ if page == pages[5] :
 					<li style="margin-bottom: 10px;">Approfondir la sélection des compteurs et leur granularité temporelle,</li>
 					<li style="margin-bottom: 10px;">Intégrer l'influence de la période 2020 et des grèves de 2023,</li>							   
 					<li style="margin-bottom: 10px;">Créer de nouvelles variables explicatives,</li>	
-                    <li style="margin-bottom: 10px;">Tester d'autres modèles de ML avec leurs hyperparamètres</li>
+                    <li style="margin-bottom: 10px;">Tester d'autres modèles de ML avec leurs hyperparamètres.</li>
 				</ul>							
                 <li>Meilleure prise de décisions opérationnelles et budgétaires.</li>
                 <li>Optimisation de la gestion des infrastructures de transport parisien.</li>
