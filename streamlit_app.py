@@ -131,10 +131,7 @@ st.sidebar.markdown("[Cécile ALBET](https://fr.linkedin.com/in/c%C3%A9cile-albe
 # TITRE : volontairement décalé vers le haut de la page (margin-top:-80px;)
 st.markdown('<p style="text-align:center; font-size:45px; font-weight:bold; margin-top:-80px; margin-bottom:30px">Exploration du trafic cycliste à Paris</p>', unsafe_allow_html=True)
 
-<<<<<<< HEAD
 # MASQUER EN-TETE ET PIED DE PAGE : 2 méthodes
-=======
->>>>>>> bbb1a7b99f31a8c251f7810619177b47b6c8aafa
 # hide_streamlit_style = """
 #             <style>
 #             #MainMenu {visibility: hidden;}			
@@ -258,11 +255,7 @@ if page == pages[2] :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
 		#cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
-<<<<<<< HEAD
 		cols = st.columns([80, 20, 80], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
-=======
-		cols = st.columns([85, 10, 85], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
->>>>>>> bbb1a7b99f31a8c251f7810619177b47b6c8aafa
 		with cols[0] :
 			with st.form("carte1") :					
 				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
@@ -338,11 +331,7 @@ if page == pages[3] :
 	# ONGLET 4 : Carte des accidents
 	if tab_bar_id == "4" :	
 		#cols = st.columns([90, 3, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
-<<<<<<< HEAD
 		cols = st.columns([690, 15, 690], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
-=======
-		cols = st.columns([90, 10, 90], gap="small") # on créé 3 colonnes pour gérer le centrage des titres	
->>>>>>> bbb1a7b99f31a8c251f7810619177b47b6c8aafa
 		with cols[0] :
 			with st.form("carte3") :	
 				st.markdown('<p style="text-align: left;"><b>Carte des vélos impliqués dans des accidents corporels en 2021, par arrondissement</p>', unsafe_allow_html=True)
