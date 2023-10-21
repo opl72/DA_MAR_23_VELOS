@@ -255,12 +255,12 @@ if page == pages[2] :
 		st.markdown('<p style="text-align:left; font-size:18px; font-family:Arial;"><b>Densité du trafic cycliste en 2023</p>', unsafe_allow_html=True)
 		# chargement des cartes folium
 		#cols = st.columns([44, 12, 44], gap="large") # on créé 3 colonnes pour gérer le centrage des titres	
-		cols = st.columns([80, 20, 80], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
+		cols = st.columns([590, 150, 590], gap="small") # on créé 3 colonnes pour gérer le centrage des titres
 		with cols[0] :
 			with st.form("carte1") :					
 				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Sans</span></b> clustering</div>', unsafe_allow_html=True)
 				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_sans_Clustering_2023.html", 'r', encoding='utf-8') as f1 :				
-					st.components.v1.html(f1.read(), height=530)#, width=580, height=530
+					st.components.v1.html(f1.read(), height=520)#, width=580, height=530
 				st.form_submit_button()			
 				
 		# la colonne du milieu (invisible) sert juste à centrer les titres au dessus de chaque carte ;)
@@ -270,7 +270,7 @@ if page == pages[2] :
 			with st.form("carte2") :						
 				st.markdown('<div style="text-align: left;"><b><span style="color: #f63366;">Avec</span></b> clustering</div>', unsafe_allow_html=True)
 				with open(path_image_3+"carte_densite_trafic_par_an_par_moy_avec_Clustering_2023.html", 'r', encoding='utf-8') as f2 : 					
-					st.components.v1.html(f2.read(), height=530)#, width=580, height=530
+					st.components.v1.html(f2.read(), height=520)#, width=580, height=530
 				st.form_submit_button()
 			
 
