@@ -238,7 +238,7 @@ if page == pages[2] :
 						
 		# TAB 2 : Dataset Multimodal
 		with tabs[1] :				
-			cols = st.columns([175, 100], gap="small")
+			cols = st.columns([157, 100], gap="small")
 			with cols[0] : st.image(path_image_3+"Outliers_4.jpg", use_column_width=True)	
 			with cols[1] : st.image(path_image_3+"Outliers_2.png", use_column_width=True)
 				
