@@ -405,7 +405,7 @@ if page == pages[4] :
 					  <ul style="list-style-type:disclosure-closed;padding-left:30px;margin-bottom:-10px;">
 						  <li>Ajout de nouvelles variables explicatives (vacances, météo, jours fériés, confinement)</li>
 						  <li>Compteurs (nom_compteur) communs entre 2020 et 2023</li>
-						  <li>Aggrégation des comptages de chaque site par jour</li>
+						  <li>Agrégation des relevés par jour</li>
 						  <li>Jeu d'entraînement sur un historique de 3 ans (2020 à 2022)
 						  <li>Jeu de test sur 4 mois (01/01 au 30/04/2023)</li>
 					  </ul>
